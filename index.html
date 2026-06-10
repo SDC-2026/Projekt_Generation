@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Defense als Generationenfrage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <span class="nav-label">Defense als Generationenfrage</span>
+      <div class="nav-dots">
+        <button class="nav-dot active" data-section="0" title="Start"></button>
+        <button class="nav-dot" data-section="1" title="Kontext"></button>
+        <button class="nav-dot" data-section="2" title="Methode"></button>
+        <button class="nav-dot" data-section="3" title="Generation Z"></button>
+        <button class="nav-dot" data-section="4" title="Daten"></button>
+        <button class="nav-dot" data-section="5" title="Erkenntnisse"></button>
+        <button class="nav-dot" data-section="6" title="Fazit"></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: Hero -->
+  <section class="section hero-section" id="s0">
+    <div class="hero-bg">
+      <div class="hero-mountain"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-overline reveal">Der Gesellschaftsvertrag aus Sicht der Generation Z</p>
+      <h1 class="hero-title reveal">Defense als<br><em>Generationenfrage</em></h1>
+      <p class="hero-sub reveal">Unter welchen Bedingungen ist Generation Z bereit,<br>gesellschaftliche Verantwortung zu übernehmen?</p>
+      <div class="scroll-hint reveal">
+        <span>Scroll</span>
+        <div class="scroll-arrow">↓</div>
+      </div>
+    </div>
+    <div class="generation-tags">
+      <span class="gen-tag gen-silent">Stille Generation</span>
+      <span class="gen-tag gen-boomer">Boomers</span>
+      <span class="gen-tag gen-x">Gen X</span>
+      <span class="gen-tag gen-y">Gen Y</span>
+      <span class="gen-tag gen-z active">Gen Z</span>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Kontext -->
+  <section class="section context-section" id="s1">
+    <div class="section-inner">
+      <div class="section-label reveal">01 — Kontext</div>
+      <h2 class="section-title reveal">Warum ist das<br>Thema relevant?</h2>
+      <div class="context-grid">
+        <div class="context-card reveal" data-delay="0">
+          <div class="context-icon">⚠</div>
+          <h3>Wehrpflichtdebatte</h3>
+          <p>Die Diskussion über Wehrpflicht und Dienstpflicht gewinnt in Europa wieder an Fahrt.</p>
+        </div>
+        <div class="context-card reveal" data-delay="100">
+          <div class="context-icon">🌍</div>
+          <h3>Krieg in Europa</h3>
+          <p>Der Krieg in der Ukraine verändert das Sicherheitsgefühl einer ganzen Generation.</p>
+        </div>
+        <div class="context-card reveal" data-delay="200">
+          <div class="context-icon">📈</div>
+          <h3>Steigende Lebenshaltungskosten</h3>
+          <p>Inflation und Wohnungskrise belasten besonders junge Menschen.</p>
+        </div>
+        <div class="context-card reveal" data-delay="300">
+          <div class="context-icon">🏠</div>
+          <h3>Wohnungskrise</h3>
+          <p>Bezahlbarer Wohnraum wird für Gen Z zur sozialen Frage.</p>
+        </div>
+        <div class="context-card reveal" data-delay="400">
+          <div class="context-icon">📉</div>
+          <h3>Vertrauensverlust</h3>
+          <p>Das Vertrauen in Institutionen befindet sich auf einem historischen Tiefpunkt.</p>
+        </div>
+        <div class="context-card reveal" data-delay="500">
+          <div class="context-icon">🧠</div>
+          <h3>Psychische Belastungen</h3>
+          <p>Zunehmende psychische Erkrankungen unter Jugendlichen und jungen Erwachsenen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Methode -->
+  <section class="section method-section" id="s2">
+    <div class="section-inner">
+      <div class="section-label reveal">02 — Methode</div>
+      <h2 class="section-title reveal">Wie wurde<br>untersucht?</h2>
+      <div class="method-layout">
+        <div class="method-main reveal">
+          <div class="method-badge">Online-Umfrage</div>
+          <p class="method-desc">Unter Angehörigen der Generation Z (geboren ca. 1997–2012), durchgeführt deutschlandweit.</p>
+        </div>
+        <div class="method-items">
+          <div class="method-item reveal" data-delay="0">
+            <div class="method-check">✓</div>
+            <span>Quantitative Umfrage</span>
+          </div>
+          <div class="method-item reveal" data-delay="100">
+            <div class="method-check">✓</div>
+            <span>Likert-Skalen</span>
+          </div>
+          <div class="method-item reveal" data-delay="200">
+            <div class="method-check">✓</div>
+            <span>Mehrfachauswahl</span>
+          </div>
+          <div class="method-item reveal" data-delay="300">
+            <div class="method-check">✓</div>
+            <span>Freitextantworten</span>
+          </div>
+        </div>
+        <div class="method-focus reveal" data-delay="200">
+          <h3>Fokus</h3>
+          <p>Zusammenhang zwischen <strong>Vertrauen</strong> und <strong>Verantwortungsbereitschaft</strong></p>
+          <div class="method-stats">
+            <div class="stat">
+              <span class="stat-num">Divers</span>
+              <span class="stat-label">Bildung, Regionen & Geschlecht</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">D-weit</span>
+              <span class="stat-label">Deutschlandweite Stichprobe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Generation Z -->
+  <section class="section genz-section" id="s3">
+    <div class="section-inner">
+      <div class="section-label reveal">03 — Generation Z</div>
+      <h2 class="section-title reveal">Wer wurde<br>befragt?</h2>
+      <div class="genz-content">
+        <div class="genz-years reveal">
+          <span class="year-range">1997 — 2012</span>
+          <p>„Digital Natives" – aufgewachsen mit Smartphone, Social Media und globalen Krisen.</p>
+        </div>
+        <div class="generations-timeline reveal">
+          <div class="timeline-item dimmed">
+            <div class="tl-bar short"></div>
+            <span>Stille Generation</span>
+            <small>1928–1945</small>
+          </div>
+          <div class="timeline-item dimmed">
+            <div class="tl-bar medium"></div>
+            <span>Boomers</span>
+            <small>1946–1964</small>
+          </div>
+          <div class="timeline-item dimmed">
+            <div class="tl-bar medium"></div>
+            <span>Gen X</span>
+            <small>1965–1980</small>
+          </div>
+          <div class="timeline-item dimmed">
+            <div class="tl-bar long"></div>
+            <span>Gen Y / Millennials</span>
+            <small>1981–1996</small>
+          </div>
+          <div class="timeline-item highlighted">
+            <div class="tl-bar full"></div>
+            <span>Gen Z</span>
+            <small>1997–2012</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Datenstory / Scrolltelling -->
+<section class="section data-section" id="daten">
+  <div class="section-label-fixed">04 · Daten entdecken</div>
+
+  <div class="section-inner">
+    <p class="section-label reveal">Umfrageergebnisse</p>
+    <h2 class="section-title reveal">
+      Was die Antworten über <em>Gen Z</em> erzählen
+    </h2>
+
+    <div class="charts-grid">
+
+      <!-- Butterfly Diagramm -->
+      <article class="chart-card wide reveal">
+        <p class="chart-kicker">Wirtschaft & Wahrnehmung</p>
+        <h3>Zukunftssorgen treffen auf fehlende politische Wahrnehmung</h3>
+
+        <div class="butterfly-chart">
+
+          <div class="butterfly-head">
+            <span>Schlechtere Zukunftsperspektiven</span>
+            <span>Anliegen werden wahrgenommen</span>
+          </div>
+
+          <div class="butterfly-row">
+            <span class="answer-label">Stimme gar nicht zu</span>
+            <div class="left-bar" style="width: 6%">6%</div>
+            <div class="center-line"></div>
+            <div class="right-bar" style="width: 28%">28%</div>
+          </div>
+
+          <div class="butterfly-row">
+            <span class="answer-label">Stimme eher nicht zu</span>
+            <div class="left-bar" style="width: 9%">9%</div>
+            <div class="center-line"></div>
+            <div class="right-bar" style="width: 32%">32%</div>
+          </div>
+
+          <div class="butterfly-row">
+            <span class="answer-label">Neutral</span>
+            <div class="left-bar neutral" style="width: 16%">16%</div>
+            <div class="center-line"></div>
+            <div class="right-bar neutral" style="width: 20%">20%</div>
+          </div>
+
+          <div class="butterfly-row">
+            <span class="answer-label">Stimme eher zu</span>
+            <div class="left-bar" style="width: 39%">39%</div>
+            <div class="center-line"></div>
+            <div class="right-bar" style="width: 14%">14%</div>
+          </div>
+
+          <div class="butterfly-row">
+            <span class="answer-label">Stimme voll zu</span>
+            <div class="left-bar" style="width: 30%">30%</div>
+            <div class="center-line"></div>
+            <div class="right-bar" style="width: 6%">6%</div>
+          </div>
+
+        </div>
+
+        <p class="chart-note">
+          Dummy-Werte. Links zeigt Frage 1, rechts Frage 4. Später werden die Werte durch die echten Lamapoll-Ergebnisse ersetzt.
+        </p>
+      </article>
+
+      <!-- Bubble Chart -->
+      <article class="chart-card reveal">
+        <p class="chart-kicker">Wohlbefinden</p>
+        <h3>Wie wirken Krisen auf den Alltag?</h3>
+
+        <div class="bubble-viz">
+          <div class="bubble big">Stress & Erschöpfung</div>
+          <div class="bubble medium">Zukunfts- unsicherheit</div>
+          <div class="bubble medium warm">Finanzielle Sorgen</div>
+          <div class="bubble small">Eingeschränkte Lebensqualität</div>
+          <div class="bubble tiny">Keine negativen Auswirkungen</div>
+        </div>
+      </article>
+
+      <!-- Halbkreis -->
+      <article class="chart-card reveal">
+        <p class="chart-kicker">Dienstpflicht</p>
+        <h3>Bereitschaft zur Verantwortung</h3>
+
+        <div class="semi-chart">
+          <div class="semi-circle">
+            <div class="semi-fill"></div>
+          </div>
+          <div class="semi-value">46%</div>
+          <p class="chart-note">würden eher Verantwortung übernehmen, wenn sie sich stärker unterstützt fühlen.</p>
+        </div>
+      </article>
+
+      
+
+        <!-- Small Multiples -->
+        <article class="chart-card wide reveal">
+          <p class="chart-kicker">Likert-Auswertung</p>
+          <h3>Wie bewertet Gen Z Vertrauen, Politik und soziale Sicherheit?</h3>
+
+          <div class="likert-legend">
+            <span><i class="c1"></i> Stimme gar nicht zu</span>
+            <span><i class="c2"></i> Stimme eher nicht zu</span>
+            <span><i class="c3"></i> Neutral</span>
+            <span><i class="c4"></i> Stimme eher zu</span>
+            <span><i class="c5"></i> Stimme voll zu</span>
+          </div>
+
+          <div class="likert-small-multiples">
+
+            <div class="likert-row">
+              <span>Vertrauen in Institutionen</span>
+              <div class="likert-bar">
+                <div class="c1" style="width:8%"></div>
+                <div class="c2" style="width:12%"></div>
+                <div class="c3" style="width:15%"></div>
+                <div class="c4" style="width:40%"></div>
+                <div class="c5" style="width:25%"></div>
+              </div>
+            </div>
+
+            <div class="likert-row">
+              <span>Interessen der Jugend werden berücksichtigt</span>
+              <div class="likert-bar">
+                <div class="c1" style="width:18%"></div>
+                <div class="c2" style="width:22%"></div>
+                <div class="c3" style="width:20%"></div>
+                <div class="c4" style="width:25%"></div>
+                <div class="c5" style="width:15%"></div>
+              </div>
+            </div>
+
+            <div class="likert-row">
+              <span>Politische Entscheidungen wirken realitätsfern</span>
+              <div class="likert-bar">
+                <div class="c1" style="width:5%"></div>
+                <div class="c2" style="width:10%"></div>
+                <div class="c3" style="width:15%"></div>
+                <div class="c4" style="width:45%"></div>
+                <div class="c5" style="width:25%"></div>
+              </div>
+            </div>
+
+            <div class="likert-row">
+              <span>Soziale Sicherheit ist genauso wichtig wie militärische Sicherheit</span>
+              <div class="likert-bar">
+                <div class="c1" style="width:3%"></div>
+                <div class="c2" style="width:7%"></div>
+                <div class="c3" style="width:10%"></div>
+                <div class="c4" style="width:40%"></div>
+                <div class="c5" style="width:40%"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="chart-note">
+            Dummy-Werte. Später werden diese Werte durch die echten Lamapoll-Ergebnisse ersetzt.
+          </p>
+        </article>
+
+      <!-- Pictogram Chart -->
+      <!-- Pictogram Chart -->
+      <article class="chart-card wide reveal">
+        <p class="chart-kicker">Dienstpflicht</p>
+        <h3>Wo würde Gen Z einen Dienst am ehesten leisten?</h3>
+
+        <div class="service-pictogram-chart">
+
+          <div class="service-column">
+            <div class="service-icons">
+              <span class="filled">●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+            </div>
+            <strong>10%</strong>
+            <p>Bundeswehr</p>
+          </div>
+
+          <div class="service-column">
+            <div class="service-icons">
+              <span class="filled">●</span><span class="filled">●</span><span class="filled">●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+            </div>
+            <strong>30%</strong>
+            <p>Katastrophenschutz / THW</p>
+          </div>
+
+          <div class="service-column">
+            <div class="service-icons">
+              <span class="filled">●</span><span class="filled">●</span><span class="filled">●</span><span class="filled">●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+            </div>
+            <strong>40%</strong>
+            <p>Pflege / sozialer Dienst</p>
+          </div>
+
+          <div class="service-column">
+            <div class="service-icons">
+              <span class="filled">●</span><span class="filled">●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+            </div>
+            <strong>20%</strong>
+            <p>Klimaschutz / Umwelt</p>
+          </div>
+
+          <div class="service-column">
+            <div class="service-icons">
+              <span class="filled muted">●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+            </div>
+            <strong>10%</strong>
+            <p>Befreiung versuchen</p>
+          </div>
+
+          <div class="service-column">
+            <div class="service-icons">
+              <span class="filled reject">●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span>
+              <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+            </div>
+            <strong>10%</strong>
+            <p>Dienst verweigern</p>
+          </div>
+
+        </div>
+
+        <p class="chart-note">
+          Dummy-Werte. Später werden die Punkte und Prozentwerte durch die echten Lamapoll-Ergebnisse ersetzt.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+  <!-- SECTION 6: Erkenntnisse -->
+  <section class="section insights-section" id="s5">
+    <div class="section-inner">
+      <div class="section-label reveal">05 — Zentrale Erkenntnisse</div>
+      <h2 class="section-title reveal">Was wir<br>gelernt haben</h2>
+      <div class="insights-grid">
+        <div class="insight-card reveal" data-delay="0">
+          <div class="insight-quote">"</div>
+          <p>Vertrauen ist der Schlüssel. Ohne Vertrauen in Institutionen keine Bereitschaft zur Verteidigung.</p>
+          <div class="insight-tag">Vertrauen</div>
+        </div>
+        <div class="insight-card reveal" data-delay="150">
+          <div class="insight-quote">"</div>
+          <p>Fairness entscheidet über Akzeptanz. Wer das System als fair empfindet, ist eher bereit, es zu verteidigen.</p>
+          <div class="insight-tag">Fairness</div>
+        </div>
+        <div class="insight-card reveal" data-delay="300">
+          <div class="insight-quote">"</div>
+          <p>Zukunftssorgen prägen Einstellungen. Gen Z denkt in Bedrohungen – militärische sind nur eine davon.</p>
+          <div class="insight-tag">Zukunft</div>
+        </div>
+        <div class="insight-card reveal" data-delay="450">
+          <div class="insight-quote">"</div>
+          <p>Mitsprache erhöht Bereitschaft erheblich. Partizipation ist kein Nice-to-have – sie ist die Bedingung.</p>
+          <div class="insight-tag">Partizipation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Fazit -->
+  <section class="section conclusion-section" id="s6">
+    <div class="section-inner">
+      <div class="section-label reveal">06 — Fazit & Ausblick</div>
+      <h2 class="section-title reveal">Was bedeutet das<br>für den Gesellschaftsvertrag?</h2>
+      <div class="conclusion-content">
+        <div class="conclusion-text reveal">
+          <p class="conclusion-lead">Verantwortung wird nicht abgerufen – sie wird an Bedingungen geknüpft.</p>
+          <p>Ein neuer Gesellschaftsvertrag muss Vertrauen, Fairness und Teilhabe sichern. Generation Z ist bereit – aber zu ihren Bedingungen.</p>
+        </div>
+        <div class="conclusion-pillars reveal" data-delay="200">
+          <div class="pillar">
+            <div class="pillar-icon">🤝</div>
+            <h4>Vertrauen</h4>
+            <p>Institutionen müssen Verlässlichkeit beweisen</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">⚖️</div>
+            <h4>Fairness</h4>
+            <p>Lasten müssen gerecht verteilt sein</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🗳️</div>
+            <h4>Teilhabe</h4>
+            <p>Mitsprache als Grundbedingung</p>
+          </div>
+        </div>
+      </div>
+      <div class="final-question reveal">
+        <div class="fq-inner">
+          <div class="fq-icon">💡</div>
+          <div>
+            <span class="fq-label">Unsere zentrale Fragestellung</span>
+            <p class="fq-text">„Unter welchen Bedingungen ist Generation Z bereit, gesellschaftliche Verantwortung zu übernehmen?"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
