@@ -1368,3 +1368,43 @@ body {
     margin-top: 2.5rem;
   }
 }
+
+/* ─── QR CODE CALL TO ACTION ─── */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 5rem auto 0 auto; /* Großer Abstand nach oben, horizontal zentriert */
+  padding: 2.5rem 2rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  max-width: 300px; /* Verhindert, dass die Box zu breit gezerrt wird */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04); /* Subtiler Schatten passend zur Ästhetik */
+}
+
+.qr-title {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.02em;
+}
+
+.qr-code-img {
+  width: 100%;
+  max-width: 180px; /* Perfekt lesbare Größe für Smartphones */
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply; /* Blendet den weißen Bildhintergrund sauber ein */
+}
+
+/* Mobil-Anpassung für etwas weniger Abstand auf kleinen Screens */
+@media (max-width: 768px) {
+  .qr-container {
+    margin-top: 3rem;
+    padding: 2rem 1.5rem;
+  }
+}
