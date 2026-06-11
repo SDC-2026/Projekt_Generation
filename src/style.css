@@ -1287,3 +1287,57 @@ body {
   .contract-exchange { grid-template-columns: 1fr; }
   .contract-arrow-center { display: none; }
 }
+/* Defines a 2-column grid layout for the four phrases (2 left, 2 right) */
+.focus-grid-quadrat {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  margin-top: 1.5rem;
+}
+
+/* Colors the phrases green and sets typography styles */
+.quadrat-item {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+/* Reduces the height of the left white box and stretches the black box to the top */
+@media (min-width: 769px) {
+  .method-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    background: transparent;
+    border: none;
+  }
+
+  .method-main {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    border: none;
+  }
+
+  .method-items {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    border: none;
+  }
+
+  .method-focus {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* Responsive adjustment for mobile devices to stack items vertically */
+@media (max-width: 560px) {
+  .focus-grid-quadrat {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
