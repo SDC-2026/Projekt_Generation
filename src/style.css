@@ -922,91 +922,14 @@ body {
 /* ─── CONCLUSION ─── */
 .conclusion-section { background: var(--bg); }
 
-.conclusion-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 4rem;
+.conclusion-placeholder {
+  margin-top: 2rem;
 }
 
-.conclusion-lead {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1.4;
-  margin-bottom: 1.2rem;
-}
-
-.conclusion-text p:last-child {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-.conclusion-pillars {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.pillar {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-}
-
-.pillar-icon { font-size: 1.3rem; flex-shrink: 0; }
-
-.pillar h4 {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 0.2rem;
-}
-
-.pillar p {
-  font-size: 0.83rem;
-  color: var(--text-secondary);
-}
-
-.final-question {
-  border-top: 1.5px solid var(--border);
-  padding-top: 2.5rem;
-}
-
-.fq-inner {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  max-width: 740px;
-}
-
-.fq-icon {
-  font-size: 1.5rem;
-  margin-top: 0.2rem;
-  flex-shrink: 0;
-}
-
-.fq-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  display: block;
-  margin-bottom: 0.6rem;
-}
-
-.fq-text {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--text);
+.placeholder-box {
+  min-height: 500px;
+  border: none;
+  background: transparent;
 }
 
 /* ─── Responsive ─── */
@@ -1029,4 +952,338 @@ body {
   .generation-tags { display: none; }
 
   .hero-title { font-size: 2.8rem; }
+}
+
+/* ─── CONTEXT IMAGE BLOCK ─── */
+.context-image-block {
+  margin-bottom: 4rem;
+}
+
+.context-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: var(--border);
+  border: 1.5px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.context-img-placeholder {
+  background: var(--surface);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.context-img-placeholder.left {
+  background: linear-gradient(135deg, #e8e4dc 0%, #d4cfc6 100%);
+}
+
+.context-img-placeholder.right {
+  background: linear-gradient(135deg, #d9e8e0 0%, #c2d9cc 100%);
+}
+
+.context-img-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: inherit;
+}
+
+.img-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+.img-placeholder-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.7);
+  padding: 0.3rem 0.8rem;
+  border: 1px dashed var(--border);
+}
+
+.img-placeholder-sub {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.context-img-caption {
+  padding: 1rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+}
+
+.context-img-caption p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ─── CONTEXT THREE COL ─── */
+.context-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+  border: 1.5px solid var(--border);
+}
+
+.context-col {
+  background: var(--surface);
+  padding: 2rem;
+}
+
+.context-col-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--accent);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.context-col h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.context-col p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── THESIS ─── */
+.thesis-section {
+  background: var(--text);
+}
+
+.thesis-section .section-label { color: var(--accent); }
+.thesis-section .section-title { color: white; }
+.thesis-section .section-title em { color: var(--accent); font-style: italic; }
+
+.thesis-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.thesis-hypothesis {
+  background: transparent;
+  border: none;
+  padding: 0;
+  max-width: 900px;
+}
+
+.hypothesis-label {
+  margin-bottom: 2rem;
+}
+
+.hypothesis-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #ddd;
+  font-style: normal;
+}
+
+.thesis-variables {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: #1a1a1a;
+  border: 1.5px solid rgba(255,255,255,0.06);
+}
+
+.thesis-var-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.thesis-var-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+.thesis-var-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: #ccc;
+}
+
+.var-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.var-dot.accent { background: var(--accent); }
+.var-dot.warm { background: var(--accent-warm); }
+
+.thesis-arrow {
+  font-size: 2rem;
+  color: var(--accent);
+  text-align: center;
+  opacity: 0.6;
+}
+
+/* ─── CONTRACT ─── */
+.contract-section {
+  background: var(--surface);
+}
+
+.contract-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.contract-principle {
+  max-width: 640px;
+}
+
+.contract-principle-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.contract-principle-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.contract-principle-text em {
+  font-style: italic;
+  color: var(--text);
+}
+
+.contract-exchange {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 0;
+  align-items: stretch;
+  border: 1.5px solid var(--border);
+}
+
+.contract-side {
+  padding: 2.5rem;
+}
+
+.contract-side.state {
+  background: var(--text);
+  color: white;
+}
+
+.contract-side.citizen {
+  background: rgba(124,186,151,0.06);
+}
+
+.contract-side-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.contract-side.state .contract-side-label {
+  color: var(--accent);
+}
+
+.contract-side.citizen .contract-side-label {
+  color: var(--accent);
+}
+
+.contract-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contract-list li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.contract-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.75rem;
+}
+
+.contract-side.state .contract-list li {
+  color: #ccc;
+}
+
+.contract-arrow-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border-left: 1.5px solid var(--border);
+  border-right: 1.5px solid var(--border);
+  gap: 0.5rem;
+}
+
+.contract-arrow-line {
+  width: 1px;
+  flex: 1;
+  background: var(--border);
+}
+
+.contract-arrow-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+  padding: 0.5rem 0;
+}
+
+/* ─── RESPONSIVE neue Sections ─── */
+@media (max-width: 768px) {
+  .context-img-grid { grid-template-columns: 1fr; }
+  .context-three-col { grid-template-columns: 1fr; }
+  .thesis-layout { grid-template-columns: 1fr; }
+  .contract-exchange { grid-template-columns: 1fr; }
+  .contract-arrow-center { display: none; }
 }
