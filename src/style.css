@@ -146,7 +146,7 @@ body {
 }
 
 .section-label-fixed {
-  position: sticky;
+  position: static;
   top: calc(var(--nav-h) + 1.5rem);
   font-size: 0.72rem;
   font-weight: 500;
