@@ -1,1 +1,11 @@
+# Dependencies
 node_modules/
+
+# Vite Cache
+.vite/
+
+# macOS
+.DS_Store
+
+# Logs
+npm-debug.log*
