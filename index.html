@@ -8,10 +8,10 @@
   <link rel="icon" type="image/svg+xml" href="src/assets/favicon.svg" />
   <!-- Optionaler Fallback, falls jemand ein sehr altes Gerät nutzt -->
   <link rel="alternate icon" type="image/png" href="src/assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="src/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="src/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="src/style.css" />
+  <link rel="stylesheet" href="src/charts/butterfly.css" />
 </head>
 <body>
 
@@ -450,43 +450,19 @@
 
   <!-- SECTION 6: Daten (bleibt) -->
   <section class="section data-section" id="s6">
-    <div class="section-label-fixed">06 · Daten entdecken</div>
-
     <div class="section-inner">
-      <p class="section-label reveal">Umfrageergebnisse</p>
+      <div class="section-label reveal">05 — Daten entdecken</div>
       <h2 class="section-title reveal">
         Was die Antworten über <em>Gen Z</em> erzählen
       </h2>
 
       <div class="charts-grid">
 
-        <!-- Butterfly Diagramm -->
+        <!-- Butterfly Diagramm (Frage 6 vs. Frage 9 — echte Daten) -->
         <article class="chart-card wide reveal">
-          <p class="chart-kicker">Verteidigungsbereitschaft</p>
-          <h3>Bereit, Deutschland zu verteidigen?</h3>
-          <div class="butterfly-chart">
-            <div class="butterfly-head">
-              <span>Männlich</span>
-              <span></span>
-              <span>Weiblich</span>
-            </div>
-            <div class="butterfly-row">
-              <div class="left-bar" style="width:62%">62%</div>
-              <div class="answer-label">Ja</div>
-              <div class="right-bar" style="width:38%">38%</div>
-            </div>
-            <div class="butterfly-row">
-              <div class="left-bar neutral" style="width:22%">22%</div>
-              <div class="answer-label">Teils</div>
-              <div class="right-bar neutral" style="width:35%">35%</div>
-            </div>
-            <div class="butterfly-row">
-              <div class="left-bar" style="width:16%; background:#b96a52">16%</div>
-              <div class="answer-label">Nein</div>
-              <div class="right-bar" style="width:27%; background:#b96a52">27%</div>
-            </div>
-          </div>
-          <p class="chart-note">Dummy-Werte. Später werden durch echte Lamapoll-Ergebnisse ersetzt.</p>
+          <p class="chart-kicker">Zukunft &amp; Wahrnehmung</p>
+          <h3>Was Gen Z fühlt — und was die Politik (nicht) hört</h3>
+          <div id="butterfly-root"></div>
         </article>
 
         <!-- Halbkreis -->
@@ -676,5 +652,6 @@
   </section>
 
   <script type="module" src="src/main.js"></script>
+  <script src="src/charts/butterfly.js"></script>
 </body>
 </html>
