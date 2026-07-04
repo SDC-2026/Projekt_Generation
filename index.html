@@ -12,6 +12,7 @@
   <link rel="preload" href="src/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="src/style.css" />
   <link rel="stylesheet" href="src/charts/butterfly/butterfly.css" />
+  <link rel="stylesheet" href="src/charts/pictogram_chart/pictogram.css" />
 </head>
 <body>
 
@@ -602,60 +603,7 @@
         <article class="chart-card wide reveal">
           <p class="chart-kicker">Dienstpflicht</p>
           <h3>Wo würde Gen Z einen Dienst am ehesten leisten?</h3>
-          <div class="service-pictogram-chart">
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>10%</strong>
-              <p>Bundeswehr</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled">●</span><span class="filled">●</span><span class="filled">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>30%</strong>
-              <p>Katastrophenschutz / THW</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled">●</span><span class="filled">●</span><span class="filled">●</span><span class="filled">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>40%</strong>
-              <p>Pflege / sozialer Dienst</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled">●</span><span class="filled">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>20%</strong>
-              <p>Klimaschutz / Umwelt</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled muted">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>10%</strong>
-              <p>Befreiung versuchen</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled reject">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>10%</strong>
-              <p>Dienst verweigern</p>
-            </div>
-          </div>
-          <p class="chart-note">Dummy-Werte. Später werden die Punkte und Prozentwerte durch die echten Lamapoll-Ergebnisse ersetzt.</p>
+          <div id="pictogram-root"></div>
         </article>
 
       </div>
@@ -701,5 +649,6 @@
 
   <script type="module" src="src/main.js"></script>
   <script src="src/charts/butterfly/butterfly.js"></script>
+  <script src="src/charts/pictogram_chart/pictogram.js"></script>
 </body>
 </html>
