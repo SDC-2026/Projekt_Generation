@@ -71,7 +71,7 @@ function initPictogramChart() {
 
       <div class="pc-grid">${cols}</div>
 
-      <p class="pc-note">n = ${d.n} · Nur eine Antwort möglich</p>
+      <p class="pc-note">n = ${d.n} · Bevorzugter Einsatzbereich bei Einführung einer allgemeinen Dienstpflicht</p>
     `;
 
     /* Button-Events */
