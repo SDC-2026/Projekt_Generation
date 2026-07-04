@@ -11,7 +11,7 @@
   <link rel="preload" href="src/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="src/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="src/style.css" />
-  <link rel="stylesheet" href="src/charts/butterfly.css" />
+  <link rel="stylesheet" href="src/charts/butterfly/butterfly.css" />
 </head>
 <body>
 
@@ -461,8 +461,56 @@
         <!-- Butterfly Diagramm (Frage 6 vs. Frage 9 — echte Daten) -->
         <article class="chart-card wide reveal">
           <p class="chart-kicker">Zukunft &amp; Wahrnehmung</p>
-          <h3>Was Gen Z fühlt — und was die Politik (nicht) hört</h3>
-          <div id="butterfly-root"></div>
+          <h3>Wirtschaftliche Angst vs politische Stille</h3>
+          <div id="butterfly-root" class="butterfly">
+
+            <div class="butterfly-header">
+
+                <div class="butterfly-kicker">
+                    Umfrageergebnisse
+                </div>
+
+                <h3 class="butterfly-title">
+                    Wirtschaftliche Zukunft vs.
+                    politische Wahrnehmung
+                </h3>
+
+                <p class="butterfly-description">
+                    Vergleich der Antworten nach Geschlecht.
+                    Links werden die Antworten zu den wirtschaftlichen
+                    Zukunftsperspektiven dargestellt,
+                    rechts die Wahrnehmung politischer Aufmerksamkeit.
+                </p>
+
+            </div>
+
+            <div class="butterfly-toolbar">
+
+                <button class="bf-filter active">
+                    Alle
+                </button>
+
+                <button class="bf-filter">
+                    Mann
+                </button>
+
+                <button class="bf-filter">
+                    Frau
+                </button>
+
+                <button class="bf-filter">
+                    Divers
+                </button>
+
+            </div>
+
+            <div class="butterfly-chart">
+
+                <!-- Das komplette Diagramm mit JavaScript -->
+
+            </div>
+
+        </div>
         </article>
 
         <!-- Halbkreis -->
@@ -652,6 +700,6 @@
   </section>
 
   <script type="module" src="src/main.js"></script>
-  <script src="src/charts/butterfly.js"></script>
+  <script src="src/charts/butterfly/butterfly.js"></script>
 </body>
 </html>
