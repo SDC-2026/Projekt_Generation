@@ -38,7 +38,7 @@ const LABELS = {
 
 const BAR_CLASS = {
   5: 'left',
-  4: 'left',
+  4: 'left-light',
   3: 'neutral',
   2: 'warm',
   1: 'danger'
@@ -78,7 +78,7 @@ function render() {
             <span class="bf-value right">
                 ${pctR} %
             </span>
-            
+
         </div>
 
       </div>`;
