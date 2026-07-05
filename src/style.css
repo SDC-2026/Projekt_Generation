@@ -711,112 +711,141 @@ a:hover{
   color: rgba(255,255,255,0.7);
 }
 
-/* ---------- Scatterplot: Wehrdienst & Gesellschaftsvertrag ---------- */
-/* R2D3-artig: kein Karten-Look, dünne Linien, viel Weißraum. */
-/* Sichtbarkeitsfenster: Start Abschnitt 01, Ende letzter Satz Abschnitt 02 (main.js). */
+/* ---------- Scatterplot-Section: Wehrdienst & Gesellschaftsvertrag ---------- */
 
-.scatter-float{
-    position:fixed;
-    top:50%;
-    right:8rem;
-    transform:translateY(-50%) translateX(16px);
-    width:480px;
-
-    opacity:0;
-    pointer-events:none;
-    transition:opacity .5s ease, transform .5s ease;
-    z-index:40;
+.scatter-section{
+    background:#ffffff;
 }
 
-.scatter-float.visible{
-    opacity:1;
-    pointer-events:auto;
-    transform:translateY(-50%) translateX(0);
+.scatter-layout{
+    display:grid;
+    grid-template-columns:minmax(0, 360px) 1fr;
+    gap:clamp(2rem, 5vw, 5rem);
+    align-items:start;
+    margin-top:2.5rem;
 }
 
-.scatter-eyebrow{
-    font-size:.68rem;
-    font-weight:600;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin-bottom:.6rem;
-}
-
-.scatter-title{
-    font-family:var(--font-display);
-    font-weight:400;
-    font-size:1.3rem;
-    line-height:1.35;
-    color:var(--text);
-    margin:0 0 .35rem;
-}
+/* ---------- Linke Seite: Info, Filter, Stats ---------- */
 
 .scatter-desc{
-    font-size:.82rem;
+    font-size:1rem;
+    line-height:1.7;
     color:var(--text-secondary);
-    margin:0 0 1.5rem;
-}
-
-.scatter-chart-wrap{
-    position:relative;
-    height:340px;
-    border-left:1px solid var(--border);
-    border-bottom:1px solid var(--border);
-}
-
-.scatter-axis-title-x{
-    text-align:right;
-    font-size:.68rem;
-    color:var(--text-secondary);
-    margin-top:.5rem;
-}
-
-.scatter-meta{
-    font-size:.82rem;
-    color:var(--text);
-    margin-top:1.25rem;
-    font-variant-numeric:tabular-nums;
-}
-
-.scatter-meta-dot{
-    margin:0 .4rem;
-    color:var(--border);
+    margin:0 0 2rem;
 }
 
 .scatter-filters{
     display:flex;
-    gap:1rem;
+    gap:.5rem;
     flex-wrap:wrap;
-    margin-top:1rem;
-    padding-top:1rem;
-    border-top:1px solid var(--border);
+    margin-bottom:1.75rem;
 }
 
 .scatter-filter-btn{
     font-family:var(--font-body);
-    font-size:.74rem;
-    color:var(--text-secondary);
-    background:none;
-    border:none;
-    border-bottom:1px solid transparent;
-    padding:0 0 .2rem;
+    font-size:.8rem;
+    padding:.5rem 1rem;
+    border-radius:20px;
+    border:1.5px solid var(--border);
+    background:#ffffff;
+    color:var(--text);
     cursor:pointer;
-    transition:color .2s ease, border-color .2s ease;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
 }
 
 .scatter-filter-btn.active{
-    color:var(--text);
-    border-bottom-color:var(--accent);
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#ffffff;
 }
 
 .scatter-filter-btn:hover{
-    color:var(--text);
+    border-color:var(--accent);
 }
 
-@media (max-width:1100px){
-    .scatter-float{
-        display:none;
+.scatter-stats{
+    display:flex;
+    gap:2.5rem;
+    margin-bottom:1.75rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--border);
+}
+
+.scatter-stat-value{
+    display:block;
+    font-family:var(--font-display);
+    font-size:2.2rem;
+    font-weight:400;
+    color:var(--text);
+    line-height:1;
+    margin-bottom:.35rem;
+}
+
+.scatter-stat-label{
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--text-secondary);
+}
+
+.scatter-legend{
+    display:flex;
+    flex-direction:column;
+    gap:.6rem;
+}
+
+.scatter-legend-item{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    font-size:.82rem;
+    color:var(--text-secondary);
+    transition:opacity .2s ease;
+}
+
+.scatter-legend-item i{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+    flex-shrink:0;
+}
+
+.scatter-legend-item[data-g="w"] i{ background:#7CBA97; }
+.scatter-legend-item[data-g="m"] i{ background:#E0954B; }
+.scatter-legend-item[data-g="d"] i{ background:#8C7AE6; }
+.scatter-legend-item[data-g="k"] i{ background:#B3AFA8; }
+
+.scatter-legend-item.dimmed{
+    opacity:.35;
+}
+
+/* ---------- Rechte Seite: Diagramm ---------- */
+
+.scatter-chart-card{
+    background:#ffffff;
+    border:1.5px solid var(--border);
+    padding:2rem 2rem 1.5rem;
+}
+
+.scatter-chart-wrap{
+    position:relative;
+    height:460px;
+}
+
+.scatter-axis-title-x{
+    text-align:right;
+    font-size:.78rem;
+    color:var(--text-secondary);
+    margin-top:.75rem;
+}
+
+@media (max-width:1000px){
+    .scatter-layout{
+        grid-template-columns:1fr;
+    }
+    .scatter-chart-wrap{
+        height:360px;
     }
 }
 

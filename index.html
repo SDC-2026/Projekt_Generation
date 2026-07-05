@@ -29,7 +29,7 @@
         <button class="nav-dot" data-section="2" title="Kontext"></button>
         <button class="nav-dot" data-section="3" title="Gesellschaftsvertrag"></button>
         <button class="nav-dot" data-section="4" title="Methode"></button>
-        <button class="nav-dot" data-section="5" title="Generation Z"></button>
+        <button class="nav-dot" data-section="5" title="Zusammenhänge"></button>
         <button class="nav-dot" data-section="6" title="Daten"></button>
         <button class="nav-dot" data-section="7" title="Erkenntnisse"></button>
         <button class="nav-dot" data-section="8" title="Fazit"></button>
@@ -90,34 +90,6 @@
     </div>
   </section>
 
-  <!-- Statisches Streudiagramm: erscheint mit Abschnitt 01, endet am letzten Satz von Abschnitt 02 -->
-  <div class="scatter-float" id="scatterFloat">
-    <div class="scatter-eyebrow">Zwischenergebnis</div>
-    <h3 class="scatter-title">Wehrdienst-Bereitschaft &amp; Gesellschaftsvertrag</h3>
-    <p class="scatter-desc">Jeder Punkt ist eine befragte Person.</p>
-
-    <div class="scatter-chart-wrap">
-      <canvas id="scatterCanvas"></canvas>
-    </div>
-
-    <div class="scatter-axis-title-x">Bereitschaft zum Wehrdienst →</div>
-
-    <div class="scatter-meta">
-      <span id="scatterCorr">r = –</span>
-      <span class="scatter-meta-dot">·</span>
-      <span id="scatterCount">n = –</span>
-    </div>
-
-    <div class="scatter-filters">
-      <button data-g="all" class="scatter-filter-btn active">Alle</button>
-      <button data-g="w" class="scatter-filter-btn">Frauen</button>
-      <button data-g="m" class="scatter-filter-btn">Männer</button>
-      <button data-g="d" class="scatter-filter-btn">Divers</button>
-      <button data-g="k" class="scatter-filter-btn">Keine Angabe</button>
-    </div>
-  </div>
-  </div>
-
   <!-- SECTION 1: Kontext -->
   <section class="section context-section" id="s2">
     <div class="section-inner">
@@ -138,7 +110,7 @@
             Genau an dieser Schnittstelle setzt unser Projekt an. Wir betrachten die Debatte über die Verteidigungsbereitschaft durch die Brille des <strong>Social Contract (Gesellschaftsvertrags)</strong>. In der Demokratietheorie basiert dieses Konzept fundamental auf dem Prinzip der <strong>Reziprozität</strong> – also auf einer ausgewogenen Balance zwischen staatlicher Fürsorge und bürgerlicher Pflicht.
           </p>
 
-          <p id="contextEndTrigger">
+          <p>
             Unsere empirischen Daten untersuchen dieses theoretische Spannungsfeld sachlich und messbar: Sie zeigen auf, in welchem Verhältnis die Erwartungen an die soziale Sicherheit, die politische Teilhabe und die tatsächliche Bereitschaft zur Übernahme staatlicher Pflichten zueinander stehen.
           </p>
         </div>
@@ -471,10 +443,65 @@
 
 </section>
 
+  <!-- SECTION 5: Zusammenhänge (Streudiagramm) -->
+  <section class="section scatter-section" id="s5">
+    <div class="section-inner">
+      <div class="section-label reveal">05 — Zusammenhänge</div>
+      <h2 class="section-title reveal">
+        Wehrdienst-Bereitschaft &amp; <em>Gesellschaftsvertrag</em>
+      </h2>
+
+      <div class="scatter-layout">
+
+        <!-- LINKS: Info, Filter, Stats -->
+        <div class="scatter-info reveal">
+          <p class="scatter-desc">
+            Jeder Punkt ist eine befragte Person. Die X-Achse zeigt die Bereitschaft zum Wehrdienst (Frage 10), die Y-Achse den gemittelten Zustimmungswert zu vier Aussagen über den Gesellschaftsvertrag (Fragen 15, 17–19). Frage 16 wurde bewusst ausgeschlossen.
+          </p>
+
+          <div class="scatter-filters">
+            <button data-g="all" class="scatter-filter-btn active">Alle</button>
+            <button data-g="w" class="scatter-filter-btn">Frauen</button>
+            <button data-g="m" class="scatter-filter-btn">Männer</button>
+            <button data-g="d" class="scatter-filter-btn">Divers</button>
+            <button data-g="k" class="scatter-filter-btn">Keine Angabe</button>
+          </div>
+
+          <div class="scatter-stats">
+            <div class="scatter-stat">
+              <span class="scatter-stat-value" id="scatterCorr">–</span>
+              <span class="scatter-stat-label">Korrelation (r)</span>
+            </div>
+            <div class="scatter-stat">
+              <span class="scatter-stat-value" id="scatterCount">–</span>
+              <span class="scatter-stat-label">Befragte</span>
+            </div>
+          </div>
+
+          <div class="scatter-legend" id="scatterLegend">
+            <span class="scatter-legend-item" data-g="w"><i></i>Frauen</span>
+            <span class="scatter-legend-item" data-g="m"><i></i>Männer</span>
+            <span class="scatter-legend-item" data-g="d"><i></i>Divers</span>
+            <span class="scatter-legend-item" data-g="k"><i></i>Keine Angabe</span>
+          </div>
+        </div>
+
+        <!-- RECHTS: Diagramm -->
+        <div class="scatter-chart-card reveal">
+          <div class="scatter-chart-wrap">
+            <canvas id="scatterCanvas"></canvas>
+          </div>
+          <div class="scatter-axis-title-x">Bereitschaft zum Wehrdienst →</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- SECTION 6: Daten (bleibt) -->
   <section class="section data-section" id="s6">
     <div class="section-inner">
-      <div class="section-label reveal">05 — Daten entdecken</div>
+      <div class="section-label reveal">06 — Daten entdecken</div>
       <h2 class="section-title reveal">
         Was die Antworten über <em>Gen Z</em> erzählen
       </h2>

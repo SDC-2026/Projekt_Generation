@@ -201,9 +201,23 @@ function activateStep(index) {
 activateStep(0);
 
 // ─── SCATTERPLOT: Wehrdienst-Bereitschaft & Gesellschaftsvertrag ───
-// Scrollt "mit" zwischen Abschnitt 01 (These) und 02 (Kontext) via ScrollTrigger-Pinning.
-// Datenquelle: src/data/wehrpflicht-scatter.json (aus der Umfrage berechnet:
+// Eigene Section (05 — Zusammenhänge), direkt unter Abschnitt 04 (Methode).
+// Datenquelle: src/charts/scatterchart/wehrpflicht-scatter-data.json (aus der Umfrage berechnet:
 // x = Frage 10, y = Mittelwert aus Frage 15, 17, 18, 19; Frage 16 wurde bewusst ausgeschlossen).
+
+const GENDER_COLORS = {
+  w: "#7CBA97",
+  m: "#E0954B",
+  d: "#8C7AE6",
+  k: "#B3AFA8"
+};
+const GENDER_LABELS = {
+  w: "Frauen",
+  m: "Männer",
+  d: "Divers",
+  k: "Keine Angabe"
+};
+const LIKERT_LABELS = ["", "sehr gering", "eher gering", "neutral", "eher hoch", "sehr hoch"];
 
 function jitterSeed(seed) {
   const v = Math.sin(seed * 99991) * 10000;
@@ -229,19 +243,20 @@ if (scatterCanvas) {
         {
           label: "Befragte",
           data: [],
-          backgroundColor: "rgba(124,186,151,0.5)",
-          borderColor: "#4D7C0F",
+          backgroundColor: [],
+          borderColor: [],
           borderWidth: 1,
-          pointRadius: 4,
-          pointHoverRadius: 6
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          pointHoverBorderWidth: 2
         },
         {
           label: "Trend",
           type: "line",
           data: [],
           borderColor: "#1A1A1A",
-          borderWidth: 1,
-          borderDash: [4, 4],
+          borderWidth: 1.5,
+          borderDash: [5, 4],
           pointRadius: 0,
           fill: false
         }
@@ -250,20 +265,32 @@ if (scatterCanvas) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      animation: { duration: 0 },
+      animation: { duration: 250 },
       layout: { padding: { top: 8, right: 8 } },
       scales: {
         x: {
           min: 0.5,
           max: 5.5,
-          display: false,
-          grid: { display: false }
+          ticks: {
+            stepSize: 1,
+            color: "#6B6B68",
+            font: { size: 11 },
+            callback: (v) => LIKERT_LABELS[v] || ""
+          },
+          grid: { color: "#EDEBE5" },
+          title: { display: true, text: "Bereitschaft zum Wehrdienst", color: "#6B6B68", font: { size: 12 } }
         },
         y: {
           min: 0.5,
           max: 5.5,
-          display: false,
-          grid: { display: false }
+          ticks: {
+            stepSize: 1,
+            color: "#6B6B68",
+            font: { size: 11 },
+            callback: (v) => LIKERT_LABELS[v] || ""
+          },
+          grid: { color: "#EDEBE5" },
+          title: { display: true, text: "Gesellschaftsvertrags-Score", color: "#6B6B68", font: { size: 12 } }
         }
       },
       plugins: {
@@ -274,7 +301,11 @@ if (scatterCanvas) {
           bodyColor: "#FFFFFF",
           displayColors: false,
           callbacks: {
-            label: (c) => (c.datasetIndex === 1 ? null : `Vertragsscore: ${c.parsed.y.toFixed(2)}`)
+            label: (c) => {
+              if (c.datasetIndex === 1) return null;
+              const p = scatterVisiblePoints[c.dataIndex];
+              return [`Vertragsscore: ${c.parsed.y.toFixed(2)}`, GENDER_LABELS[p.g]];
+            }
           }
         }
       }
@@ -282,22 +313,26 @@ if (scatterCanvas) {
   });
 }
 
+let scatterVisiblePoints = [];
+
 function renderScatter() {
   if (!scatterChart) return;
 
-  const visible = scatterPoints.filter(p => scatterGender === "all" || p.g === scatterGender);
+  scatterVisiblePoints = scatterPoints.filter(p => scatterGender === "all" || p.g === scatterGender);
 
-  scatterChart.data.datasets[0].data = visible.map(p => ({ x: p.jx, y: p.y }));
+  scatterChart.data.datasets[0].data = scatterVisiblePoints.map(p => ({ x: p.jx, y: p.y }));
+  scatterChart.data.datasets[0].backgroundColor = scatterVisiblePoints.map(p => `${GENDER_COLORS[p.g]}88`);
+  scatterChart.data.datasets[0].borderColor = scatterVisiblePoints.map(p => GENDER_COLORS[p.g]);
 
   const corrEl = document.getElementById("scatterCorr");
   const countEl = document.getElementById("scatterCount");
 
-  if (visible.length > 2) {
-    const n = visible.length;
-    const mx = visible.reduce((a, p) => a + p.x, 0) / n;
-    const my = visible.reduce((a, p) => a + p.y, 0) / n;
+  if (scatterVisiblePoints.length > 2) {
+    const n = scatterVisiblePoints.length;
+    const mx = scatterVisiblePoints.reduce((a, p) => a + p.x, 0) / n;
+    const my = scatterVisiblePoints.reduce((a, p) => a + p.y, 0) / n;
     let num = 0, dx = 0, dy = 0;
-    visible.forEach(p => {
+    scatterVisiblePoints.forEach(p => {
       num += (p.x - mx) * (p.y - my);
       dx += (p.x - mx) ** 2;
       dy += (p.y - my) ** 2;
@@ -309,14 +344,19 @@ function renderScatter() {
       { x: 0.6, y: slope * 0.6 + intercept },
       { x: 5.4, y: slope * 5.4 + intercept }
     ];
-    if (corrEl) corrEl.textContent = isNaN(r) ? "r = –" : `r = ${r.toFixed(2)}`;
+    if (corrEl) corrEl.textContent = isNaN(r) ? "–" : r.toFixed(2);
   } else {
     scatterChart.data.datasets[1].data = [];
-    if (corrEl) corrEl.textContent = "r = –";
+    if (corrEl) corrEl.textContent = "–";
   }
 
-  if (countEl) countEl.textContent = `n = ${visible.length}`;
+  if (countEl) countEl.textContent = scatterVisiblePoints.length;
   scatterChart.update();
+
+  document.querySelectorAll(".scatter-legend-item").forEach(item => {
+    const g = item.dataset.g;
+    item.classList.toggle("dimmed", scatterGender !== "all" && scatterGender !== g);
+  });
 }
 
 document.querySelectorAll(".scatter-filter-btn").forEach(btn => {
@@ -327,26 +367,6 @@ document.querySelectorAll(".scatter-filter-btn").forEach(btn => {
     renderScatter();
   });
 });
-
-// Panel erscheint exakt mit dem Anfang von Abschnitt 01 (These) und
-// verschwindet exakt beim letzten Satz von Abschnitt 02 (Kontext).
-const scatterFloatEl = document.getElementById("scatterFloat");
-const scatterStartEl = document.getElementById("s1");
-const scatterEndEl = document.getElementById("contextEndTrigger");
-
-if (scatterFloatEl && scatterStartEl && scatterEndEl) {
-  ScrollTrigger.create({
-    trigger: scatterStartEl,
-    start: "top top",
-    endTrigger: scatterEndEl,
-    end: "bottom center",
-    markers: false,
-    onEnter: () => scatterFloatEl.classList.add("visible"),
-    onEnterBack: () => scatterFloatEl.classList.add("visible"),
-    onLeave: () => scatterFloatEl.classList.remove("visible"),
-    onLeaveBack: () => scatterFloatEl.classList.remove("visible")
-  });
-}
 
 renderScatter();
 
