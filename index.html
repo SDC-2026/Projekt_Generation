@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="src/style.css" />
   <link rel="stylesheet" href="src/charts/butterfly/butterfly.css" />
   <link rel="stylesheet" href="src/charts/pictogram_chart/pictogram.css" />
+  <link rel="stylesheet" href="src/charts/grouped_bar_chart_1/grouped_bar_chart_1.css" />
+  <link rel="stylesheet" href="src/charts/grouped_bar_chart_2/grouped_bar_chart_2.css" />
 </head>
 <body>
 
@@ -589,63 +591,11 @@
           <p class="chart-note">Bubble-Größe = relative Priorität (Dummy-Werte)</p>
         </article>
 
-        <!-- Likert Multiples -->
+        <!-- Likert Chart Wahrnehmung-->
         <article class="chart-card wide reveal" data-delay="100">
-          <p class="chart-kicker">Fairness-Wahrnehmung</p>
-          <h3>Wie fair erlebt Gen Z den Staat?</h3>
-          <div class="likert-small-multiples">
-            <div class="likert-row">
-              <span>Staat hält seine Versprechen</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:30%"></div>
-                <div class="c2" style="width:35%"></div>
-                <div class="c3" style="width:20%"></div>
-                <div class="c4" style="width:10%"></div>
-                <div class="c5" style="width:5%"></div>
-              </div>
-            </div>
-            <div class="likert-row">
-              <span>Lasten werden gerecht verteilt</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:15%"></div>
-                <div class="c2" style="width:40%"></div>
-                <div class="c3" style="width:20%"></div>
-                <div class="c4" style="width:15%"></div>
-                <div class="c5" style="width:10%"></div>
-              </div>
-            </div>
-            <div class="likert-row">
-              <span>Interessen der Jugend werden berücksichtigt</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:18%"></div>
-                <div class="c2" style="width:22%"></div>
-                <div class="c3" style="width:20%"></div>
-                <div class="c4" style="width:25%"></div>
-                <div class="c5" style="width:15%"></div>
-              </div>
-            </div>
-            <div class="likert-row">
-              <span>Politische Entscheidungen wirken realitätsfern</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:5%"></div>
-                <div class="c2" style="width:10%"></div>
-                <div class="c3" style="width:15%"></div>
-                <div class="c4" style="width:45%"></div>
-                <div class="c5" style="width:25%"></div>
-              </div>
-            </div>
-            <div class="likert-row">
-              <span>Soziale Sicherheit ist genauso wichtig wie militärische Sicherheit</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:3%"></div>
-                <div class="c2" style="width:7%"></div>
-                <div class="c3" style="width:10%"></div>
-                <div class="c4" style="width:40%"></div>
-                <div class="c5" style="width:40%"></div>
-              </div>
-            </div>
-          </div>
-          <p class="chart-note">Dummy-Werte. Später werden diese Werte durch die echten Lamapoll-Ergebnisse ersetzt.</p>
+         <p class="chart-kicker">Fairness-Wahrnehmung</p>
+         <h3>Wie die Gen Z staatliche Institutionen wahrnimmt</h3>
+         <div id="likert-root"></div>
         </article>
 
         <!-- Pictogram Chart -->
@@ -653,6 +603,14 @@
           <p class="chart-kicker">Dienstpflicht</p>
           <h3>Wo würde Gen Z einen Dienst am ehesten leisten?</h3>
           <div id="pictogram-root"></div>
+        </article>
+
+        <!-- Zweites Likert Chart (Fragen 16–19) -->
+        <article class="chart-card wide reveal" data-delay="100">
+          <p class="chart-kicker">Gesellschaftsvertrag &amp; Pflichten</p>
+          <h3>Einstellung zu staatlichen Pflichten und Gegenleistungen</h3>
+          <!-- WICHTIG: Neue ID für das zweite Diagramm -->
+          <div id="likert-pflichten-root"></div>
         </article>
 
       </div>
@@ -699,5 +657,7 @@
   <script type="module" src="src/main.js"></script>
   <script src="src/charts/butterfly/butterfly.js"></script>
   <script src="src/charts/pictogram_chart/pictogram.js"></script>
+  <script src="src/charts/grouped_bar_chart_1/grouped_bar_chart_1.js"></script>
+  <script src="src/charts/grouped_bar_chart_2/grouped_bar_chart_2.js"></script>
 </body>
 </html>
