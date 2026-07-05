@@ -3,6 +3,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Chart from "chart.js/auto";
 import scatterSurveyData from "./charts/scatterchart/wehrpflicht-scatter-data.json";
 import "./charts/scatterchart/scatterplot.css";
+import "./charts/pictogram_chart/pictogram.js";
+import "./charts/pictogram_chart/pictogram.css";
 
 gsap.registerPlugin(ScrollTrigger);
 

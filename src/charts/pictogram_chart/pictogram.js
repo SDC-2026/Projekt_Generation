@@ -3,12 +3,7 @@
    Wenn eine allgemeine Dienstpflicht eingeführt würde …
    ========================================================== */
 
-const PC_DATA = {
-  alle:   { n: 240, rettung: 25.8, militar: 20.4, okologie: 19.6, sozial: 18.8, befreiung: 10.8, verweigerung: 4.6  },
-  Mann:   { n: 129, rettung: 31.0, militar: 31.0, okologie: 15.5, sozial:  9.3, befreiung:  9.3, verweigerung: 3.9  },
-  Frau:   { n:  94, rettung: 21.3, militar:  6.4, okologie: 24.5, sozial: 34.0, befreiung: 10.6, verweigerung: 3.2  },
-  Divers: { n:  11, rettung:  9.1, militar: 27.3, okologie: 27.3, sozial:  9.1, befreiung: 18.2, verweigerung: 9.1  },
-};
+import DATA from "./pictogram-data.json";
 
 const PC_COLS = [
   { key: 'rettung',      label: 'Katastrophenschutz\n/ THW',        color: 'var(--accent)' },
@@ -37,7 +32,7 @@ function initPictogramChart() {
   });
 
   function render() {
-    const d = PC_DATA[pc_active];
+    const d = DATA[pc_active];
 
     const cols = PC_COLS.map(col => {
       const pct    = d[col.key];
@@ -63,7 +58,7 @@ function initPictogramChart() {
 
     root.innerHTML = `
       <div class="pc-toolbar">
-        ${Object.keys(PC_DATA).map(g => `
+        ${Object.keys(DATA).map(g => `
           <button class="bf-filter${pc_active === g ? ' active' : ''}" data-group="${g}">
             ${g === 'alle' ? 'Alle' : g}
           </button>`).join('')}
