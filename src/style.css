@@ -711,11 +711,121 @@ a:hover{
   color: rgba(255,255,255,0.7);
 }
 
+/* ---------- Scatterplot: Wehrdienst & Gesellschaftsvertrag ---------- */
+/* R2D3-artig: kein Karten-Look, dünne Linien, viel Weißraum. */
+/* Sichtbarkeitsfenster: Start Abschnitt 01, Ende letzter Satz Abschnitt 02 (main.js). */
+
+.scatter-float{
+    position:fixed;
+    top:50%;
+    right:8rem;
+    transform:translateY(-50%) translateX(16px);
+    width:480px;
+
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .5s ease, transform .5s ease;
+    z-index:40;
+}
+
+.scatter-float.visible{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(-50%) translateX(0);
+}
+
+.scatter-eyebrow{
+    font-size:.68rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:.6rem;
+}
+
+.scatter-title{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.35;
+    color:var(--text);
+    margin:0 0 .35rem;
+}
+
+.scatter-desc{
+    font-size:.82rem;
+    color:var(--text-secondary);
+    margin:0 0 1.5rem;
+}
+
+.scatter-chart-wrap{
+    position:relative;
+    height:340px;
+    border-left:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.scatter-axis-title-x{
+    text-align:right;
+    font-size:.68rem;
+    color:var(--text-secondary);
+    margin-top:.5rem;
+}
+
+.scatter-meta{
+    font-size:.82rem;
+    color:var(--text);
+    margin-top:1.25rem;
+    font-variant-numeric:tabular-nums;
+}
+
+.scatter-meta-dot{
+    margin:0 .4rem;
+    color:var(--border);
+}
+
+.scatter-filters{
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+    margin-top:1rem;
+    padding-top:1rem;
+    border-top:1px solid var(--border);
+}
+
+.scatter-filter-btn{
+    font-family:var(--font-body);
+    font-size:.74rem;
+    color:var(--text-secondary);
+    background:none;
+    border:none;
+    border-bottom:1px solid transparent;
+    padding:0 0 .2rem;
+    cursor:pointer;
+    transition:color .2s ease, border-color .2s ease;
+}
+
+.scatter-filter-btn.active{
+    color:var(--text);
+    border-bottom-color:var(--accent);
+}
+
+.scatter-filter-btn:hover{
+    color:var(--text);
+}
+
+@media (max-width:1100px){
+    .scatter-float{
+        display:none;
+    }
+}
+
+
 /* ---------- Context Layout ---------- */
 
 .context-grid{
     display:grid;
-    grid-template-columns:0.9fr 1.4fr;
+    grid-template-columns:1fr;
     gap:2rem;
     align-items:stretch;
 }

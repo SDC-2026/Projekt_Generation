@@ -89,6 +89,34 @@
     </div>
   </section>
 
+  <!-- Statisches Streudiagramm: erscheint mit Abschnitt 01, endet am letzten Satz von Abschnitt 02 -->
+  <div class="scatter-float" id="scatterFloat">
+    <div class="scatter-eyebrow">Zwischenergebnis</div>
+    <h3 class="scatter-title">Wehrdienst-Bereitschaft &amp; Gesellschaftsvertrag</h3>
+    <p class="scatter-desc">Jeder Punkt ist eine befragte Person.</p>
+
+    <div class="scatter-chart-wrap">
+      <canvas id="scatterCanvas"></canvas>
+    </div>
+
+    <div class="scatter-axis-title-x">Bereitschaft zum Wehrdienst →</div>
+
+    <div class="scatter-meta">
+      <span id="scatterCorr">r = –</span>
+      <span class="scatter-meta-dot">·</span>
+      <span id="scatterCount">n = –</span>
+    </div>
+
+    <div class="scatter-filters">
+      <button data-g="all" class="scatter-filter-btn active">Alle</button>
+      <button data-g="w" class="scatter-filter-btn">Frauen</button>
+      <button data-g="m" class="scatter-filter-btn">Männer</button>
+      <button data-g="d" class="scatter-filter-btn">Divers</button>
+      <button data-g="k" class="scatter-filter-btn">Keine Angabe</button>
+    </div>
+  </div>
+  </div>
+
   <!-- SECTION 1: Kontext -->
   <section class="section context-section" id="s2">
     <div class="section-inner">
@@ -96,12 +124,6 @@
       <h2 class="section-title reveal">Warum ist das<br>Thema relevant?</h2>
 
       <div class="context-grid">
-        <div class="context-map-card">
-          <img src="src/assets/deutschland_karte.svg"
-              alt="Deutschlandkarte"
-              class="context-map">
-        </div>
-        
         <div class="context-text-card">
           <p class="context-intro">
             Aufbauend auf unserer zentralen These beleuchtet dieser Abschnitt die tiefere Relevanz und den politikwissenschaftlichen Kontext hinter unseren Daten.
@@ -115,7 +137,7 @@
             Genau an dieser Schnittstelle setzt unser Projekt an. Wir betrachten die Debatte über die Verteidigungsbereitschaft durch die Brille des <strong>Social Contract (Gesellschaftsvertrags)</strong>. In der Demokratietheorie basiert dieses Konzept fundamental auf dem Prinzip der <strong>Reziprozität</strong> – also auf einer ausgewogenen Balance zwischen staatlicher Fürsorge und bürgerlicher Pflicht.
           </p>
 
-          <p>
+          <p id="contextEndTrigger">
             Unsere empirischen Daten untersuchen dieses theoretische Spannungsfeld sachlich und messbar: Sie zeigen auf, in welchem Verhältnis die Erwartungen an die soziale Sicherheit, die politische Teilhabe und die tatsächliche Bereitschaft zur Übernahme staatlicher Pflichten zueinander stehen.
           </p>
         </div>
