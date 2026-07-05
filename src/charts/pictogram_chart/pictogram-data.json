@@ -1,0 +1,38 @@
+{
+  "alle": {
+    "rettung": 25.6,
+    "militar": 20.7,
+    "okologie": 20.3,
+    "sozial": 18.1,
+    "befreiung": 11,
+    "verweigerung": 4.4,
+    "n": 227
+  },
+  "Mann": {
+    "rettung": 30.8,
+    "militar": 31.7,
+    "okologie": 15.8,
+    "sozial": 8.3,
+    "befreiung": 10,
+    "verweigerung": 3.3,
+    "n": 120
+  },
+  "Frau": {
+    "rettung": 21.1,
+    "militar": 6.7,
+    "okologie": 25.6,
+    "sozial": 33.3,
+    "befreiung": 10,
+    "verweigerung": 3.3,
+    "n": 90
+  },
+  "Divers": {
+    "rettung": 9.1,
+    "militar": 27.3,
+    "okologie": 27.3,
+    "sozial": 9.1,
+    "befreiung": 18.2,
+    "verweigerung": 9.1,
+    "n": 11
+  }
+}
