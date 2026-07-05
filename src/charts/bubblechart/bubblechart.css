@@ -1,0 +1,103 @@
+/* ==========================================================
+   BUBBLE CHART — Frage 15 (Bedingungen für Pflichtdienst-Akzeptanz)
+   Nutzt CSS-Variablen aus der globalen style.css.
+   ========================================================== */
+
+.bubblechart-filters{
+    display:flex;
+    gap:.5rem;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:1.5rem;
+}
+
+.bubblechart-filter-btn{
+    font-family:var(--font-body);
+    font-size:.8rem;
+    padding:.5rem 1rem;
+    border-radius:20px;
+    border:1.5px solid var(--border);
+    background:#ffffff;
+    color:var(--text);
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.bubblechart-filter-btn.active{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#ffffff;
+}
+
+.bubblechart-filter-btn:hover{
+    border-color:var(--accent);
+}
+
+.bubblechart-wrap{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    width:100%;
+    overflow:visible;
+}
+
+.bubblechart-canvas{
+    position:relative;
+    max-width:100%;
+}
+
+.bubblechart-bubble{
+    position:absolute;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#ffffff;
+    line-height:1.2;
+    padding:.4rem;
+    cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+
+.bubblechart-bubble:hover,
+.bubblechart-bubble:focus{
+    transform:scale(1.06);
+    box-shadow:0 8px 22px rgba(0,0,0,.16);
+    outline:none;
+    z-index:5;
+}
+
+.bubblechart-bubble-pct{
+    font-weight:700;
+    font-size:1.15em;
+    line-height:1;
+}
+
+.bubblechart-bubble-label{
+    font-size:.78em;
+    font-weight:500;
+    margin-top:.2em;
+    padding:0 .3rem;
+}
+
+.bubblechart-tooltip{
+    position:absolute;
+    z-index:10;
+    background:#1A1A1A;
+    color:#ffffff;
+    font-size:.78rem;
+    line-height:1.5;
+    padding:.6rem .9rem;
+    border-radius:8px;
+    max-width:280px;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .15s ease;
+}
+
+.bubblechart-tooltip.visible{
+    opacity:1;
+}

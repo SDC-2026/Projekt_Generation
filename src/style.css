@@ -1852,62 +1852,8 @@ top:0;
 
 
 /* ==========================================================
-   BUBBLE CHART
+   BUBBLE CHART (Dummy-Version, ersetzt durch src/charts/bubblechart/bubblechart.css)
    ========================================================== */
-
-.bubble-viz {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-  gap: 1.2rem;
-
-  min-height: 260px;
-}
-
-.bubble {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  border-radius: 50%;
-
-  background: var(--accent);
-  color: white;
-
-  line-height: 1.2;
-  font-size: .8rem;
-
-  padding: 1rem;
-}
-
-.bubble.big {
-  width: 140px;
-  height: 140px;
-}
-
-.bubble.medium {
-  width: 100px;
-  height: 100px;
-}
-
-.bubble.small {
-  width: 80px;
-  height: 80px;
-}
-
-.bubble.tiny {
-  width: 60px;
-  height: 60px;
-}
-
-.bubble.warm {
-  background: var(--accent-warm);
-  color: var(--text);
-}
 
 
 /* ==========================================================

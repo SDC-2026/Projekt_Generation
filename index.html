@@ -576,19 +576,11 @@
           </div>
         </article>
 
-        <!-- Bubble Chart -->
-        <article class="chart-card reveal" data-delay="200">
-          <p class="chart-kicker">Prioritäten</p>
-          <h3>Was ist Gen Z wichtiger als Verteidigung?</h3>
-          <div class="bubble-viz">
-            <div class="bubble big">Wohnen &amp;<br>Mieten</div>
-            <div class="bubble big warm">Klima &amp;<br>Umwelt</div>
-            <div class="bubble medium">Bildung</div>
-            <div class="bubble medium">Psychische<br>Gesundheit</div>
-            <div class="bubble small warm">Rente</div>
-            <div class="bubble tiny">Militär</div>
-          </div>
-          <p class="chart-note">Bubble-Größe = relative Priorität (Dummy-Werte)</p>
+        <!-- Bubble Chart: Frage 15 (Bedingungen für Pflichtdienst-Akzeptanz) -->
+        <article class="chart-card wide reveal" data-delay="200">
+          <p class="chart-kicker">Bedingungen</p>
+          <h3>Wann würde Gen Z einen Pflichtdienst eher akzeptieren?</h3>
+          <div id="bubble-root"></div>
         </article>
 
         <!-- Likert Chart Wahrnehmung-->
@@ -656,6 +648,7 @@
 
   <script type="module" src="src/main.js"></script>
   <script type="module" src="src/charts/butterfly/butterfly.js"></script>
+  <script type="module" src="src/charts/bubblechart/bubblechart.js"></script>
   <script src="src/charts/pictogram_chart/pictogram.js"></script>
   <script src="src/charts/grouped_bar_chart_1/grouped_bar_chart_1.js"></script>
   <script src="src/charts/grouped_bar_chart_2/grouped_bar_chart_2.js"></script>
