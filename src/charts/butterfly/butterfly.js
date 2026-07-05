@@ -1,30 +1,11 @@
 /* ==========================================================
    BUTTERFLY CHART — Frage 6 vs. Frage 9
-   Echte Umfragedaten (n=248)
+   Daten werden automatisch aus der CSV generiert
+   (siehe scripts/generate-chart-data.mjs)
    ========================================================== */
 
-const DATA = {
-  alle: {
-    q6: { 5: 31.5, 4: 46.8, 3: 8.5,  2: 9.7,  1: 3.6 },
-    q9: { 5: 2.0,  4: 4.2,  3: 15.7, 2: 45.2, 1: 32.7 },
-    n: 248
-  },
-  Mann: {
-    q6: { 5: 34.1, 4: 45.9, 3: 6.7,  2: 8.9,  1: 4.4 },
-    q9: { 5: 2.2,  4: 4.4,  3: 17.8, 2: 41.5, 1: 34.1 },
-    n: 135
-  },
-  Frau: {
-    q6: { 5: 29.4, 4: 48.0, 3: 10.8, 2: 10.8, 1: 1.0 },
-    q9: { 5: 2.0,  4: 3.9,  3: 11.8, 2: 52.9, 1: 29.4 },
-    n: 102
-  },
-  Divers: {
-    q6: { 5: 45.5, 4: 45.5, 3: 0.0,  2: 0.0,  1: 9.1 },
-    q9: { 5: 0.0,  4: 9.1,  3: 0.0,  2: 45.5, 1: 45.5 },
-    n: 11
-  }
-};
+import DATA from "./butterfly-data.json";
+
 
 const SCORES = [5, 4, 3, 2, 1];
 
@@ -115,10 +96,10 @@ function render() {
         <span><strong>Rechts:</strong> „Ich habe das Gefühl, dass die Anliegen der jüngeren Generation von Politik und Gesellschaft ausreichend wahrgenommen werden."</span>
       </div>
       <div class="bf-footnote-n">
-        <span>Alle: n=248</span>
-        <span>Männlich: n=135</span>
-        <span>Weiblich: n=102</span>
-        <span>Divers: n=11</span>
+        <span>Alle: n=${DATA.alle.n}</span>
+        <span>Männlich: n=${DATA.Mann.n}</span>
+        <span>Weiblich: n=${DATA.Frau.n}</span>
+        <span>Divers: n=${DATA.Divers.n}</span>
       </div>
     </div>
   `;
