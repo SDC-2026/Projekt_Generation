@@ -37,7 +37,7 @@ const LIKERT_N = {
   Divers: 11
 };
 
-const LIKERT_COLORS = ['#2E6F40', '#81B69D', '#D7D3CC', '#E57373', '#A83232'];
+const LIKERT_COLORS = ['#2E6F40', '#81B69D', '#D7D3CC', '#D8B69C', '#B96A52'];
 const LIKERT_TITLES = ['Stimme voll zu', 'Stimme eher zu', 'Neutral', 'Stimme eher nicht zu', 'Stimme gar nicht zu'];
 
 let likert_active = 'alle';
