@@ -2034,7 +2034,7 @@ top:0;
 }
 
 .insights-section .section-title {
-  color: white;
+  color: var(--text);
 }
 
 .insights-section .section-title em {
@@ -2058,20 +2058,74 @@ top:0;
 
 .insight-card {
   position: relative;
+  height: 420px;
+  perspective: 1200px;
+  cursor: pointer;
+  overflow: visible;
+}
 
-  padding: 2.5rem;
+.insight-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 
+  transition: transform .7s cubic-bezier(.22,1,.36,1);
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.insight-card.flipped .insight-card-inner {
+  transform: rotateY(180deg);
+}
+
+.insight-face{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+
+  padding:2.5rem;
+
+  background:#222;
+
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+
+  overflow:hidden;
+
+  transition:background var(--transition-fast);
+}
+
+.insight-card:hover .insight-card-inner{
+    transform: translateY(-3px);
+}
+
+.insight-card.flipped:hover .insight-card-inner{
+    transform: rotateY(180deg) translateY(-3px);
+}
+
+.insight-back {
+  transform: rotateY(180deg);
+  justify-content: center;
   background: #222;
-
-  transition:
-    background var(--transition-fast),
-    transform var(--transition-fast);
 }
 
-.insight-card:hover {
-  background: #2a2a2a;
-  transform: translateY(-2px);
+.insight-back h3 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
 }
+
+.insight-back p {
+  margin: 0;
+  color: #ccc;
+  line-height: 1.8;
+}
+
 
 
 /* ---------- Quote ---------- */
@@ -2091,33 +2145,67 @@ top:0;
 
 /* ---------- Insight Text ---------- */
 
-.insight-card p {
-  margin-bottom: 1.5rem;
+.insight-front{
+    display:flex;
+    flex-direction:column;
 
-  font-size: .95rem;
-  line-height: 1.7;
-
-  color: #ccc;
+    padding-top:5rem;      /* <- hiermit wandert alles nach unten */
 }
 
+.insight-front p{
+    margin-bottom:1.5rem;
+
+    font-size:1.2rem;
+    line-height:1.8;
+
+    color:#ccc;
+
+    font-weight:400;
+}
 
 /* ---------- Tag ---------- */
 
-.insight-tag {
-  display: inline-block;
+.insight-tag{
+  display:inline-block;
 
-  padding: .25rem .75rem;
+  margin-top:auto;
+  align-self:flex-start;
 
-  border: 1px solid rgba(124,186,151,.3);
+  padding:.25rem .75rem;
 
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  border:1px solid rgba(124,186,151,.3);
 
-  color: var(--accent);
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+
+  color:var(--accent);
 }
 
+.flip-hint{
+  margin-top:1rem;
+
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+
+  align-self:flex-end;
+
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  color:var(--accent);
+
+  opacity:.55;
+
+  transition:opacity .25s ease;
+}
+
+.insight-front:hover .flip-hint{
+  opacity:1;
+}
 
 /* ---------- Responsive ---------- */
 
@@ -2127,7 +2215,7 @@ top:0;
     grid-template-columns:1fr;
   }
 
-  .insight-card{
+  .insight-face{
     padding:2rem;
   }
 
@@ -2141,125 +2229,115 @@ top:0;
    13 CONCLUSION
    ========================================================== */
 
-
-/* ---------- Conclusion Section ---------- */
-
-.conclusion-section {
-  background: var(--bg);
+.conclusion-section{
+    background:var(--bg);
 }
 
+/* ---------- Layout ---------- */
 
-/* ---------- Conclusion Layout ---------- */
-
-.conclusion-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+.conclusion-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2rem;
+    margin-bottom:4rem;
 }
 
+/* ---------- Cards ---------- */
 
-/* ---------- Conclusion Text ---------- */
-
-.conclusion-text {
-  max-width: 620px;
+.conclusion-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:2.5rem;
+    box-shadow:var(--shadow-sm);
+    transition:transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.conclusion-text h3 {
-  margin-bottom: 1.5rem;
-
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.25;
-
-  color: var(--text);
+.conclusion-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-md);
 }
 
-.conclusion-text p {
-  margin-bottom: 1.5rem;
-
-  font-size: 1rem;
-  line-height: 1.75;
-
-  color: var(--text-secondary);
+.conclusion-kicker{
+    display:inline-block;
+    margin-bottom:1.25rem;
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
 }
 
-.conclusion-text strong {
-  color: var(--text);
-  font-weight: 500;
+.conclusion-card p{
+    margin-bottom:1.25rem;
+    line-height:1.85;
+    color:var(--text-secondary);
 }
 
-
-/* ---------- Conclusion Highlight ---------- */
-
-.conclusion-highlight {
-  display: inline-block;
-
-  margin-top: 1rem;
-  padding: .8rem 1.2rem;
-
-  border-left: 3px solid var(--accent);
-
-  background: var(--surface);
-
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-style: italic;
-  font-weight: 300;
-
-  color: var(--text);
+.conclusion-card p:last-child{
+    margin-bottom:0;
 }
 
+/* ---------- Schlussstatement ---------- */
 
-/* ---------- Conclusion Placeholder ---------- */
-
-.conclusion-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.conclusion-highlight{
+    margin-top:4rem;
+    padding:5rem 3rem;
+    background:#222;
+    text-align:center;
 }
 
-
-/* ---------- Placeholder Box ---------- */
-
-.placeholder-box {
-  width: 100%;
-  min-height: 420px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1.5px solid var(--border);
-
-  background: var(--surface);
+.highlight-line{
+    width:120px;
+    height:1px;
+    margin:0 auto 2rem;
+    background:rgba(255,255,255,.18);
 }
 
-
-/* ---------- Placeholder Content ---------- */
-
-.placeholder-content {
-  text-align: center;
+.highlight-line:last-child{
+    margin:2.5rem auto 0;
 }
 
-.placeholder-content h4 {
-  margin-bottom: .75rem;
+.conclusion-highlight h3{
+    margin-bottom:2rem;
+    font-family:var(--font-display);
+    font-size:clamp(2rem,4vw,3rem);
+    font-weight:300;
+    line-height:1.25;
 
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 300;
-
-  color: var(--text);
+    color:var(--accent);
 }
 
-.placeholder-content p {
-  font-size: .9rem;
-  line-height: 1.6;
-
-  color: var(--text-secondary);
+.conclusion-highlight p{
+    max-width:760px;
+    margin:0 auto;
+    font-size:1.08rem;
+    line-height:1.9;
+    color:#d8d8d8;
 }
 
+/* ---------- Responsive ---------- */
+
+@media (max-width:768px){
+
+    .conclusion-content{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .conclusion-highlight{
+
+        padding:2rem;
+
+    }
+
+    .conclusion-highlight p:first-child{
+
+        font-size:1.6rem;
+
+    }
+
+}
 
 /* ---------- Conclusion Quote ---------- */
 
@@ -2521,7 +2599,7 @@ top:0;
     grid-template-columns:1fr;
   }
 
-  .insight-card{
+  .insight-face{
     padding:2rem;
   }
 

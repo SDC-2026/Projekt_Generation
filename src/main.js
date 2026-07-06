@@ -408,3 +408,11 @@ ScrollTrigger.create({
   }
 
 });
+
+// ─── Insight Cards Flip ───
+document.querySelectorAll(".insight-card").forEach(card => {
+  card.addEventListener("click", () => {
+    console.log("geklickt");
+    card.classList.toggle("flipped");
+  });
+});
