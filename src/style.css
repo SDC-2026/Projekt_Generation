@@ -1919,6 +1919,16 @@ top:0;
   line-height: 1.25;
 }
 
+.chart-desc {
+  margin-top: -.75rem;
+  margin-bottom: 1.75rem;
+  max-width: 640px;
+
+  font-size: .88rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
 .chart-note {
   margin-top: 1rem;
   max-width: 380px;

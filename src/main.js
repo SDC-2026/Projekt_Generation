@@ -327,11 +327,16 @@ if (scatterCanvas) {
         x: {
           min: 0.5,
           max: 5.5,
+          afterBuildTicks: (axis) => {
+            axis.ticks = [1, 2, 3, 4, 5].map((v) => ({ value: v }));
+          },
           ticks: {
-            stepSize: 1,
             color: "#6B6B68",
             font: { size: 11 },
-            callback: (v) => LIKERT_LABELS[v] || ""
+            callback: (v) => {
+              const rounded = Math.round(v);
+              return LIKERT_LABELS[rounded] ? `${rounded} – ${LIKERT_LABELS[rounded]}` : "";
+            }
           },
           grid: { color: "#EDEBE5" },
           title: { display: true, text: "Bereitschaft zum Wehrdienst", color: "#6B6B68", font: { size: 12 } }
@@ -339,11 +344,16 @@ if (scatterCanvas) {
         y: {
           min: 0.5,
           max: 5.5,
+          afterBuildTicks: (axis) => {
+            axis.ticks = [1, 2, 3, 4, 5].map((v) => ({ value: v }));
+          },
           ticks: {
-            stepSize: 1,
             color: "#6B6B68",
             font: { size: 11 },
-            callback: (v) => LIKERT_LABELS[v] || ""
+            callback: (v) => {
+              const rounded = Math.round(v);
+              return LIKERT_LABELS[rounded] ? `${rounded} – ${LIKERT_LABELS[rounded]}` : "";
+            }
           },
           grid: { color: "#EDEBE5" },
           title: { display: true, text: "Gesellschaftsvertrags-Score", color: "#6B6B68", font: { size: 12 } }

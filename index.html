@@ -468,12 +468,27 @@
 
       <div class="scatter-layout">
 
-        <!-- LINKS: Info, Filter, Stats -->
-        <div class="scatter-info reveal">
+        <!-- LINKS: Text & Methodik -->
+        <div class="scatter-intro reveal">
           <p class="scatter-desc">
             Die Bereitschaft dieser Generation, sich für das Land einzusetzen, ist kein Startkapital, das vorausgesetzt werden kann, sie ist das Resultat eines funktionierenden und verlässlichen Sozialstaates.
           </p>
 
+          <p class="scatter-desc scatter-desc-methodik">
+            <strong>X-Achse:</strong> Bereitschaft, einen verpflichtenden Wehrdienst zu leisten (Frage 10).<br>
+            <strong>Y-Achse — Gesellschaftsvertrags-Score:</strong> Mittelwert aus fünf Aussagen zur wahrgenommenen Erfüllung des Gesellschaftsvertrags durch den Staat:
+          </p>
+          <ul class="scatter-score-list">
+            <li>Die Anliegen der jüngeren Generation werden von Politik und Gesellschaft ausreichend wahrgenommen (Frage 9)</li>
+            <li>Die Interessen und Stimmen junger Menschen werden von politischen Entscheidungsträgern ausreichend berücksichtigt (Frage 12)</li>
+            <li>Politik in Deutschland ist an den tatsächlichen Lebensumständen der Menschen ausgerichtet (Frage 13)</li>
+            <li>Vertrauen, dass staatliche Institutionen im besten Interesse der gesamten Bevölkerung handeln (Frage 14)</li>
+            <li>Die Diskussion über eine neue Wehrpflicht berücksichtigt die Interessen der jungen Generation angemessen (Frage 15)</li>
+          </ul>
+        </div>
+
+        <!-- RECHTS: Filter, Chart, Stats & Legende -->
+        <div class="scatter-chart-col">
           <div class="scatter-filters">
             <button data-g="all" class="scatter-filter-btn active">Alle</button>
             <button data-g="w" class="scatter-filter-btn">Frauen</button>
@@ -482,31 +497,31 @@
             <button data-g="k" class="scatter-filter-btn">Keine Angabe</button>
           </div>
 
-          <div class="scatter-stats">
-            <div class="scatter-stat">
-              <span class="scatter-stat-value" id="scatterCorr">–</span>
-              <span class="scatter-stat-label">Korrelation (r)</span>
-            </div>
-            <div class="scatter-stat">
-              <span class="scatter-stat-value" id="scatterCount">–</span>
-              <span class="scatter-stat-label">Befragte</span>
+          <div class="scatter-chart-card reveal">
+            <div class="scatter-chart-wrap">
+              <canvas id="scatterCanvas"></canvas>
             </div>
           </div>
 
-          <div class="scatter-legend" id="scatterLegend">
-            <span class="scatter-legend-item" data-g="w"><i></i>Frauen</span>
-            <span class="scatter-legend-item" data-g="m"><i></i>Männer</span>
-            <span class="scatter-legend-item" data-g="d"><i></i>Divers</span>
-            <span class="scatter-legend-item" data-g="k"><i></i>Keine Angabe</span>
-          </div>
-        </div>
+          <div class="scatter-footer">
+            <div class="scatter-stats">
+              <div class="scatter-stat">
+                <span class="scatter-stat-value" id="scatterCorr">–</span>
+                <span class="scatter-stat-label">Korrelation (r)</span>
+              </div>
+              <div class="scatter-stat">
+                <span class="scatter-stat-value" id="scatterCount">–</span>
+                <span class="scatter-stat-label">Befragte</span>
+              </div>
+            </div>
 
-        <!-- RECHTS: Diagramm -->
-        <div class="scatter-chart-card reveal">
-          <div class="scatter-chart-wrap">
-            <canvas id="scatterCanvas"></canvas>
+            <div class="scatter-legend" id="scatterLegend">
+              <span class="scatter-legend-item" data-g="w"><i></i>Frauen</span>
+              <span class="scatter-legend-item" data-g="m"><i></i>Männer</span>
+              <span class="scatter-legend-item" data-g="d"><i></i>Divers</span>
+              <span class="scatter-legend-item" data-g="k"><i></i>Keine Angabe</span>
+            </div>
           </div>
-          <div class="scatter-axis-title-x">Bereitschaft zum Wehrdienst →</div>
         </div>
 
       </div>
@@ -600,6 +615,9 @@
         <article class="chart-card wide reveal" data-delay="200">
           <p class="chart-kicker">Bedingungen</p>
           <h3>Wann würde Gen Z einen Pflichtdienst eher akzeptieren?</h3>
+          <p class="chart-desc">
+            Frage 15: „Ich wäre eher bereit, einen verpflichtenden Dienst an der Gesellschaft zu akzeptieren, wenn folgende Bedingungen erfüllt wären" — Mehrfachauswahl, jede Person konnte beliebig viele Bedingungen ankreuzen.
+          </p>
           <div id="bubble-root"></div>
         </article>
 

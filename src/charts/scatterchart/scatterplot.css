@@ -9,18 +9,23 @@
    ========================================================== */
 
 .scatter-section{
-    background:#ffffff;
+    background:var(--bg);
+    border-top:1px solid var(--border);
 }
 
 .scatter-layout{
     display:grid;
-    grid-template-columns:minmax(0, 360px) 1fr;
-    gap:clamp(2rem, 5vw, 5rem);
+    grid-template-columns:minmax(0, 320px) 1fr;
+    gap:clamp(2rem, 5vw, 4rem);
     align-items:start;
     margin-top:2.5rem;
 }
 
-/* ---------- Linke Seite: Info, Filter, Stats ---------- */
+/* ---------- Linke Seite: Text & Methodik ---------- */
+
+.scatter-intro{
+    max-width:400px;
+}
 
 .scatter-desc{
     font-size:1rem;
@@ -29,11 +34,49 @@
     margin:0 0 2rem;
 }
 
+.scatter-desc-methodik{
+    font-size:.9rem;
+    line-height:1.65;
+    margin-bottom:.9rem;
+}
+
+.scatter-desc-methodik strong{
+    color:var(--text);
+}
+
+.scatter-score-list{
+    margin:0 0 1.25rem;
+    padding-left:1.1rem;
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+}
+
+.scatter-score-list li{
+    font-size:.86rem;
+    line-height:1.55;
+    color:var(--text-secondary);
+}
+
+.scatter-desc-note{
+    font-size:.8rem;
+    line-height:1.6;
+    color:var(--text-secondary);
+    opacity:.75;
+    font-style:italic;
+    margin-bottom:2rem;
+}
+
+.scatter-chart-col{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+}
+
 .scatter-filters{
     display:flex;
     gap:.5rem;
     flex-wrap:wrap;
-    margin-bottom:1.75rem;
 }
 
 .scatter-filter-btn{
@@ -58,12 +101,21 @@
     border-color:var(--accent);
 }
 
+/* ---------- Fußzeile: Stats & Legende kompakt nebeneinander ---------- */
+
+.scatter-footer{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:2rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--border);
+}
+
 .scatter-stats{
     display:flex;
     gap:2.5rem;
-    margin-bottom:1.75rem;
-    padding-top:1.5rem;
-    border-top:1px solid var(--border);
 }
 
 .scatter-stat-value{
@@ -85,14 +137,14 @@
 
 .scatter-legend{
     display:flex;
-    flex-direction:column;
-    gap:.6rem;
+    flex-wrap:wrap;
+    gap:.5rem 1.25rem;
 }
 
 .scatter-legend-item{
     display:flex;
     align-items:center;
-    gap:.6rem;
+    gap:.5rem;
     font-size:.82rem;
     color:var(--text-secondary);
     transition:opacity .2s ease;
@@ -115,7 +167,7 @@
     opacity:.35;
 }
 
-/* ---------- Rechte Seite: Diagramm ---------- */
+/* ---------- Diagramm ---------- */
 
 .scatter-chart-card{
     background:#ffffff;
@@ -125,21 +177,21 @@
 
 .scatter-chart-wrap{
     position:relative;
-    height:460px;
+    height:440px;
 }
 
-.scatter-axis-title-x{
-    text-align:right;
-    font-size:.78rem;
-    color:var(--text-secondary);
-    margin-top:.75rem;
-}
-
-@media (max-width:1000px){
+@media (max-width:900px){
     .scatter-layout{
         grid-template-columns:1fr;
     }
+    .scatter-intro{
+        max-width:none;
+    }
+    .scatter-footer{
+        flex-direction:column;
+        gap:1.25rem;
+    }
     .scatter-chart-wrap{
-        height:360px;
+        height:340px;
     }
 }

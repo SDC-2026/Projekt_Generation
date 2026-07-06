@@ -158,7 +158,7 @@ function render() {
       </div>
       <div class="bubblechart-tooltip" id="bubblechart-tooltip"></div>
     </div>
-    <p class="chart-note">Bubble-Größe = Anteil der Befragten (${GENDER_LABELS[currentGroup]}), die diese Bedingung ausgewählt haben (Mehrfachauswahl möglich, n=${group.total}).</p>
+    <p class="chart-note">Bubble-Größe = Anteil der Befragten (${GENDER_LABELS[currentGroup]}), die diese Bedingung ausgewählt haben (Mehrfachauswahl möglich, n=${group.total}). Da Mehrfachnennungen möglich waren, addieren sich die Prozentwerte nicht auf 100 %.</p>
   `;
 
   const tooltip = document.getElementById("bubblechart-tooltip");
