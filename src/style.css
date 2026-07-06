@@ -954,6 +954,19 @@ a:hover{
   font-style: normal;
 }
 
+.hypothesis-text span{
+
+    color:#B8B8B0;
+
+    transition:color .15s linear;
+
+}
+
+.hypothesis-text span.active{
+
+    color:var(--text);
+
+}
 
 /* ---------- Variables ---------- */
 

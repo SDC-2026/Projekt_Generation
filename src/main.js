@@ -121,6 +121,59 @@ function updateHeroParallax() {
 updateHeroParallax();
 window.addEventListener("scroll", updateHeroParallax);
 
+/* ==========================================================
+   LETTER REVEAL (These)
+   ========================================================== */
+
+const hypothesis = document.getElementById("hypothesisText");
+
+if (hypothesis) {
+
+    const text = hypothesis.textContent.trim();
+
+    hypothesis.innerHTML = "";
+
+    [...text].forEach(letter => {
+
+        const span = document.createElement("span");
+        span.textContent = letter;
+        hypothesis.appendChild(span);
+
+    });
+
+    const letters = hypothesis.querySelectorAll("span");
+
+    function updateLetters() {
+
+        const rect = hypothesis.getBoundingClientRect();
+
+        const start = window.innerHeight * 0.85;
+        const end = window.innerHeight * 0.25;
+
+        const progress = (start - rect.top) / (start - end);
+
+        const clamped = Math.max(0, Math.min(progress, 1));
+
+        const visibleLetters = Math.floor(clamped * letters.length);
+
+        letters.forEach((letter, index) => {
+
+            if (index < visibleLetters) {
+                letter.classList.add("active");
+            } else {
+                letter.classList.remove("active");
+            }
+
+        });
+
+    }
+
+    window.addEventListener("scroll", updateLetters, { passive: true });
+
+    updateLetters();
+
+}
+
 // SECTION 04 — METHODE
 
 const methodContent = [
