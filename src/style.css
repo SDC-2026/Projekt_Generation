@@ -685,30 +685,199 @@ a:hover{
 }
 
 /* ==========================================================
-   06 CONTEXT
+   HORIZONTAL FLYING CARDS – LARGE & REVERSED
    ========================================================== */
 
-
-/* ---------- Context Section ---------- */
-
-.context-section {
-  background: var(--text);
+/* Zwingt den Titel in Sektion 2 auf reines Weiß */
+#s2 .section-title,
+.modern-stacking .section-title,
+.context-layout-wrapper .section-title {
+  color: #FFFFFF !important;
 }
 
-.context-section {
-  background: var(--text);
+#s2 .section-title em,
+.modern-stacking .section-title em,
+.context-layout-wrapper .section-title em {
+  color: #FFFFFF !important;
+  font-style: italic;
 }
 
-.context-section .section-label {
-  color: var(--accent);
+.context-section.modern-stacking {
+  background: #1A1A1A !important;
+  height: 400vh; 
+  position: relative;
+  overflow: visible !important;
 }
 
-.context-section .section-title {
-  color: #ffffff;
+.sticky-motion-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center; 
+  overflow: hidden;
 }
 
-.context-section .section-title em {
-  color: rgba(255,255,255,0.7);
+.section-inner-stacking {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container dreht die logische Reihenfolge um */
+.cards-side-container {
+  display: flex;
+  flex-direction: row-reverse; /* Grün landet ganz rechts, Sand ganz links */
+  justify-content: center;
+  align-items: center;
+  gap: 3rem; /* Etwas mehr Platz für die größeren Karten */
+  width: 100%;
+  max-width: 1300px;
+  position: relative;
+}
+
+/* ==========================================================
+   MINI-CARD TEXT FLOW FIX (KEIN ÜBERLAPPEN MEHR)
+   ========================================================== */
+
+.mini-card {
+  width: 380px !important;  
+  height: 380px !important; 
+  padding: 2.5rem !important;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5) !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+  
+  /* Wechsel zu Block-Layout zwingt alles strikt untereinander */
+  display: block !important; 
+  text-align: left !important;
+  overflow: hidden !important; /* Verhindert, dass Text unten rausguckt */
+  
+  /* Animations-Basiswerte für JS */
+  opacity: 0;
+  transform: translateX(-150vw);
+  transition: transform 0.05s linear, opacity 0.05s linear;
+}
+
+/* Überschrift ganz normal oben platzieren */
+.mini-card h3 {
+  display: block !important;
+  width: 100% !important;
+  font-family: var(--font-display), serif !important;
+  font-size: 1.35rem !important; /* Von 1.6rem auf 1.35rem verkleinert */
+  font-weight: 600 !important;
+  margin: 0 0 1rem 0 !important; 
+  padding: 0 !important;
+  color: #1A1A1A !important;
+  white-space: nowrap !important; /* Verhindert eisern, dass ein langes Wort umbricht */
+}
+
+/* Text fließt ganz normal unter der Überschrift weiter */
+.mini-card p {
+  display: block !important;
+  width: 100% !important;
+  font-size: 1rem !important; /* Leicht kompakter, damit es perfekt in 380px passt */
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #1A1A1A !important;
+}
+
+.mini-card {
+  opacity: 1 !important;
+}
+
+.cards-side-container {
+  display: flex !important;
+  flex-direction: row-reverse !important; /* Erlaubt der grünen Karte, den vollen Weg nach links zu fliegen */
+  justify-content: flex-end !important; /* Richtet das Trio linksbündig unter dem Titel aus */
+  align-items: center !important;
+  gap: 3rem !important;
+  width: 100% !important;
+}
+
+/* FARBEN */
+.card-green { background: #81B69D !important; color: #1A1A1A !important; }
+.card-grey  { background: #D7D3CC !important; color: #1A1A1A !important; }
+.card-sand  { background: #D8B69C !important; color: #1A1A1A !important; }
+
+/* ----------------------------------------------------------
+   SCROLL-DRIVEN ANIMATION (CSS-ONLY MOTION)
+   Funktioniert nativ über das Mausrad des Nutzers
+   ---------------------------------------------------------- */
+
+@supports (animation-timeline: view()) {
+  
+  /* Karte 1 fliegt nach oben weg und fadet aus */
+  .stack-card-1 {
+    animation: bleedOut1 linear both;
+    animation-timeline: view(vertical);
+    animation-range: exit 0% exit 100%;
+  }
+
+  /* Karte 2 liegt darunter, wartet und weicht dann für Karte 3 */
+  .stack-card-2 {
+    animation: bleedOut2 linear both;
+    animation-timeline: view(vertical);
+    animation-range: exit -50% exit 100%;
+  }
+}
+
+@keyframes bleedOut1 {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-80px) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-150px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes bleedOut2 {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-60px) scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Mobil-Optimierung: Verhindert zu große Boxen auf kleinen Displays */
+@media (max-width: 768px) {
+  .cards-stack-container {
+    height: 440px;
+  }
+  .motion-card {
+    padding: 2rem;
+  }
+  .motion-card h3 {
+    font-size: 1.6rem;
+  }
+  .motion-card p {
+    font-size: 0.95rem;
+  }
 }
 
 /* Scatterplot-Section-Styles (05 — Zusammenhänge) sind ausgelagert nach

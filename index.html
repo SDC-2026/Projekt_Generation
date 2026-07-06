@@ -74,7 +74,7 @@
     </div>
   </section>
 
-    <!-- SECTION 2: These -->
+    <!-- SECTION 1: These -->
   <section class="section thesis-section" id="s1">
     <div class="section-inner">
       <div class="section-label reveal">01 — Die zentrale These</div>
@@ -92,35 +92,38 @@
     </div>
   </section>
 
-  <!-- SECTION 1: Kontext -->
-  <section class="section context-section" id="s2">
+<!-- SECTION 2: Kontext (Karten fliegen nacheinander ein und aus) -->
+<section class="section context-section modern-stacking" id="s2">
+  <div class="sticky-motion-stage">
     <div class="section-inner">
       <div class="section-label reveal">02 — Kontext</div>
-      <h2 class="section-title reveal">Warum ist das<br>Thema relevant?</h2>
+      <h2 class="section-title reveal">
+        Eine Frage<br>der <em>Perspektive</em>
+      </h2>
+      
+    <div class="cards-side-container">
+        <!-- Sand steht jetzt an erster Stelle im HTML -->
+        <article class="mini-card card-sand">
+          <h3>Der Gesellschaftsvertrag</h3>
+          <p>Demokratie basiert auf Gegenseitigkeit, einer fairen Balance zwischen staatlicher Unterstützung und bürgerlicher Pflicht. Im Kern geht es um eine messbare Frage:<br><br>Wie viel Vertrauen und Sicherheit braucht die Jugend, um bereitwillig Verantwortung zu übernehmen?</p>
+        </article>
+        
+        <!-- Grau bleibt unverändert in der Mitte -->
+        <article class="mini-card card-grey">
+          <h3>Die Realität der Jugend</h3>
+          <p>Die junge Generation verweigert sich nicht aus Prinzip. Wenn das Fundament für die eigene Zukunft als unsicher wahrgenommen wird, verändert das den Blick auf das große Ganze. Erst wenn die eigene Basis stabil ist, entsteht der Freiraum, um über den persönlichen Beitrag für die Gemeinschaft nachzudenken.</p>
+        </article>
 
-      <div class="context-grid">
-        <div class="context-text-card">
-          <p class="context-intro">
-            Aufbauend auf unserer zentralen These beleuchtet dieser Abschnitt die tiefere Relevanz und den politikwissenschaftlichen Kontext hinter unseren Daten.
-          </p>
-
-          <p>
-            Deutschland steht vor einer sicherheitspolitischen Zeitenwende, die eine intensive Debatte über die Neuausrichtung oder Rückkehr der Wehr- und Dienstpflicht entfacht hat. In der öffentlichen Diskussion stehen sich dabei oft sicherheitspolitische Notwendigkeiten und die veränderten Lebensrealitäten der jungen Generation gegenüber. Letztere ist aktuell mit spezifischen sozioökonomischen Herausforderungen wie dem angespannten Wohnungsmarkt, der Inflationsentwicklung und veränderten Zukunftsperspektiven konfrontiert.
-          </p>
-
-          <p>
-            Genau an dieser Schnittstelle setzt unser Projekt an. Wir betrachten die Debatte über die Verteidigungsbereitschaft durch die Brille des <strong>Social Contract (Gesellschaftsvertrags)</strong>. In der Demokratietheorie basiert dieses Konzept fundamental auf dem Prinzip der <strong>Reziprozität</strong> – also auf einer ausgewogenen Balance zwischen staatlicher Fürsorge und bürgerlicher Pflicht.
-          </p>
-
-          <p>
-            Unsere empirischen Daten untersuchen dieses theoretische Spannungsfeld sachlich und messbar: Sie zeigen auf, in welchem Verhältnis die Erwartungen an die soziale Sicherheit, die politische Teilhabe und die tatsächliche Bereitschaft zur Übernahme staatlicher Pflichten zueinander stehen.
-          </p>
-        </div>
-
+        <!-- Grün steht jetzt an dritter Stelle im HTML -->
+        <article class="mini-card card-green">
+          <h3>Die Zeitenwende</h3>
+          <p>Europa steht vor einer sicherheitspolitischen Kehrtwende. Die Diskussion über eine Rückkehr der Wehr- und Dienstpflicht läuft auf Hochtouren. Doch in der öffentlichen Debatte werden die echten Lebensrealitäten der jungen Generation oft völlig übersehen.</p>
+        </article>
       </div>
-
+     </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
 <!-- SECTION 3: Gesellschaftsvertrag -->
