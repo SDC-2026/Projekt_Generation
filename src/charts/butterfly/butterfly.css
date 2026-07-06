@@ -107,6 +107,48 @@
 
 }
 
+.butterfly-question-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+
+    margin:2rem 0 3rem;
+    padding-bottom:2rem;
+
+    border-bottom:1px solid #e8e3dc;
+}
+
+.question-left,
+.question-right{
+    max-width:500px;
+}
+
+.question-right{
+    justify-self:end;
+}
+
+.question-left strong,
+.question-right strong{
+    display:block;
+
+    margin-bottom:.8rem;
+
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+
+    color:var(--accent);
+}
+
+.question-left p,
+.question-right p{
+    margin:0;
+
+    font-size:1.2rem;
+    line-height:1.6;
+}
+
 /* ==========================================================
    CHART CONTAINER
    ========================================================== */
@@ -410,7 +452,7 @@
 }
 
 .bf-footnote-questions span {
-  font-size: .82rem;
+  font-size: .9rem;
   line-height: 1.65;
   color: var(--text-secondary);
 }

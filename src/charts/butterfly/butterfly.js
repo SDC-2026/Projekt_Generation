@@ -75,13 +75,21 @@ function render() {
       `).join('')}
     </div>
 
+    <div class="bf-footnote">
+        <div class="bf-footnote-questions">
+            <span> „Ich habe das Gefühl, dass meine Generation wirtschaftlich schlechtere Zukunftsperspektiven hat als frühere Generationen."</span>
+            <span class="bf-footnote-vs">vs</span>
+            <span> „Ich habe das Gefühl, dass die Anliegen der jüngeren Generation von Politik und Gesellschaft ausreichend wahrgenommen werden."</span>
+        </div>
+    </div>
+
     <div class="butterfly-chart">
       <div class="bf-layout">
 
         <div class="bf-head">
-          <div class="bf-side">Wirtschaftliche Zukunft</div>
+          <div class="bf-side">Wirtschaftliche Unsicherheit</div>
           <div class="bf-center">Antwort</div>
-          <div class="bf-side">Politische Wahrnehmung</div>
+          <div class="bf-side">Politische Repräsentanz</div>
         </div>
 
         <div class="bf-body">${rows}</div>
@@ -89,19 +97,12 @@ function render() {
       </div>
     </div>
 
-    <div class="bf-footnote">
-      <div class="bf-footnote-questions">
-        <span><strong>Links:</strong> „Ich habe das Gefühl, dass meine Generation wirtschaftlich schlechtere Zukunftsperspektiven hat als frühere Generationen."</span>
-        <span class="bf-footnote-vs">vs</span>
-        <span><strong>Rechts:</strong> „Ich habe das Gefühl, dass die Anliegen der jüngeren Generation von Politik und Gesellschaft ausreichend wahrgenommen werden."</span>
-      </div>
-      <div class="bf-footnote-n">
-        <span>Alle: n=${DATA.alle.n}</span>
-        <span>Männlich: n=${DATA.Mann.n}</span>
-        <span>Weiblich: n=${DATA.Frau.n}</span>
-        <span>Divers: n=${DATA.Divers.n}</span>
-      </div>
-    </div>
+<div class="bf-footnote-n">
+  <span>Alle: n=${DATA.alle.n}</span>
+  <span>Männlich: n=${DATA.Mann.n}</span>
+  <span>Weiblich: n=${DATA.Frau.n}</span>
+  <span>Divers: n=${DATA.Divers.n}</span>
+</div>
   `;
 
   /* Buttons aktivieren */
