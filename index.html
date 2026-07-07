@@ -549,22 +549,68 @@
 
       <div class="charts-grid">
 
-        <!-- Halbkreis Wehrdienst-Bereitschaft -->
-      <article class="chart-card reveal" data-delay="100">
-        <p class="chart-kicker" style="color: #81B69D;">Dienstbereitschaft</p>
-        <h3>Bereitschaft zum Wehrdienst</h3>
-        <div class="semi-chart">
-          
-          <!-- Wir nutzen dein funktionierendes CSS, spiegeln es aber per scaleX(-1) auf die linke Seite -->
-<div class="semi-circle" id="semiCircle" style="--pct: 0; background: conic-gradient(from 225deg, #B96A52 0deg calc(var(--pct) * 2.6deg), var(--border) calc(var(--pct) * 2.6deg) 360deg);"></div>
-          <div class="semi-value" id="semiValue" style="color: #B96A52; text-align: center;">0.0 %</div>
-          
-          <p class="chart-note" style="margin: 0 auto; text-align: center; max-width: 100%;">
-            stufen ihre eigene Wehrbereitschaft als <span style="color: #B96A52; font-weight: 500; display: inline;">sehr gering</span> ein
+       <!-- Halbkreis Wehrdienst-Bereitschaft -->
+<article class="chart-card reveal" data-delay="100">
+  <p class="chart-kicker" style="color: #81B69D;">Dienstbereitschaft</p>
+  <h3>Bereitschaft zum Wehrdienst</h3>
+  <div class="semi-chart">
+    <div class="semi-circle" id="semiCircle" style="--pct: 52; background: conic-gradient(from 225deg, #B96A52 0deg calc(var(--pct) * 2.6deg), var(--border) calc(var(--pct) * 2.6deg) 360deg);"></div>
+    <div class="semi-value" id="semiValue" style="color: #B96A52; text-align: center;">52 %</div>
+    
+    <p class="chart-note" style="margin: 0 auto; text-align: center; max-width: 100%;">
+      stufen ihre eigene Wehrbereitschaft als <span style="color: #B96A52; font-weight: 500; display: inline;">sehr gering</span> ein
+    </p>
+  </div>
+</article>
+
+<!-- Wirtschafts-Perspektive (direkt im Anschluss im DOM) -->
+<div class="wirtschafts-story-container">
+  
+  <!-- 1. Top-Karte -->
+  <div class="wirtschafts-top-card">
+    <div class="wirtschafts-badge">82&nbsp;%</div>
+    <div class="wirtschafts-text-container">
+      <p class="wirtschafts-lead-text">
+        Eine große Mehrheit der Befragten glaubt, dass ihre Generation schlechtere wirtschaftliche Chancen hat als frühere Generationen.
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. Die zwei quadratischen Flip-Cards -->
+  <div class="wirtschafts-cards-grid">
+    
+    <!-- Linke Karte: Ursachen -->
+    <div class="wirtschafts-flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="wirtschafts-flip-card-inner">
+        <div class="wirtschafts-flip-card-front">
+          <h2>Ursachen</h2>
+          <div class="wirtschafts-action-hint">Mehr erfahren ↻</div>
+        </div>
+        <div class="wirtschafts-flip-card-back">
+          <p class="wirtschafts-back-text">
+            Die Hauptgründe hierfür liegen vor allem in der <span class="text-highlight-cause">allgemeinen Inflation</span>, den anhaltenden <span class="text-highlight-cause">geopolitischen Spannungen</span> sowie den Sorgen um die <span class="text-highlight-cause">Zukunft des Rentensystems</span> und <span class="text-highlight-cause">unsichere Arbeitsplätze</span>.
           </p>
         </div>
-      </article>
+      </div>
+    </div>
 
+    <!-- Rechte Karte: Auswirkungen -->
+    <div class="wirtschafts-flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="wirtschafts-flip-card-inner">
+        <div class="wirtschafts-flip-card-front">
+          <h2>Auswirkungen</h2>
+          <div class="wirtschafts-action-hint">Mehr erfahren ↻</div>
+        </div>
+        <div class="wirtschafts-flip-card-back">
+          <p class="wirtschafts-back-text">
+            Diese Belastungen führen im Alltag zu einer spürbaren <span class="text-highlight-effect">Zukunftsunsicherheit</span> bei der Lebensplanung, verstärkten <span class="text-highlight-effect">finanziellen Sorgen</span> und einem Niveau von <span class="text-highlight-effect">anhaltendem Stress</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
         <!-- Butterfly Diagramm (Frage 6 vs. Frage 9 — echte Daten) -->
         <article class="chart-card wide reveal">
           <p class="chart-kicker">Zukunft &amp; Wahrnehmung</p>

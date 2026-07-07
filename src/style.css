@@ -2748,6 +2748,158 @@ gap:4rem;
 }
 
 /* ==========================================================
+   SEKTION: WIRTSCHAFTLICHE ZUKUNFTSPERSPEKTIVE
+   ========================================================== */
+
+.wirtschafts-story-container {
+  --wirtschafts-gap: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wirtschafts-gap); 
+}
+
+/* 1. DIE OBERE BANNER-KARTE */
+.wirtschafts-top-card {
+  border-radius: 0px !important; 
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background-color: #F9F8F6;
+  margin: 0 !important; 
+}
+
+.wirtschafts-badge {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2E6F40;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.wirtschafts-text-container {
+  flex: 1;
+}
+
+.wirtschafts-lead-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #444444; /* Sanftes Dunkelgrau */
+}
+
+/* 2. GRID FÜR INTERAKTIVE FLIP-KARTEN */
+.wirtschafts-cards-grid {
+  display: flex;
+  gap: var(--wirtschafts-gap); 
+  width: 100%;
+}
+
+.wirtschafts-flip-card {
+  background-color: transparent;
+  width: calc(50% - (var(--wirtschafts-gap) / 2)); 
+  aspect-ratio: 1 / 1; 
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* HOVER-EFFEKT: Aktiviert das geschmeidige Anheben beim Laden der Seite */
+.wirtschafts-top-card,
+.wirtschafts-flip-card {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease !important;
+}
+
+.wirtschafts-top-card:hover,
+.wirtschafts-flip-card:hover {
+  transform: translateY(-5px) !important;
+}
+
+.wirtschafts-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.wirtschafts-flip-card.flipped .wirtschafts-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.wirtschafts-flip-card-front, 
+.wirtschafts-flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden !important; 
+  backface-visibility: hidden !important;
+  border-radius: 0px !important; 
+  box-sizing: border-box;
+}
+
+.wirtschafts-flip-card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  position: relative;
+  background-color: #F9F8F6;
+  padding: 20px;
+}
+
+/* KARTENTITEL: Schriftart- und Farbanpassung mit hoher Priorität */
+.wirtschafts-story-container .wirtschafts-flip-card-front h2,
+.wirtschafts-story-container .wirtschafts-flip-card-front h3 {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  color: #6B6B68 !important;
+  font-weight: 500 !important;
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+/* Interaktions-Hinweis unten rechts */
+.wirtschafts-action-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8A8A8A;
+}
+
+.wirtschafts-flip-card-back {
+  transform: rotateY(180deg);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F9F8F6;
+}
+
+.wirtschafts-back-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #555555;
+  text-align: left;
+}
+
+/* BRAND-FARBEN FÜR TEXT-HIGHLIGHTS */
+.text-highlight-cause {
+  color: #8C7AE6; 
+  font-weight: 600;
+}
+
+.text-highlight-effect {
+  color: #B96A52; 
+  font-weight: 600;
+}
+
+/* ==========================================================
    14 RESPONSIVE
    ========================================================== */
 /* ---------- Animations ---------- */
@@ -3831,3 +3983,4 @@ gap:4rem;
    Smartphone:   ≤ 768px         (siehe 14.03 / 15.xx)
    Kleine Phones ≤ 480–560px     (siehe 14.04 / 15.xx)
    ---------------------------------------------------------- */
+
