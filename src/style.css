@@ -704,7 +704,7 @@ a:hover{
 
 .context-section.modern-stacking {
   background: #1A1A1A !important;
-  height: 400vh; 
+  height: 150vh; 
   position: relative;
   overflow: visible !important;
 }
@@ -742,7 +742,7 @@ a:hover{
 }
 
 /* ==========================================================
-   MINI-CARD TEXT FLOW FIX (KEIN ÜBERLAPPEN MEHR)
+   MINI-CARD TEXT FLOW FIX 
    ========================================================== */
 
 .mini-card {
@@ -797,7 +797,7 @@ a:hover{
 .cards-side-container {
   display: flex !important;
   flex-direction: row-reverse !important; /* Erlaubt der grünen Karte, den vollen Weg nach links zu fliegen */
-  justify-content: flex-end !important; /* Richtet das Trio linksbündig unter dem Titel aus */
+  justify-content: center !important; /* Von flex-end auf center geändert für perfekte Symmetrie */
   align-items: center !important;
   gap: 3rem !important;
   width: 100% !important;
