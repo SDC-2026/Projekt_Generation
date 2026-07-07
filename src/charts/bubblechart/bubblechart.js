@@ -154,7 +154,7 @@ function render() {
           font-size:${Math.max(11, n.r / 4.2)}px;
         "
         data-id="${n.id}"
-        tabindex="0"
+
       >
         <span class="bubblechart-bubble-pct">${n.pct}%</span>
         <span class="bubblechart-bubble-label">${shortDisplayLabel(n.id, n.label)}</span>
@@ -168,34 +168,11 @@ function render() {
       <div class="bubblechart-canvas" style="width:${width}px; height:${height}px;">
         ${bubblesHtml}
       </div>
-      <div class="bubblechart-tooltip" id="bubblechart-tooltip"></div>
     </div>
     <p class="chart-note">Bubble-Größe = Anteil der Befragten (${GENDER_LABELS[currentGroup]}), die diese Bedingung ausgewählt haben (Mehrfachauswahl möglich, n=${group.total}). Da Mehrfachnennungen möglich waren, addieren sich die Prozentwerte nicht auf 100 %.</p>
   `;
 
-  const tooltip = document.getElementById("bubblechart-tooltip");
 
-  root.querySelectorAll(".bubblechart-bubble").forEach((el) => {
-    const item = group.items.find((d) => d.id === el.dataset.id);
-
-    function show(e) {
-      tooltip.textContent = `${item.label} — ${item.pct}% (n=${item.count})`;
-      tooltip.classList.add("visible");
-      const rect = root.getBoundingClientRect();
-      const x = (e.clientX ?? e.touches?.[0]?.clientX ?? 0) - rect.left;
-      const y = (e.clientY ?? e.touches?.[0]?.clientY ?? 0) - rect.top;
-      tooltip.style.left = `${x + 16}px`;
-      tooltip.style.top = `${y + 16}px`;
-    }
-    function hide() {
-      tooltip.classList.remove("visible");
-    }
-
-    el.addEventListener("mousemove", show);
-    el.addEventListener("mouseleave", hide);
-    el.addEventListener("focus", show);
-    el.addEventListener("blur", hide);
-  });
 
   root.querySelectorAll(".bubblechart-filter-btn").forEach((btn) => {
     btn.addEventListener("click", () => {

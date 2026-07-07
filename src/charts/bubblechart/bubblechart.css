@@ -62,13 +62,6 @@
     box-shadow:0 4px 14px rgba(0,0,0,.08);
 }
 
-.bubblechart-bubble:hover,
-.bubblechart-bubble:focus{
-    transform:scale(1.06);
-    box-shadow:0 8px 22px rgba(0,0,0,.16);
-    outline:none;
-    z-index:5;
-}
 
 .bubblechart-bubble-pct{
     font-weight:700;
