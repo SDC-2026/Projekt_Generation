@@ -377,7 +377,7 @@
     font-size:.78rem;
     font-weight:600;
 
-    transition:width .8s ease;
+    transition:width .8s cubic-bezier(0.33, 1, 0.68, 1);
 
 }
 

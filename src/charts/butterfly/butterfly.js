@@ -31,6 +31,31 @@ if (!root) throw new Error('kein #butterfly-root');
 let active = 'alle';
 
 /* ----------------------------------------------------------
+   ANIMATION HELPERS
+   ---------------------------------------------------------- */
+const ANIM_DURATION = 800; // ms – innerhalb 700–900ms
+const EASE = t => 1 - Math.pow(1 - t, 3); // easeOutCubic – passt zum CSS-Bar-Easing
+
+function animateCount(el, target, duration = ANIM_DURATION) {
+  const start = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const value = target * EASE(progress);
+
+    el.textContent = `${value.toFixed(1)} %`;
+
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent = `${target.toFixed(1)} %`; // exakter Endwert, keine Rundungsfehler
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
+
+/* ----------------------------------------------------------
    RENDER
    ---------------------------------------------------------- */
 function render() {
@@ -45,19 +70,19 @@ function render() {
       <div class="bf-row">
 
         <div class="bf-left">
-            <span class="bf-value left">
-                ${pctL} %
+            <span class="bf-value left" data-target="${pctL}">
+                0.0 %
             </span>
             
-            <div class="bf-bar ${cls}" style="width:${pctL}%"></div>
+            <div class="bf-bar ${cls}" style="width:0%" data-target-width="${pctL}%"></div>
         </div>
 
         <div class="bf-label">${LABELS[s]}</div>
 
         <div class="bf-right">
-            <div class="bf-bar ${cls}" style="width:${pctR}%"></div>
-            <span class="bf-value right">
-                ${pctR} %
+            <div class="bf-bar ${cls}" style="width:0%" data-target-width="${pctR}%"></div>
+            <span class="bf-value right" data-target="${pctR}">
+                0.0 %
             </span>
 
         </div>
@@ -113,12 +138,13 @@ function render() {
     });
   });
 
-  /* Balken animieren */
+  /* Balken + Zahlen animieren (synchron, ~800ms) */
   requestAnimationFrame(() => {
     root.querySelectorAll('.bf-bar').forEach(bar => {
-      const target = bar.style.width;
-      bar.style.width = '0%';
-      requestAnimationFrame(() => { bar.style.width = target; });
+      bar.style.width = bar.dataset.targetWidth;
+    });
+    root.querySelectorAll('.bf-value').forEach(val => {
+      animateCount(val, parseFloat(val.dataset.target));
     });
   });
 }
