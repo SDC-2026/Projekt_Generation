@@ -154,10 +154,9 @@ function render() {
           font-size:${Math.max(11, n.r / 4.2)}px;
         "
         data-id="${n.id}"
-
+        tabindex="0"
       >
-        <span class="bubblechart-bubble-pct">${n.pct}%</span>
-        <span class="bubblechart-bubble-label">${shortDisplayLabel(n.id, n.label)}</span>
+        <span class="bubblechart-bubble-pct">${Math.round(n.pct)}%</span> <span class="bubblechart-bubble-label">${shortDisplayLabel(n.id, n.label)}</span>
       </div>`
     )
     .join("");
