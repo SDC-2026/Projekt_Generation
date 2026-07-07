@@ -2771,8 +2771,9 @@ gap:4rem;
 }
 
 .wirtschafts-badge {
+  font-family: 'Source Serif 4', Georgia, serif !important; /* Gleicher Serif-Font wie bei den Überschriften */
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #2E6F40;
   line-height: 1;
   white-space: nowrap;
@@ -2897,6 +2898,121 @@ gap:4rem;
 .text-highlight-effect {
   color: #B96A52; 
   font-weight: 600;
+}
+
+/* ==========================================================
+   ELEGANTE THEMEN-TABS (ZENTRIERT & SERIF)
+   ========================================================== */
+
+/* Zentriert die gesamte Navigation auf der Karte */
+.likert-tabs-nav-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 35px; /* Mehr Platz zum Atmen vor dem Chart */
+}
+
+.likert-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+/* Trennlinie zwischen den beiden Themen */
+.tab-separator {
+  width: 1px;
+  height: 40px;
+  background-color: #E5E5E0;
+}
+
+/* Die eleganten Überschriften-Buttons */
+.likert-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 0 0 8px 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert Text intern */
+  text-align: center;
+  font-family: inherit;
+  position: relative;
+  transition: opacity 0.3s ease;
+  opacity: 0.4; /* Inaktives Thema ist dezent ausgeblendet */
+}
+
+/* Kicker über der Hauptüberschrift im Tab */
+.likert-tab-btn .tab-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2E6F40; /* Dein Akzent-Grün */
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Die Hauptüberschrift im Tab */
+.likert-tab-btn .tab-title {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #444444;
+}
+
+/* Aktiver Zustand: Voll sichtbar + edle Unterstreichung */
+.likert-tab-btn.active {
+  opacity: 1;
+}
+
+.likert-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  width: 70%; /* Stilvolle, nicht ganz durchgezogene Linie */
+  height: 2px;
+  background-color: #2E6F40;
+  animation: scaleLine 0.3s ease forwards;
+}
+
+/* Hover-Effekt für das inaktive Thema */
+.likert-tab-btn:hover:not(.active) {
+  opacity: 0.8;
+}
+
+/* Animation für die aktive Unterlinie */
+@keyframes scaleLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/*Wrapper für den Inhalt */
+.likert-tabs-content {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.likert-tab-panel {
+  display: none;
+}
+
+/* Sanfter, feiner Wisch- und Fade-Effekt für das Chart */
+.likert-tab-panel.active {
+  display: block;
+  animation: elegantTabSwipe 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes elegantTabSwipe {
+  from {
+    opacity: 0;
+    transform: translateY(10px); /* Sanftes Aufsteigen statt hartem Seitenswipe */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================

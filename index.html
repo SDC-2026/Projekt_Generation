@@ -571,7 +571,7 @@
     <div class="wirtschafts-badge">82&nbsp;%</div>
     <div class="wirtschafts-text-container">
       <p class="wirtschafts-lead-text">
-        Eine große Mehrheit der Befragten glaubt, dass ihre Generation schlechtere wirtschaftliche Chancen hat als frühere Generationen.
+        der Befragten glauben, dass ihre Generation schlechtere wirtschaftliche Chancen hat als frühere Generationen.
       </p>
     </div>
   </div>
@@ -603,7 +603,8 @@
         </div>
         <div class="wirtschafts-flip-card-back">
           <p class="wirtschafts-back-text">
-            Diese Belastungen führen im Alltag zu einer spürbaren <span class="text-highlight-effect">Zukunftsunsicherheit</span> bei der Lebensplanung, verstärkten <span class="text-highlight-effect">finanziellen Sorgen</span> und einem Niveau von <span class="text-highlight-effect">anhaltendem Stress</span>.
+            Für die große Mehrheit führen diese Belastungen im Alltag zu einer spürbaren <span class="text-highlight-effect">Zukunftsunsicherheit</span> bei der Lebensplanung, verstärkten <span class="text-highlight-effect">finanziellen Sorgen</span> und <span class="text-highlight-effect">anhaltendem Stress</span>.
+          </p>
           </p>
         </div>
       </div>
@@ -673,21 +674,40 @@
         </div>
         </article>
 
-        <!-- Likert Chart Wahrnehmung-->
-        <article class="chart-card wide reveal" data-delay="100">
-         <p class="chart-kicker">Fairness-Wahrnehmung</p>
-         <h3>Wie die Gen Z staatliche Institutionen wahrnimmt</h3>
-         <div id="likert-root"></div>
-        </article>
+        <!-- Kombinierte Likert-Charts mit eleganten Themen-Tabs -->
+<article class="chart-card wide reveal" data-delay="100">
+  
+  <!-- Zentrierte, elegante Themen-Navigation -->
+  <div class="likert-tabs-nav-container">
+    <div class="likert-tabs-nav">
+      <button class="likert-tab-btn active" onclick="switchLikertTab(event, 'wahrnehmung-tab')">
+        <span class="tab-kicker">Fairness-Wahrnehmung</span>
+        <span class="tab-title">Wie die Gen Z staatliche Institutionen wahrnimmt</span>
+      </button>
+      
+      <div class="tab-separator"></div>
+      
+      <button class="likert-tab-btn" onclick="switchLikertTab(event, 'pflichten-tab')">
+        <span class="tab-kicker">Gesellschaftsvertrag &amp; Pflichten</span>
+        <span class="tab-title">Einstellung zu Pflichten und Gegenleistungen</span>
+      </button>
+    </div>
+  </div>
 
-        <!-- Zweites Likert Chart (Fragen 16–19) -->
-        <article class="chart-card wide reveal" data-delay="100">
-          <p class="chart-kicker">Gesellschaftsvertrag &amp; Pflichten</p>
-          <h3>Einstellung zu staatlichen Pflichten und Gegenleistungen</h3>
-          <!-- WICHTIG: Neue ID für das zweite Diagramm -->
-          <div id="likert-pflichten-root"></div>
-        </article>
+  <!-- Inhalt-Bereich mit Wisch-Effekt -->
+  <div class="likert-tabs-content">
+    <!-- Tab 1: Institutionen -->
+    <div id="wahrnehmung-tab" class="likert-tab-panel active">
+      <div id="likert-root"></div>
+    </div>
 
+    <!-- Tab 2: Pflichten -->
+    <div id="pflichten-tab" class="likert-tab-panel">
+      <div id="likert-pflichten-root"></div>
+    </div>
+  </div>
+
+</article>
     
 
         <!-- Bubble Chart: Frage 15 (Bedingungen für Pflichtdienst-Akzeptanz) -->
