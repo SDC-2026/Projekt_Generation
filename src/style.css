@@ -1124,17 +1124,28 @@ a:hover{
 }
 
 .hypothesis-text span{
+    color: var(--text);
+    opacity: .12;
 
-    color:#B8B8B0;
+    filter: blur(2px);
 
-    transition:color .15s linear;
+    transition:
+        opacity .6s ease,
+        color .6s ease,
+        filter .6s ease,
+        transform .6s ease;
 
+    transform: scale(.98);
 }
 
 .hypothesis-text span.active{
+    opacity: 1;
 
-    color:var(--text);
+    color: var(--text);
 
+    filter: blur(0);
+
+    transform: scale(1.02);
 }
 
 /* ---------- Variables ---------- */
@@ -2977,3 +2988,846 @@ gap:4rem;
     grid-template-columns:repeat(2,1fr);
   }
   }
+
+/* ==========================================================
+   15 MOBILE-OPTIMIERUNG (gebündelte Ergänzung)
+   Diese Sektion steht bewusst am Ende der Datei, damit sie in
+   der Kaskade Vorrang vor den älteren, verstreuten Media-Queries
+   hat. Sie ist nach der Checkliste "Mobile optimieren" gegliedert.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   15.01 — Allgemeines Layout
+   ---------------------------------------------------------- */
+
+@media (max-width:1024px){
+
+  .section-inner{
+    padding:6rem 1.75rem 4rem;
+  }
+
+  .contract-layout{
+    gap:3rem;
+  }
+
+}
+
+@media (max-width:768px){
+
+  html, body{
+    overflow-x:hidden;
+  }
+
+  .section-inner{
+    padding:5.5rem 1.15rem 3.5rem;
+  }
+
+  .nav-inner{
+    padding:0 1.15rem;
+  }
+
+  .footer-section{
+    padding:5rem 1.15rem 2.5rem;
+  }
+
+  /* Keine festen Breiten mehr auf Mobile */
+  .method-card,
+  .balance-card,
+  .contract-step,
+  .contract-highlight,
+  .thesis-hypothesis{
+    max-width:100%;
+  }
+
+  .mini-card{
+    width:100% !important;
+    max-width:440px;
+  }
+
+  img, svg, canvas{
+    max-width:100%;
+    height:auto;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .section-inner{
+    padding:4.75rem 1rem 3rem;
+  }
+
+  .nav-inner{
+    padding:0 1rem;
+  }
+
+  .footer-section{
+    padding:4rem 1rem 2.5rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.02 — Typografie
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .section-title{
+    font-size:clamp(1.9rem, 7vw, 2.6rem);
+    line-height:1.2;
+    margin-bottom:2.25rem;
+    overflow-wrap:break-word;
+    hyphens:auto;
+  }
+
+  body{
+    font-size:1rem;
+    line-height:1.7;
+  }
+
+  .contract-step p,
+  .context-col p,
+  .conclusion-card p,
+  .insight-back p,
+  .insight-front p,
+  .genz-years p,
+  .method-card p,
+  .scatter-desc{
+    font-size:1rem;
+    line-height:1.75;
+  }
+
+  .section-label,
+  .section-label-fixed{
+    font-size:.7rem;
+    letter-spacing:.1em;
+  }
+
+  .chart-kicker,
+  .insight-tag{
+    font-size:.7rem;
+  }
+
+  .mini-card h3{
+    white-space:normal !important;
+    font-size:1.2rem !important;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .section-title{
+    font-size:clamp(1.65rem, 8vw, 2.1rem);
+  }
+
+  .hypothesis-text{
+    font-size:1.15rem;
+    line-height:1.55;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.03 — Navigation
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .nav-label{
+    display:none;
+  }
+
+  .nav-dots{
+    gap:14px;
+  }
+
+  /* Größere, gut treffbare Touch-Fläche ohne den optischen
+     Punkt zu vergrößern: unsichtbare 44×44px Hit-Area */
+  .nav-dot{
+    position:relative;
+    width:9px;
+    height:9px;
+  }
+
+  .nav-dot::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:44px;
+    height:44px;
+    transform:translate(-50%, -50%);
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.04 — Hero
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .hero-section{
+    min-height:92vh;
+  }
+
+  .hero-content{
+    padding:calc(var(--nav-h) + 1.5rem) 1.15rem 3rem;
+  }
+
+  .hero-overline{
+    margin-bottom:1.25rem;
+    font-size:.72rem;
+  }
+
+  .hero-title{
+    font-size:2.6rem;
+    margin-bottom:1.25rem;
+  }
+
+  .hero-sub{
+    max-width:100%;
+    margin-bottom:3rem;
+    font-size:1.05rem;
+  }
+
+  .hero-background-svg{
+    width:420px;
+    right:-30%;
+    top:55%;
+    opacity:.06;
+  }
+
+  .scroll-hint{
+    gap:1rem;
+  }
+
+  .generation-tags{
+    right:1.15rem;
+    bottom:1.5rem;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .hero-title{
+    font-size:2.15rem;
+  }
+
+  .hero-background-svg{
+    width:300px;
+    right:-40%;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.05 — These
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .thesis-layout{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .thesis-hypothesis{
+    max-width:100%;
+  }
+
+  .thesis-variables{
+    padding:1.5rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.06 — Kontext
+   ---------------------------------------------------------- */
+
+@media (max-width:900px){
+
+  .context-section.modern-stacking{
+    height:auto;
+    padding:5.5rem 0 4rem;
+  }
+
+  .sticky-motion-stage{
+    position:relative;
+    top:auto;
+    height:auto;
+    padding:0;
+  }
+
+  .cards-side-container{
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+    gap:1.5rem !important;
+  }
+
+  .mini-card{
+    height:auto !important;
+    min-height:220px;
+    transform:none !important;
+    opacity:1 !important;
+    transition:none !important;
+  }
+
+  .context-three-col{
+    grid-template-columns:1fr;
+  }
+
+  .context-map{
+    max-width:320px;
+    margin-left:0;
+  }
+
+  .stack-card-1,
+  .stack-card-2,
+  .stack-card-3,
+  .mini-card{
+      transform:none !important;
+      opacity:1 !important;
+      animation:none !important;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   15.07 — Gesellschaftsvertrag
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .contract-layout{
+    grid-template-columns:1fr;
+    gap:3rem;
+    margin-top:3rem;
+  }
+
+  .contract-graphic{
+    position:relative;
+    top:0;
+  }
+
+  .contract-text{
+    gap:3rem;
+  }
+
+  .contract-step h3{
+    font-size:1.5rem;
+  }
+
+  .balance-card{
+    padding:1.75rem;
+  }
+
+  .balance-icon,
+  .balance-icon img{
+    width:56px;
+    height:56px;
+  }
+
+  .balance-side h4{
+    font-size:1.15rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.08 — Methode
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .method-section{
+    height:auto;
+    min-height:auto;
+  }
+
+  .method-section .section-inner{
+    height:auto;
+  }
+
+  .method-layout{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .method-main{
+    width:100%;
+    padding-right:0;
+  }
+
+  .method-side{
+    display:none;
+  }
+
+  .method-process{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+  }
+
+  .process-line{
+    display:none;
+  }
+
+  .process-step{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+
+    gap:1rem;
+
+    padding:2rem 1.5rem;
+
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    opacity:1;
+    transform:none;
+  }
+
+  .process-icon{
+    width:72px;
+    height:72px;
+    margin:0;
+  }
+
+  .process-step h3{
+    margin:0;
+    font-size:1.7rem;
+  }
+
+  .process-step p{
+    max-width:100%;
+    margin:0;
+    font-size:1rem;
+    line-height:1.7;
+    color:var(--text-secondary);
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.09 — Generation Z
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .genz-content{
+    grid-template-columns:1fr;
+    gap:2.5rem;
+  }
+
+  .generations-timeline{
+    gap:1.5rem;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .timeline-item{
+    grid-template-columns:1fr;
+    gap:.4rem;
+  }
+
+  .timeline-item small{
+    grid-column:1;
+  }
+
+  .year-range{
+    font-size:1.6rem;
+    margin-bottom:.4rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.10 — Diagramme
+   ---------------------------------------------------------- */
+
+/* Allgemein: volle Breite, Legenden vereinfacht */
+
+@media (max-width:768px){
+
+  .charts-grid{
+    grid-template-columns:1fr;
+    gap:1.25rem;
+    padding:0 1.15rem 4rem;
+  }
+
+  .chart-card{
+    padding:1.5rem;
+    min-height:auto;
+  }
+
+  .chart-card.wide{
+    grid-column:auto;
+  }
+
+  /* ---- Scatterplot ---- */
+
+  .scatter-layout{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .scatter-filters{
+    flex-wrap:wrap;
+    gap:.5rem;
+  }
+
+  .scatter-filter-btn{
+    padding:.6rem 1rem;
+    min-height:44px;
+  }
+
+  .scatter-chart-wrap{
+    min-height:320px;
+  }
+
+  .scatter-chart-wrap canvas{
+    width:100% !important;
+    height:auto !important;
+  }
+
+  .scatter-legend{
+    flex-wrap:wrap;
+    gap:.75rem;
+  }
+
+  /* ---- Butterfly Chart ---- */
+
+  .butterfly-head,
+  .butterfly-row{
+    grid-template-columns:1fr 70px 1fr;
+    gap:.5rem;
+  }
+
+  .answer-label{
+    font-size:.62rem;
+    white-space:normal;
+  }
+
+  .left-bar,
+  .right-bar{
+    height:24px;
+    font-size:.62rem;
+    white-space:normal;
+  }
+
+  .butterfly-question-row{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+
+  /* ---- Piktogramm ---- */
+
+  .service-pictogram-chart{
+    grid-template-columns:repeat(2,1fr);
+    gap:1.5rem 1rem;
+  }
+
+  .service-icons span{
+    font-size:1.6rem;
+  }
+
+  .service-column strong{
+    font-size:2rem;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .service-pictogram-chart{
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem .75rem;
+  }
+
+  .butterfly-head,
+  .butterfly-row{
+    grid-template-columns:1fr 56px 1fr;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.11 — Erkenntnisse (Flip Cards)
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .insights-grid{
+    grid-template-columns:1fr;
+    gap:1rem;
+    background:transparent;
+  }
+
+  .insight-card{
+    height:auto;
+    min-height:430px;
+  }
+
+  .insight-face{
+    justify-content:space-between;
+  }
+
+  .insight-front{
+    padding-top:4.5rem;
+  }
+
+  .insight-front p{
+    font-size:1.05rem;
+  }
+
+  .insight-quote{
+    font-size:2.6rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.12 — Fazit
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .conclusion-content{
+    grid-template-columns:1fr;
+    gap:1.5rem;
+  }
+
+  .conclusion-card{
+    padding:1.75rem;
+  }
+
+  .conclusion-card p{
+    font-size:1.02rem;
+  }
+
+  .conclusion-highlight{
+    padding:3rem 1.5rem;
+    margin-top:2.5rem;
+  }
+
+  .conclusion-highlight h3{
+    font-size:1.6rem;
+  }
+
+  .conclusion-quote p{
+    font-size:1.3rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.13 — Footer
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:3rem;
+  }
+
+  .footer-links li,
+  .footer-team li{
+    font-size:1.05rem;
+    line-height:2;
+  }
+
+  .footer-links a{
+    display:inline-block;
+    padding:.25rem 0;
+  }
+
+  .footer-bottom{
+    margin-top:3rem;
+    padding-top:1.5rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.14 — Bilder & Illustrationen
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .hero-background-svg,
+  .context-map{
+    max-width:100%;
+  }
+
+  .balance-icon img,
+  .process-icon img{
+    object-fit:contain;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.15 — Animationen (Touch-Optimierung & Performance)
+   ---------------------------------------------------------- */
+
+/* Hover-Effekte nur für Geräte mit echtem Hover ausführen,
+   damit sie auf Touch-Geräten nicht "hängen bleiben" */
+
+@media (hover:none) and (pointer:coarse){
+
+  .contract-item:hover{
+    transform:none;
+    border-color:#ececec;
+  }
+
+  .conclusion-card:hover{
+    transform:none;
+    box-shadow:var(--shadow-sm);
+  }
+
+  .chart-card:hover{
+    transform:none;
+    box-shadow:none;
+  }
+
+  .insight-card:hover .insight-card-inner{
+    transform:none;
+  }
+
+  .insight-card.flipped:hover .insight-card-inner{
+    transform:rotateY(180deg);
+  }
+
+  .nav-dot:hover{
+    transform:none;
+    border-color:var(--text-secondary);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.16 — Mobile-spezifische Bedienung
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  /* Mindestgröße 44×44px für alle klickbaren Buttons */
+  /* ---------- Navigation ---------- */
+
+.nav-dot{
+    width:10px;
+    height:10px;
+    min-width:10px;
+    min-height:10px;
+    border-radius:50%;
+    display:block;
+    position:relative;
+}
+
+.nav-dot::before{
+    content:"";
+    position:absolute;
+    inset:-17px;
+}
+
+/* ---------- Scatter-Buttons ---------- */
+
+.scatter-filter-btn{
+    min-height:44px;
+    padding:.6rem 1rem;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* ---------- Butterfly-Buttons ---------- */
+
+.bf-filter{
+    min-height:44px;
+    padding:.6rem 1.1rem;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.butterfly-toolbar{
+    flex-wrap:wrap;
+    gap:.6rem;
+}
+
+.scatter-filters{
+    gap:.6rem;
+}
+
+.nav-dot::before{
+    content:"";
+    position:absolute;
+    inset:-17px;
+}
+
+  .butterfly-toolbar{
+    flex-wrap:wrap;
+    gap:.6rem;
+  }
+
+  .bf-filter{
+    padding:.6rem 1.1rem;
+  }
+
+  /* Ausreichend Abstand zwischen Buttons */
+  .scatter-filters,
+  .butterfly-toolbar{
+    gap:.6rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.17 — Responsive Breakpoints (Referenz)
+   Desktop:            > 1200px  (Basisstyles)
+   Laptop:      1024px – 1200px  (siehe 14.01 / 15.01)
+   Tablet:       768px – 1024px  (siehe 14.02 / 15.xx)
+   Smartphone:   ≤ 768px         (siehe 14.03 / 15.xx)
+   Kleine Phones ≤ 480–560px     (siehe 14.04 / 15.xx)
+   ---------------------------------------------------------- */
