@@ -89,17 +89,21 @@ console.log(`→ Quelle: "${bestFile}" (${allRecords.length} Zeilen gesamt, ${re
 
 // ==========================================================
 // SCATTERPLOT: Wehrdienst-Bereitschaft & Gesellschaftsvertrag
-// x = Frage 10, y = Mittelwert aus Frage 15, 17, 18, 19 (Frage 16 bewusst ausgeschlossen)
+// x = Frage 10, y = Mittelwert aus Frage 9, 12, 13, 14, 15
+// (reine Wahrnehmungs-/Vertrauens-Items zur Erfüllung des
+// Gesellschaftsvertrags durch den Staat; normative/persönliche
+// Werte-Items 16-19 bewusst ausgeschlossen)
 // ==========================================================
 
 function generateScatterData() {
   const c10 = findColumn(columns, "Frage 10 -");
+  const c9 = findColumn(columns, "Frage 9 -");
+  const c12 = findColumn(columns, "Frage 12 -");
+  const c13 = findColumn(columns, "Frage 13 -");
+  const c14 = findColumn(columns, "Frage 14 -");
   const c15 = findColumn(columns, "Frage 15 -");
-  const c17 = findColumn(columns, "Frage 17 -");
-  const c18 = findColumn(columns, "Frage 18 -");
-  const c19 = findColumn(columns, "Frage 19 -");
 
-  if (!c10 || !c15 || !c17 || !c18 || !c19) {
+  if (!c10 || !c9 || !c12 || !c13 || !c14 || !c15) {
     console.error("✗ Scatterplot: Konnte nicht alle benötigten Spalten finden. Übersprungen.");
     return;
   }
@@ -108,7 +112,7 @@ function generateScatterData() {
 
   for (const row of records) {
     const x = LIKERT_MAP[row[c10]];
-    const vals = [row[c15], row[c17], row[c18], row[c19]].map((v) => LIKERT_MAP[v]);
+    const vals = [row[c9], row[c12], row[c13], row[c14], row[c15]].map((v) => LIKERT_MAP[v]);
 
     if (x === undefined || vals.some((v) => v === undefined)) continue;
 
@@ -182,7 +186,14 @@ function generateButterflyData() {
 // ==========================================================
 
 function generateBubbleData() {
-  const optionCols = columns.filter((c) => c.startsWith("Frage 20 -") && c !== "Frage 20 - Eingabe für Sonstiges");
+  const EXCLUDED_TEXTS = ["Sonstiges", "Ich bin ohnehin bereit", "Ich lehne eine Dienstpflicht"];
+
+  const optionCols = columns.filter(
+    (c) =>
+      c.startsWith("Frage 20 -") &&
+      c !== "Frage 20 - Eingabe für Sonstiges" &&
+      !EXCLUDED_TEXTS.some((t) => c.includes(t))
+  );
 
   if (optionCols.length === 0) {
     console.error("✗ Bubble Chart: Konnte Frage 20 (Bedingungen) nicht finden. Übersprungen.");
@@ -232,8 +243,7 @@ function generateBubbleData() {
     all: records,
     w: records.filter((r) => r[cGender] === "Frau"),
     m: records.filter((r) => r[cGender] === "Mann"),
-    d: records.filter((r) => r[cGender] === "Divers"),
-    k: records.filter((r) => r[cGender] === "keine Angabe")
+    d: records.filter((r) => r[cGender] === "Divers")
   };
 
   const result = {};
@@ -243,7 +253,7 @@ function generateBubbleData() {
 
   const outputPath = path.join(chartsDir, "bubblechart", "bubblechart-data.json");
   writeFileSync(outputPath, JSON.stringify(result, null, 2));
-  console.log(`✓ Bubble Chart: ${optionCols.length} Bedingungen × 5 Gruppen, n=${result.all.total} → src/charts/bubblechart/bubblechart-data.json`);
+  console.log(`✓ Bubble Chart: ${optionCols.length} Bedingungen × 4 Gruppen, n=${result.all.total} → src/charts/bubblechart/bubblechart-data.json`);
 }
 
 generateScatterData();
