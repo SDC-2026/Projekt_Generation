@@ -468,27 +468,38 @@
 
       <div class="scatter-layout">
 
-        <!-- LINKS: Text & Methodik -->
-        <div class="scatter-intro reveal">
-          <p class="scatter-desc">
-            Die Bereitschaft dieser Generation, sich für das Land einzusetzen, ist kein Startkapital, das vorausgesetzt werden kann, sie ist das Resultat eines funktionierenden und verlässlichen Sozialstaates.
-          </p>
+        <!-- LINKS: Text & Methodik in zwei Etappen (scrollt normal) -->
+        <div class="scatter-intro">
 
-          <p class="scatter-desc scatter-desc-methodik">
-            <strong>X-Achse:</strong> Bereitschaft, einen verpflichtenden Wehrdienst zu leisten (Frage 10).<br>
-            <strong>Y-Achse — Gesellschaftsvertrags-Score:</strong> Mittelwert aus fünf Aussagen zur wahrgenommenen Erfüllung des Gesellschaftsvertrags durch den Staat:
-          </p>
-          <ul class="scatter-score-list">
-            <li>Die Anliegen der jüngeren Generation werden von Politik und Gesellschaft ausreichend wahrgenommen (Frage 9)</li>
-            <li>Die Interessen und Stimmen junger Menschen werden von politischen Entscheidungsträgern ausreichend berücksichtigt (Frage 12)</li>
-            <li>Politik in Deutschland ist an den tatsächlichen Lebensumständen der Menschen ausgerichtet (Frage 13)</li>
-            <li>Vertrauen, dass staatliche Institutionen im besten Interesse der gesamten Bevölkerung handeln (Frage 14)</li>
-            <li>Die Diskussion über eine neue Wehrpflicht berücksichtigt die Interessen der jungen Generation angemessen (Frage 15)</li>
-          </ul>
+          <div class="scatter-step reveal">
+            <p class="scatter-desc">
+              Die Bereitschaft dieser Generation, sich für das Land einzusetzen, ist kein Startkapital, das vorausgesetzt werden kann, sie ist das Resultat eines funktionierenden und verlässlichen Sozialstaates.
+            </p>
+
+            <p class="scatter-desc scatter-desc-methodik">
+              <strong>X-Achse:</strong> Bereitschaft, einen verpflichtenden Wehrdienst zu leisten.
+            </p>
+
+            <p class="scatter-desc scatter-desc-methodik">
+              <strong>Y-Achse — Gesellschaftsvertrags-Score:</strong> Ein Mittelwert aus mehreren Aussagen zur wahrgenommenen Erfüllung des Gesellschaftsvertrags durch den Staat.
+            </p>
+          </div>
+
+          <div class="scatter-step reveal">
+            <h3>Woraus setzt sich der Score zusammen?</h3>
+            <ul class="scatter-score-list">
+              <li>Die Anliegen der jüngeren Generation werden von Politik und Gesellschaft ausreichend wahrgenommen.</li>
+              <li>Die Interessen und Stimmen junger Menschen werden von politischen Entscheidungsträgern ausreichend berücksichtigt.</li>
+              <li>Politik in Deutschland ist an den tatsächlichen Lebensumständen der Menschen ausgerichtet.</li>
+              <li>Vertrauen, dass staatliche Institutionen im besten Interesse der gesamten Bevölkerung handeln.</li>
+              <li>Die Diskussion über eine neue Wehrpflicht berücksichtigt die Interessen der jungen Generation angemessen.</li>
+            </ul>
+          </div>
+
         </div>
 
-        <!-- RECHTS: Filter, Chart, Stats & Legende -->
-        <div class="scatter-chart-col">
+        <!-- RECHTS: Filter, Chart, Stats & Legende (sticky, bleibt beim Scrollen stehen) -->
+        <div class="scatter-graphic">
           <div class="scatter-filters">
             <button data-g="all" class="scatter-filter-btn active">Alle</button>
             <button data-g="w" class="scatter-filter-btn">Frauen</button>
@@ -616,7 +627,7 @@
           <p class="chart-kicker">Bedingungen</p>
           <h3>Wann würde Gen Z einen Pflichtdienst eher akzeptieren?</h3>
           <p class="chart-desc">
-            Frage 15: „Ich wäre eher bereit, einen verpflichtenden Dienst an der Gesellschaft zu akzeptieren, wenn folgende Bedingungen erfüllt wären" — Mehrfachauswahl, jede Person konnte beliebig viele Bedingungen ankreuzen.
+            Frage 15: „Ich wäre eher bereit, einen verpflichtenden Dienst an der Gesellschaft zu akzeptieren, wenn folgende Bedingungen erfüllt wären" — Mehrfachauswahl, jede Person konnte beliebig viele Bedingungen ankreuzen. Zusätzlich zu den unten dargestellten Bedingungen gaben 19,4 % an, eine Dienstpflicht kategorisch abzulehnen, 10,1 % wären ohnehin bereit, unabhängig von Bedingungen, und 9,3 % nannten sonstige Gründe.
           </p>
           <div id="bubble-root"></div>
         </article>

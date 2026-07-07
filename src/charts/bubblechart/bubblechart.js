@@ -18,8 +18,21 @@ const GENDER_LABELS = {
   all: "Alle",
   w: "Frauen",
   m: "Männer",
-  d: "Divers",
-  k: "Keine Angabe"
+  d: "Divers"
+};
+
+const SHORT_TITLES = {
+  politische_repraesentation: "Politische Repräsentation",
+  existenzsicherung: "Existenzsicherung",
+  zukunftsperspektiven: "Zukunftsperspektiven",
+  sinnhaftigkeit: "Sinnhaftigkeit",
+  verguetung: "Angemessene Vergütung",
+  berufliche_vorteile: "Berufliche Vorteile",
+  lastengerechtigkeit: "Lastengerechtigkeit",
+  aeussere_gefahr: "Akute äußere Gefahr",
+  ohnehin_bereit: "Ohnehin bereit",
+  lehnt_ab: "Lehnt Dienstpflicht ab",
+  sonstiges: "Sonstiges"
 };
 
 const root = document.querySelector("#bubble-root");
@@ -45,7 +58,7 @@ function packBubbles(items, width, height, scaleFactor) {
     .map((d, i) => ({ ...d, r: radiusFor(d.pct, maxPct, scaleFactor), color: COLORS[i % COLORS.length] }));
 
   const cx = width / 2;
-  const cy = height / 2;
+  const cy = height * 0.36; // Anker im oberen Bereich statt Mitte, größte Bubbles landen dadurch oben
   const maxSearchRadius = Math.sqrt(width * width + height * height); // Diagonale, statt nur max(w,h)
   const placed = [];
 
@@ -76,10 +89,10 @@ function packBubbles(items, width, height, scaleFactor) {
       });
 
       const inBounds =
-        x - node.r > -node.r * 0.3 &&
-        x + node.r < width + node.r * 0.3 &&
-        y - node.r > -node.r * 0.3 &&
-        y + node.r < height + node.r * 0.3;
+        x - node.r > 0 &&
+        x + node.r < width &&
+        y - node.r > 0 &&
+        y + node.r < height;
 
       if (!overlaps && inBounds) {
         node.x = x;
@@ -90,11 +103,11 @@ function packBubbles(items, width, height, scaleFactor) {
         angle += 0.25;
         radius += 1.4;
         if (radius > maxSearchRadius) {
-          // Kein freier Platz mehr gefunden: an letzter Spiral-Position
-          // platzieren (nicht auf die erste Bubble stapeln), leichte
-          // Überlappung am Rand ist hier das kleinere Übel.
-          node.x = lastX;
-          node.y = lastY;
+          // Kein freier Platz mehr gefunden: an letzter Spiral-Position,
+          // aber innerhalb der Canvas-Grenzen eingeklemmt platzieren
+          // (leichte Überlappung ist das kleinere Übel als "unsichtbar").
+          node.x = Math.min(Math.max(lastX, node.r), width - node.r);
+          node.y = Math.min(Math.max(lastY, node.r), height - node.r);
           placed.push(node);
           placedOk = true;
         }
@@ -105,16 +118,15 @@ function packBubbles(items, width, height, scaleFactor) {
   return placed;
 }
 
-function shortDisplayLabel(label) {
-  const cut = label.split(":")[0].split(".")[0];
-  return cut.length > 26 ? cut.slice(0, 24) + "…" : cut;
+function shortDisplayLabel(id, label) {
+  return SHORT_TITLES[id] || (label.length > 24 ? label.slice(0, 22) + "…" : label);
 }
 
 function render() {
   const group = DATA[currentGroup];
   const containerWidth = root.clientWidth || 700;
   const width = Math.max(400, Math.min(820, containerWidth));
-  const height = Math.round(width * 0.8);
+  const height = Math.round(width * 0.88);
   const scaleFactor = width / 700;
 
   const nodes = packBubbles(group.items, width, height, scaleFactor);
@@ -145,7 +157,7 @@ function render() {
         tabindex="0"
       >
         <span class="bubblechart-bubble-pct">${n.pct}%</span>
-        <span class="bubblechart-bubble-label">${shortDisplayLabel(n.label)}</span>
+        <span class="bubblechart-bubble-label">${shortDisplayLabel(n.id, n.label)}</span>
       </div>`
     )
     .join("");
