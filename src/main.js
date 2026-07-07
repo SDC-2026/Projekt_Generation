@@ -5,6 +5,7 @@ import scatterSurveyData from "./charts/scatterchart/wehrpflicht-scatter-data.js
 import "./charts/scatterchart/scatterplot.css";
 import "./charts/pictogram_chart/pictogram.js";
 import "./charts/pictogram_chart/pictogram.css";
+import "./charts/half-circle/half-circle.js";
 
 gsap.registerPlugin(ScrollTrigger);
 

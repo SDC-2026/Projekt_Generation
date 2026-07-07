@@ -549,13 +549,16 @@
 
       <div class="charts-grid">
 
-         <!-- Halbkreis Wehrdienst-Bereitschaft -->
+        <!-- Halbkreis Wehrdienst-Bereitschaft -->
       <article class="chart-card reveal" data-delay="100">
         <p class="chart-kicker" style="color: #81B69D;">Dienstbereitschaft</p>
         <h3>Bereitschaft zum Wehrdienst</h3>
         <div class="semi-chart">
-          <div class="semi-circle" style="background: conic-gradient(#B96A52 0deg 187.2deg, var(--border) 187.2deg 180deg);"></div>
-          <div class="semi-value" style="color: #B96A52; text-align: center;">52 %</div>
+          
+          <!-- Wir nutzen dein funktionierendes CSS, spiegeln es aber per scaleX(-1) auf die linke Seite -->
+<div class="semi-circle" id="semiCircle" style="--pct: 0; background: conic-gradient(from 225deg, #B96A52 0deg calc(var(--pct) * 2.6deg), var(--border) calc(var(--pct) * 2.6deg) 360deg);"></div>
+          <div class="semi-value" id="semiValue" style="color: #B96A52; text-align: center;">0.0 %</div>
+          
           <p class="chart-note" style="margin: 0 auto; text-align: center; max-width: 100%;">
             stufen ihre eigene Wehrbereitschaft als <span style="color: #B96A52; font-weight: 500; display: inline;">sehr gering</span> ein
           </p>
@@ -659,7 +662,7 @@
           <h3>Wo würde Gen Z einen Dienst am ehesten leisten?</h3>
           <div id="pictogram-root"></div>
         </article>
-        
+
       </div>
     </div>
   </section>
