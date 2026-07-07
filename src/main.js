@@ -491,41 +491,30 @@ window.addEventListener('scroll', () => {
   let progress = -rect.top / totalScrollable;
   progress = Math.min(Math.max(progress, 0), 1);
 
-  const rotations = [-4, 1, 3];
-
   cards.forEach((card, index) => {
     // Da im CSS row-reverse aktiv ist, spiegeln wir das Timing hier um:
-    // index 2 ist jetzt die grüne Karte (Zeitenwende) -> fliegt als ERSTE los!
-    // index 0 ist die sandfarbene Karte -> fliegt als LETZTE los!
     const flyInOrder = 2 - index; 
 
-    // Timing für das REINFLIEGEN von RECHTS
-    const startIn = flyInOrder * 0.12; 
-    const endIn = startIn + 0.15;
-
-    // Timing für das RAUSFLIEGEN nach LINKS (Grün fliegt auch zuerst wieder weg)
-    const startOut = 0.55 + flyInOrder * 0.12;
-    const endOut = startOut + 0.15;
+    // Timing für das langsame REINFLIEGEN von RECHTS
+    const startIn = flyInOrder * 0.25; 
+    const duration = 0.35; 
+    const endIn = startIn + duration;
 
     let xPos = 150; // Startet rechts außerhalb des Bildschirms
-    let currentRot = rotations[index];
+    let currentRot = 0; // Komplett gerade ohne Neigung!
 
     if (progress < startIn) {
       xPos = 150;
     } else if (progress >= startIn && progress < endIn) {
       // Einfliegen von RECHTS nach LINKS auf Position 0
-      const t = (progress - startIn) / (endIn - startIn);
-      xPos = 150 * (1 - t);
-    } else if (progress >= endIn && progress < startOut) {
-      // Trio steht stabil auf dem Bildschirm (Grün ist ganz links!)
-      xPos = 0;
-    } else if (progress >= startOut && progress < endOut) {
-      // Ausfliegen nach LINKS aus dem Bildschirm heraus
-      const t = (progress - startOut) / (endOut - startOut);
-      xPos = -150 * t;
+      const t = (progress - startIn) / duration;
+      
+      // Sanftes Abbremsen (Ease-Out)
+      const easeOut = 1 - Math.pow(1 - t, 3); 
+      xPos = 150 * (1 - easeOut);
     } else {
-      // LINKS außerhalb des Bildschirms verschwunden
-      xPos = -150;
+      // Bleibt fixiert auf Position 0
+      xPos = 0;
     }
 
     card.style.transform = `translateX(${xPos}vw) rotate(${currentRot}deg)`;
