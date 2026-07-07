@@ -7,7 +7,7 @@
     display:flex;
     gap:.5rem;
     flex-wrap:wrap;
-    justify-content:center;
+    justify-content:flex-start; /* [!code ++] */
     margin-bottom:1.5rem;
 }
 
