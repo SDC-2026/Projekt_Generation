@@ -498,11 +498,16 @@
 
 .bf-carousel{
 
-    overflow:hidden;
     margin-top:1.5rem;
     padding:2.5rem 2rem;
     background:#ECE7DF;
     border-radius:18px;
+
+}
+
+.bf-carousel-viewport{
+
+    overflow:hidden;
 
 }
 

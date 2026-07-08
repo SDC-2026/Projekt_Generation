@@ -162,20 +162,22 @@ function render() {
 
     <div class="bf-insights">
       <div class="bf-carousel">
-        <div class="bf-carousel-track" style="width:${INSIGHTS.length * 100}%; transform:translateX(-${carouselIndex * (100 / INSIGHTS.length)}%)">
-          ${INSIGHTS.map(card => `
-            <article class="bf-card" style="width:${100 / INSIGHTS.length}%">
-              <p class="bf-card-lead">${card.lead}</p>
-              <ul class="bf-card-stats">
-                ${card.stats.map(stat => `
-                  <li>
-                    <span class="bf-card-stat-label">${stat.label}</span>
-                    <span class="bf-card-stat-text">${stat.text}</span>
-                  </li>
-                `).join('')}
-              </ul>
-            </article>
-          `).join('')}
+        <div class="bf-carousel-viewport">
+          <div class="bf-carousel-track" style="width:${INSIGHTS.length * 100}%; transform:translateX(-${carouselIndex * (100 / INSIGHTS.length)}%)">
+            ${INSIGHTS.map(card => `
+              <article class="bf-card" style="width:${100 / INSIGHTS.length}%">
+                <p class="bf-card-lead">${card.lead}</p>
+                <ul class="bf-card-stats">
+                  ${card.stats.map(stat => `
+                    <li>
+                      <span class="bf-card-stat-label">${stat.label}</span>
+                      <span class="bf-card-stat-text">${stat.text}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </article>
+            `).join('')}
+          </div>
         </div>
       </div>
 
