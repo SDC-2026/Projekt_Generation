@@ -701,3 +701,174 @@
     }
 
 }
+
+/* ==========================================================
+   MOBILE — Tablet ≤ 768px
+   ========================================================== */
+
+@media (max-width:768px){
+
+    .butterfly-title{
+        font-size:1.9rem;
+    }
+
+    .butterfly-description{
+        font-size:.92rem;
+    }
+
+    .butterfly-toolbar{
+        flex-wrap:wrap;
+        gap:.6rem;
+    }
+
+    .bf-filter{
+        min-height:44px;
+        padding:.6rem 1.1rem;
+    }
+
+    /* Frage-Gegenüberstellung: untereinander statt nebeneinander */
+    .butterfly-question-row{
+        grid-template-columns:1fr;
+        gap:1.5rem;
+    }
+
+    .question-left,
+    .question-right{
+        max-width:100%;
+    }
+
+    .question-right{
+        justify-self:start;
+    }
+
+    .question-left p,
+    .question-right p{
+        font-size:1.05rem;
+    }
+
+    /* Butterfly-Reihen: schmalere Mittelspalte */
+    .bf-head,
+    .bf-row{
+        grid-template-columns: 1fr 60px 1fr;
+        gap: .5rem;
+    }
+
+    .bf-value{
+        width: 34px;
+        font-size: .75rem;
+    }
+
+    .bf-left,
+    .bf-right{
+        gap: 8px;
+    }
+
+    .bf-side{
+        font-size: .65rem;
+    }
+
+    .bf-label{
+        font-size: .68rem;
+        line-height: 1.25;
+    }
+
+    .bf-bar{
+        height: 24px;
+        padding: 0 .5rem;
+        font-size: .68rem;
+    }
+
+    /* Fußnoten-Fragen: untereinander statt links/rechts gespiegelt */
+    .bf-footnote-questions{
+        grid-template-columns:1fr;
+        gap:.5rem;
+    }
+
+    .bf-footnote-questions span:first-child,
+    .bf-footnote-questions span:last-child{
+        text-align:left;
+    }
+
+    .bf-footnote-vs{
+        text-align:left;
+        padding-top:0;
+    }
+
+    .bf-footnote-n{
+        justify-content:flex-start;
+        gap:1rem;
+    }
+
+    /* Insights-Karussell */
+    .bf-carousel{
+        padding:1.75rem 1.25rem;
+        border-radius:14px;
+    }
+
+    .bf-card-lead{
+        font-size:1rem;
+    }
+
+    .bf-card-stats li{
+        padding:.9rem 0;
+    }
+
+    .bf-card-stat-text{
+        font-size:.92rem;
+    }
+
+}
+
+/* ==========================================================
+   MOBILE — Smartphone ≤ 480px
+   ========================================================== */
+
+@media (max-width:480px){
+
+    .butterfly-title{
+        font-size:1.6rem;
+    }
+
+    .bf-head,
+    .bf-row{
+        grid-template-columns: 1fr 36px 1fr;
+        gap: .2rem;
+    }
+
+    .bf-left,
+    .bf-right{
+        gap: 4px;
+    }
+
+    .bf-value{
+        width: 24px;
+        font-size: .62rem;
+        font-weight: 600;
+    }
+
+    .bf-label{
+        font-size: .56rem;
+        line-height: 1.15;
+    }
+
+    .bf-bar{
+        height: 20px;
+        padding: 0 .3rem;
+        font-size: .55rem;
+        border-radius: 999px;
+    }
+
+    .bf-side{
+        font-size:.6rem;
+    }
+
+    .bf-carousel{
+        padding:1.5rem 1rem;
+    }
+
+    .bf-carousel-arrow{
+        width:34px;
+        height:34px;
+    }
+
+}

@@ -3757,6 +3757,34 @@ gap:4rem;
     grid-column:auto;
   }
 
+  /* ---- Mobile-Reihenfolge der Diagramme ----
+     Entspricht bewusst der Desktop-Reihenfolge im HTML. */
+
+  .charts-grid{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .chart-card:has(#butterfly-root){
+    order:1;
+  }
+
+  .chart-card:has(#wehrdienstCarousel){
+    order:2;
+  }
+
+  .chart-card:has(#likert-pflichten-root){
+    order:3;
+  }
+
+  .chart-card:has(#bubble-root){
+    order:4;
+  }
+
+  .chart-card:has(#pictogram-root){
+    order:5;
+  }
+
   /* ---- Scatterplot ---- */
 
   .scatter-layout{
@@ -4104,4 +4132,3 @@ gap:4rem;
    Smartphone:   ≤ 768px         (siehe 14.03 / 15.xx)
    Kleine Phones ≤ 480–560px     (siehe 14.04 / 15.xx)
    ---------------------------------------------------------- */
-
