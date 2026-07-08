@@ -30,7 +30,7 @@ const INSIGHTS = [
     lead: 'Die studentische Jugend beurteilt die eigene wirtschaftliche Situation der kommenden Jahre skeptisch und nimmt gleichzeitig eine unzureichende politische Repräsentation wahr.',
     stats: [
       {
-        label: 'Zukunftserwartungen',
+        label: 'Zukunftsangst',
         text: 'Etwas mehr als vier Fünftel der Studierenden gehen davon aus, dass ihre Generation geringere Zukunftschancen besitzt als frühere Generationen.'
       },
       {
@@ -40,18 +40,19 @@ const INSIGHTS = [
     ]
   },
   {
-    lead: 'Die studentische Jugend blickt nicht nur verzweifelt auf ihre eigene wirtschaftliche Zukunft, sondern fühlt sich gleichzeitig von der Politik völlig im Stich gelassen.',
+    lead: '82% der Befragten glauben, dass ihre Generation schlechtere wirtschaftliche Chancen hat als frühere Generationen',
     stats: [
       {
-        label: 'Zukunftsangst',
-        text: 'Über 80 % der Studierenden (193 von 240) erwarten schlechtere Zukunftsperspektiven als frühere Generationen.'
+        label: 'Ursachen',
+        text: 'Die Hauptgründe hierfür liegen vor allem in der allgemeinen Inflation, den anhaltenden geopolitischen Spannungen sowie den Sorgen um die Zukunft des Rentensystems und unsichere Arbeitsplätze.'
       },
       {
-        label: 'Politik-Frust',
-        text: 'Knapp 80 % (191 von 240) kritisieren scharf, dass ihre spezifischen Anliegen von der Politik überhaupt nicht wahrgenommen werden.'
+        label: 'Auswirkungen',
+        text: 'Für die große Mehrheit führen diese Belastungen im Alltag zu einer spürbaren Zukunftsunsicherheit bei der Lebensplanung, verstärkten finanziellen Sorgen und anhaltendem Stress.'
       }
     ]
-  }
+  },
+  
 ];
 
 const root = document.querySelector('#butterfly-root');
