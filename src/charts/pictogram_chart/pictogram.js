@@ -6,12 +6,12 @@
 import DATA from "./pictogram-data.json";
 
 const PC_COLS = [
-  { key: 'rettung',      label: 'Katastrophenschutz\n/ THW',        color: 'var(--accent)' },
-  { key: 'militar',      label: 'Bundeswehr',                        color: 'var(--accent)' },
-  { key: 'okologie',     label: 'Klimaschutz /\nUmwelt',             color: 'var(--accent)' },
-  { key: 'sozial',       label: 'Pflege / sozialer\nDienst',         color: 'var(--accent)' },
-  { key: 'befreiung',    label: 'Befreiung\nversuchen',              color: '#D8B69C'       },
-  { key: 'verweigerung', label: 'Dienst\nverweigern',                color: '#B96A52'       },
+  { key: 'rettung',      label: 'Katastrophenschutz\n/ THW',        color: '#E0954B' },
+  { key: 'militar',      label: 'Bundeswehr',                        color: '#E0954B' },
+  { key: 'okologie',     label: 'Klimaschutz /\nUmwelt',             color: '#E0954B' },
+  { key: 'sozial',       label: 'Pflege / sozialer\nDienst',         color: '#E0954B' },
+  { key: 'befreiung',    label: 'Befreiung\nversuchen',              color: '#E0954B' },
+  { key: 'verweigerung', label: 'Dienst\nverweigern',                color: '#E0954B' },
 ];
 
 const PC_DOTS = 10;
@@ -77,7 +77,7 @@ function initPictogramChart() {
       }).join('');
 
       const labelLines = col.label.split('\n').map(l => `<span>${l}</span>`).join('');
-      const pctColor   = col.color === 'var(--accent)' ? 'var(--text)' : col.color;
+      const pctColor   = 'var(--text)';
 
       return `
         <div class="pc-col">
