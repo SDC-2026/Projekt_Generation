@@ -101,20 +101,22 @@ function initPictogramChart() {
 
       <div class="bf-insights">
         <div class="bf-carousel">
-          <div class="bf-carousel-track" style="width:${PC_INSIGHTS.length * 100}%; transform:translateX(-${pcCarouselIndex * (100 / PC_INSIGHTS.length)}%)">
-            ${PC_INSIGHTS.map(card => `
-              <article class="bf-card" style="width:${100 / PC_INSIGHTS.length}%">
-                <p class="bf-card-lead">${card.lead}</p>
-                <ul class="bf-card-stats">
-                  ${card.stats.map(stat => `
-                    <li>
-                      <span class="bf-card-stat-label">${stat.label}</span>
-                      <span class="bf-card-stat-text">${stat.text}</span>
-                    </li>
-                  `).join('')}
-                </ul>
-              </article>
-            `).join('')}
+          <div class="bf-carousel-viewport">
+            <div class="bf-carousel-track" style="width:${PC_INSIGHTS.length * 100}%; transform:translateX(-${pcCarouselIndex * (100 / PC_INSIGHTS.length)}%)">
+              ${PC_INSIGHTS.map(card => `
+                <article class="bf-card" style="width:${100 / PC_INSIGHTS.length}%">
+                  <p class="bf-card-lead">${card.lead}</p>
+                  <ul class="bf-card-stats">
+                    ${card.stats.map(stat => `
+                      <li>
+                        <span class="bf-card-stat-label">${stat.label}</span>
+                        <span class="bf-card-stat-text">${stat.text}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
+                </article>
+              `).join('')}
+            </div>
           </div>
         </div>
 
