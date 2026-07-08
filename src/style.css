@@ -1875,7 +1875,7 @@ top:0;
 .charts-grid {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 2rem 6rem;
+  padding: 0 2rem 6rem 0;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);

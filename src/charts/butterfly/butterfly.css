@@ -529,6 +529,14 @@
 
 }
 
+.bf-card--center{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+
 .bf-card-lead{
 
     max-width:760px;

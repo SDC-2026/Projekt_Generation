@@ -40,7 +40,7 @@ const INSIGHTS = [
     ]
   },
   {
-    lead: '82% der Befragten glauben, dass ihre Generation schlechtere wirtschaftliche Chancen hat als frühere Generationen',
+    lead: '',
     stats: [
       {
         label: 'Ursachen',
@@ -165,8 +165,8 @@ function render() {
         <div class="bf-carousel-viewport">
           <div class="bf-carousel-track" style="width:${INSIGHTS.length * 100}%; transform:translateX(-${carouselIndex * (100 / INSIGHTS.length)}%)">
             ${INSIGHTS.map(card => `
-              <article class="bf-card" style="width:${100 / INSIGHTS.length}%">
-                <p class="bf-card-lead">${card.lead}</p>
+              <article class="bf-card${card.lead ? '' : ' bf-card--center'}" style="width:${100 / INSIGHTS.length}%">
+                ${card.lead ? `<p class="bf-card-lead">${card.lead}</p>` : ''}
                 <ul class="bf-card-stats">
                   ${card.stats.map(stat => `
                     <li>
