@@ -17,6 +17,37 @@ const PC_COLS = [
 const PC_DOTS = 10;
 
 let pc_active = 'alle';
+let pcCarouselIndex = 0;
+
+const PC_INSIGHTS = [
+  {
+    lead: 'Im Falle der Einführung einer gesetzlichen Dienstpflicht befürwortet die Mehrheit der studentischen Jugend eine Tätigkeit im zivilen Sektor. Der Dienst an der Waffe wird von einer Minderheit gewählt.',
+    stats: [
+      {
+        label: 'Präferenz für den Katastrophenschutz',
+        text: 'Rund ein Viertel der Befragten würde sich im zivilen Rettungsdienst, bei der Feuerwehr oder dem Technischen Hilfswerk engagieren. Dies stellt die am häufigsten gewählte Option dar.'
+      },
+    ]
+  },
+  {
+    lead: 'Im Falle der Einführung einer gesetzlichen Dienstpflicht befürwortet die Mehrheit der studentischen Jugend eine Tätigkeit im zivilen Sektor. Der Dienst an der Waffe wird von einer Minderheit gewählt.',
+    stats: [
+      {
+        label: 'Weitere zivile Optionen',
+        text: 'Jeweils knapp ein Fünftel der Teilnehmenden präferiert einen Einsatz im ökologischen Bereich oder in sozialen Einrichtungen. Insgesamt entfallen damit fast zwei Drittel aller Nennungen auf den zivilen Sektor.'
+      },
+    ]
+  },
+  {
+    lead: 'Im Falle der Einführung einer gesetzlichen Dienstpflicht befürwortet die Mehrheit der studentischen Jugend eine Tätigkeit im zivilen Sektor. Der Dienst an der Waffe wird von einer Minderheit gewählt.',
+    stats: [
+      {
+        label: 'Militärdienst und Dienstverweigerung',
+        text: 'Ein Dienst in der Bundeswehr wird von rund einem Fünftel der Befragten gewählt. Der verbleibende Teil der Befragten, etwa ein Sechstel, würde eine offizielle Befreiung anstreben oder den Dienst verweigern.'
+      }
+    ]
+  },
+];
 
 function initPictogramChart() {
   const root = document.querySelector('#pictogram-root');
@@ -67,13 +98,72 @@ function initPictogramChart() {
       <div class="pc-grid">${cols}</div>
 
       <p class="pc-note">n = ${d.n} · Bevorzugter Einsatzbereich bei Einführung einer allgemeinen Dienstpflicht</p>
+
+      <div class="bf-insights">
+        <div class="bf-carousel">
+          <div class="bf-carousel-track" style="width:${PC_INSIGHTS.length * 100}%; transform:translateX(-${pcCarouselIndex * (100 / PC_INSIGHTS.length)}%)">
+            ${PC_INSIGHTS.map(card => `
+              <article class="bf-card" style="width:${100 / PC_INSIGHTS.length}%">
+                <p class="bf-card-lead">${card.lead}</p>
+                <ul class="bf-card-stats">
+                  ${card.stats.map(stat => `
+                    <li>
+                      <span class="bf-card-stat-label">${stat.label}</span>
+                      <span class="bf-card-stat-text">${stat.text}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </article>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="bf-carousel-controls">
+          <button class="bf-carousel-arrow" data-dir="-1" aria-label="Vorherige Karte">‹</button>
+          <div class="bf-carousel-dots">
+            ${PC_INSIGHTS.map((_, i) => `
+              <button
+                class="bf-carousel-dot${i === pcCarouselIndex ? ' active' : ''}"
+                data-index="${i}"
+                aria-label="Karte ${i + 1} anzeigen"
+              ></button>
+            `).join('')}
+          </div>
+          <button class="bf-carousel-arrow" data-dir="1" aria-label="Nächste Karte">›</button>
+        </div>
+      </div>
     `;
 
     /* Button-Events */
     root.querySelectorAll('.bf-filter').forEach(btn => {
       btn.addEventListener('click', () => {
         pc_active = btn.dataset.group;
+        pcCarouselIndex = 0; // Karussell bei Filterwechsel zurücksetzen
         render();
+      });
+    });
+
+    /* Karussell-Events */
+    const pcTrack = root.querySelector('.bf-carousel-track');
+
+    function pcGoToCard(index) {
+      pcCarouselIndex = (index + PC_INSIGHTS.length) % PC_INSIGHTS.length;
+      pcTrack.style.transform = `translateX(-${pcCarouselIndex * (100 / PC_INSIGHTS.length)}%)`;
+
+      root.querySelectorAll('.bf-carousel-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === pcCarouselIndex);
+      });
+    }
+
+    root.querySelectorAll('.bf-carousel-arrow').forEach(btn => {
+      btn.addEventListener('click', () => {
+        pcGoToCard(pcCarouselIndex + parseInt(btn.dataset.dir, 10));
+      });
+    });
+
+    root.querySelectorAll('.bf-carousel-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        pcGoToCard(parseInt(dot.dataset.index, 10));
       });
     });
 

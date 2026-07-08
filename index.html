@@ -549,20 +549,6 @@
 
       <div class="charts-grid">
 
-       <!-- Halbkreis Wehrdienst-Bereitschaft -->
-<article class="chart-card reveal" data-delay="100">
-  <p class="chart-kicker" style="color: #81B69D;">Dienstbereitschaft</p>
-  <h3>Bereitschaft zum Wehrdienst</h3>
-  <div class="semi-chart">
-    <div class="semi-circle" id="semiCircle" style="--pct: 52; background: conic-gradient(from 225deg, #B96A52 0deg calc(var(--pct) * 2.6deg), var(--border) calc(var(--pct) * 2.6deg) 360deg);"></div>
-    <div class="semi-value" id="semiValue" style="color: #B96A52; text-align: center;">52 %</div>
-    
-    <p class="chart-note" style="margin: 0 auto; text-align: center; max-width: 100%;">
-      stufen ihre eigene Wehrbereitschaft als <span style="color: #B96A52; font-weight: 500; display: inline;">sehr gering</span> ein
-    </p>
-  </div>
-</article>
-
 <!-- Wirtschafts-Perspektive (direkt im Anschluss im DOM) -->
 <div class="wirtschafts-story-container">
   
@@ -674,7 +660,47 @@
         </div>
         </article>
 
-        <!-- Zweites Likert Chart (Fragen 16–19) -->
+=======
+        <!-- Halbkreis Wehrdienst-Bereitschaft (Karussell: Grafik / Text) -->
+<article class="chart-card carousel-card reveal" data-delay="100">
+  <p class="chart-kicker" style="color: #81B69D;">Dienstbereitschaft</p>
+  <h3>Bereitschaft zum Wehrdienst</h3>
+
+  <div class="carousel" id="wehrdienstCarousel">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <div class="semi-chart">
+          <div class="semi-circle" id="semiCircle" style="--pct: 52; background: conic-gradient(from 225deg, #B96A52 0deg calc(var(--pct) * 2.6deg), var(--border) calc(var(--pct) * 2.6deg) 360deg);"></div>
+          <div class="semi-value" id="semiValue" style="color: #B96A52; text-align: center;">52 %</div>
+
+          <p class="chart-note" style="margin: 0 auto; text-align: center; max-width: 100%;">
+            stufen ihre eigene Wehrbereitschaft als <span style="color: #B96A52; font-weight: 500; display: inline;">sehr gering</span> ein
+          </p>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <p class="carousel-text">
+          Mehr als die Hälfte aller Befragten stuft die eigene Bereitschaft für einen verpflichtenden Wehrdienst unter den aktuellen Bedingungen als extrem niedrig ein. Da ein weiteres Viertel deutliche Skepsis äußert, erteilt die absolute Mehrheit der studentischen Jugend dem Dienst eine klare Absage. Zusammen machen diese Gruppen weit mehr als zwei Drittel der Stimmen aus.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-arrow carousel-arrow-prev" aria-label="Vorherige Seite">‹</button>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" data-slide="0" aria-label="Grafik anzeigen"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Einordnung anzeigen"></button>
+      </div>
+      <button class="carousel-arrow carousel-arrow-next" aria-label="Nächste Seite">›</button>
+    </div>
+  </div>
+</article>
+
+        <!-- Likert-Chart -->
+>>>>>>> 834ade7f1dc1a8cadf3b89ec4310c66cffcb82a2
 <article class="chart-card wide reveal" data-delay="100">
   <p class="chart-kicker">Gesellschaftsvertrag &amp; Pflichten</p>
   <h3>Einstellung zu staatlichen Pflichten und Gegenleistungen</h3>
