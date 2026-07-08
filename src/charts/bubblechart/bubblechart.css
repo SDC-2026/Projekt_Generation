@@ -94,3 +94,62 @@
 .bubblechart-tooltip.visible{
     opacity:1;
 }
+
+/* ==========================================================
+   MOBILE — Tablet ≤ 768px
+   ========================================================== */
+
+@media (max-width:768px){
+
+    .bubblechart-filters{
+        gap:.6rem;
+    }
+
+    .bubblechart-filter-btn{
+        min-height:44px;
+        padding:.6rem 1rem;
+        font-size:.76rem;
+    }
+
+    .bubblechart-bubble-pct{
+        font-size:1em;
+    }
+
+    .bubblechart-bubble-label{
+        font-size:.7em;
+    }
+
+    .bubblechart-tooltip{
+        max-width:220px;
+        font-size:.72rem;
+        padding:.5rem .75rem;
+    }
+
+}
+
+/* ==========================================================
+   MOBILE — Smartphone ≤ 480px
+   ========================================================== */
+
+@media (max-width:480px){
+
+    .bubblechart-filter-btn{
+        padding:.5rem .85rem;
+        font-size:.72rem;
+    }
+
+    .bubblechart-bubble-pct{
+        font-size:.9em;
+    }
+
+    .bubblechart-bubble-label{
+        font-size:.64em;
+        padding:0 .15rem;
+    }
+
+    .bubblechart-tooltip{
+        max-width:180px;
+        font-size:.68rem;
+    }
+
+}
