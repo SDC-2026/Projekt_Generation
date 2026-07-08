@@ -523,22 +523,3 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// ─── Likert Charts: Tooltip Follow Mouse ───
-window.switchLikertTab = function(event, tabId) {
-  // 1. Alle Tab-Panels verstecken
-  const panels = document.querySelectorAll('.likert-tab-panel');
-  panels.forEach(panel => panel.classList.remove('active'));
-
-  // 2. Allen Tab-Buttons die aktive Klasse entziehen
-  const buttons = document.querySelectorAll('.likert-tab-btn');
-  buttons.forEach(btn => btn.classList.remove('active'));
-
-  // 3. Das ausgewählte Panel und den geklickten Button aktivieren
-  document.getElementById(tabId).classList.add('active');
-  event.currentTarget.classList.add('active');
-  
-  // 4. Resize triggern für die Charts
-  setTimeout(() => {
-    window.dispatchEvent(new Event('resize'));
-  }, 50);
-};
