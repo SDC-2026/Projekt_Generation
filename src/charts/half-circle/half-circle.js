@@ -60,3 +60,53 @@ if (document.readyState === 'loading') {
 } else {
   initSemiCircleAnimation();
 }
+
+/* ==========================================================
+   KARUSSELL: Dienstbereitschaft-Karte (Grafik / Text)
+   ========================================================== */
+
+function initWehrdienstCarousel() {
+  const root = document.getElementById('wehrdienstCarousel');
+  if (!root) return;
+
+  const track = root.querySelector('.carousel-track');
+  const slides = root.querySelectorAll('.carousel-slide');
+  const dots = root.querySelectorAll('.carousel-dot');
+  const prevBtn = root.querySelector('.carousel-arrow-prev');
+  const nextBtn = root.querySelector('.carousel-arrow-next');
+
+  const total = slides.length;
+  let index = 0;
+
+  function update() {
+    // Pixel-genau statt Prozent, da der Track durch die nicht
+    // schrumpfenden Slides breiter als sein Elternelement ist —
+    // eine Prozentangabe würde sich auf die (falsche) Track-Breite
+    // beziehen statt auf die sichtbare Karussell-Breite.
+    const slideWidth = root.clientWidth;
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+  }
+
+  function goTo(i) {
+    index = (i + total) % total;
+    update();
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goTo(i));
+  });
+
+  prevBtn?.addEventListener('click', () => goTo(index - 1));
+  nextBtn?.addEventListener('click', () => goTo(index + 1));
+
+  window.addEventListener('resize', update);
+
+  update();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initWehrdienstCarousel);
+} else {
+  initWehrdienstCarousel();
+}

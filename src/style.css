@@ -2112,6 +2112,124 @@ top:0;
 
 
 /* ==========================================================
+   CAROUSEL (Dienstbereitschaft-Karte: Grafik / Text)
+   ========================================================== */
+
+.carousel-card {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  flex: 1;
+  will-change: transform;
+  transition: transform .45s cubic-bezier(.65, 0, .35, 1);
+}
+
+.carousel-slide {
+  flex: 1 0 100%;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 .1rem;
+}
+
+.carousel-text {
+  font-size: .92rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.carousel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.carousel-list li {
+  font-size: .92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.carousel-list strong {
+  color: var(--text);
+}
+
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.carousel-arrow:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.carousel-dot:hover {
+  background: var(--accent-warm, var(--accent));
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+  transform: scale(1.35);
+}
+
+
+/* ==========================================================
    LIKERT CHART
    ========================================================== */
 
