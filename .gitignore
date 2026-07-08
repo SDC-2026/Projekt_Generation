@@ -12,3 +12,5 @@ node_modules/
 
 # Logs
 npm-debug.log*
+
+src/charts/scatterchart/wehrpflicht-scatter-data.json

@@ -1,0 +1,139 @@
+/* ==========================================================
+   DOT CHART — Styles
+   ========================================================== */
+
+/* ---------- Grid ---------- */
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+  align-items: end;
+}
+
+/* ---------- Spalte ---------- */
+.pc-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+}
+
+/* ---------- Punkte ---------- */
+.pc-dots {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  align-items: center;
+}
+
+.pc-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #E2DDD6;
+  transition: background .3s ease;
+  cursor: default;
+}
+
+.pc-dot:hover {
+  transform: scale(1.15);
+  transition: transform .15s ease, background .3s ease;
+}
+
+/* ---------- Prozentzahl ---------- */
+.pc-pct {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  margin-top: .4rem;
+}
+
+/* ---------- Label ---------- */
+.pc-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1px;
+  min-height: 2.1rem;
+  text-align: center;
+  font-size: .75rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+/* ---------- Fussnote ---------- */
+.pc-note {
+  margin-top: 1.5rem;
+  font-size: .78rem;
+  color: var(--text-secondary);
+  opacity: .65;
+}
+
+/* ---------- Tooltip ---------- */
+.pc-tooltip {
+  position: fixed;
+  background: var(--bg, #fff);
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 12px;
+  line-height: 1.5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .12s ease;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  color: var(--text);
+  max-width: 180px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .pc-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem 0.75rem;
+  }
+
+  .pc-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .pc-pct {
+    font-size: 1.4rem;
+  }
+}
+
+/* ---------- Toolbar (nutzt bf-filter Klassen aus butterfly.css) ---------- */
+.pc-toolbar {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- Smartphone ≤ 400px ---------- */
+@media (max-width: 400px) {
+  .pc-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem .75rem;
+  }
+
+  .pc-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .pc-pct {
+    font-size: 1.2rem;
+  }
+
+  .pc-label {
+    font-size: .68rem;
+  }
+}

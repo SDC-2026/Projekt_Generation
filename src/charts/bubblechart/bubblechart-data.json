@@ -1,0 +1,214 @@
+{
+  "all": {
+    "total": 182,
+    "items": [
+      {
+        "id": "politische_repraesentation",
+        "label": "Politische Repräsentation: stärkere Berücksichtigung der Interessen junger Menschen in der Politik",
+        "count": 108,
+        "pct": 59.3
+      },
+      {
+        "id": "existenzsicherung",
+        "label": "Existenzsicherung: konkrete staatliche Garantien bei Grundbedürfnissen wie bezahlbarem Wohnraum",
+        "count": 121,
+        "pct": 66.5
+      },
+      {
+        "id": "zukunftsperspektiven",
+        "label": "Zukunftsperspektiven: langfristig verlässliche Systeme wie eine sichere Altersvorsorge",
+        "count": 123,
+        "pct": 67.6
+      },
+      {
+        "id": "sinnhaftigkeit",
+        "label": "Sinnhaftigkeit: klarer, nachvollziehbarer und transparenter gesellschaftlicher Nutzen des Dienstes",
+        "count": 102,
+        "pct": 56
+      },
+      {
+        "id": "verguetung",
+        "label": "Angemessene Vergütung oder ein festes Gehalt während des Dienstes",
+        "count": 99,
+        "pct": 54.4
+      },
+      {
+        "id": "berufliche_vorteile",
+        "label": "Berufliche Vorteile: Anrechnung auf das Studium oder Vorteile beim späteren Berufseinstieg",
+        "count": 96,
+        "pct": 52.7
+      },
+      {
+        "id": "lastengerechtigkeit",
+        "label": "Lastengerechtigkeit: ausgewogene Verteilung gesellschaftlicher Pflichten über alle Altersgruppen hinweg bsp. gerechte Verteilung der Steuerlast",
+        "count": 81,
+        "pct": 44.5
+      },
+      {
+        "id": "aeussere_gefahr",
+        "label": "Eine unmittelbare und unumstrittene äußere Gefahr für das Land",
+        "count": 66,
+        "pct": 36.3
+      }
+    ]
+  },
+  "w": {
+    "total": 72,
+    "items": [
+      {
+        "id": "politische_repraesentation",
+        "label": "Politische Repräsentation: stärkere Berücksichtigung der Interessen junger Menschen in der Politik",
+        "count": 46,
+        "pct": 63.9
+      },
+      {
+        "id": "existenzsicherung",
+        "label": "Existenzsicherung: konkrete staatliche Garantien bei Grundbedürfnissen wie bezahlbarem Wohnraum",
+        "count": 55,
+        "pct": 76.4
+      },
+      {
+        "id": "zukunftsperspektiven",
+        "label": "Zukunftsperspektiven: langfristig verlässliche Systeme wie eine sichere Altersvorsorge",
+        "count": 53,
+        "pct": 73.6
+      },
+      {
+        "id": "sinnhaftigkeit",
+        "label": "Sinnhaftigkeit: klarer, nachvollziehbarer und transparenter gesellschaftlicher Nutzen des Dienstes",
+        "count": 47,
+        "pct": 65.3
+      },
+      {
+        "id": "verguetung",
+        "label": "Angemessene Vergütung oder ein festes Gehalt während des Dienstes",
+        "count": 43,
+        "pct": 59.7
+      },
+      {
+        "id": "berufliche_vorteile",
+        "label": "Berufliche Vorteile: Anrechnung auf das Studium oder Vorteile beim späteren Berufseinstieg",
+        "count": 41,
+        "pct": 56.9
+      },
+      {
+        "id": "lastengerechtigkeit",
+        "label": "Lastengerechtigkeit: ausgewogene Verteilung gesellschaftlicher Pflichten über alle Altersgruppen hinweg bsp. gerechte Verteilung der Steuerlast",
+        "count": 37,
+        "pct": 51.4
+      },
+      {
+        "id": "aeussere_gefahr",
+        "label": "Eine unmittelbare und unumstrittene äußere Gefahr für das Land",
+        "count": 20,
+        "pct": 27.8
+      }
+    ]
+  },
+  "m": {
+    "total": 101,
+    "items": [
+      {
+        "id": "politische_repraesentation",
+        "label": "Politische Repräsentation: stärkere Berücksichtigung der Interessen junger Menschen in der Politik",
+        "count": 55,
+        "pct": 54.5
+      },
+      {
+        "id": "existenzsicherung",
+        "label": "Existenzsicherung: konkrete staatliche Garantien bei Grundbedürfnissen wie bezahlbarem Wohnraum",
+        "count": 60,
+        "pct": 59.4
+      },
+      {
+        "id": "zukunftsperspektiven",
+        "label": "Zukunftsperspektiven: langfristig verlässliche Systeme wie eine sichere Altersvorsorge",
+        "count": 63,
+        "pct": 62.4
+      },
+      {
+        "id": "sinnhaftigkeit",
+        "label": "Sinnhaftigkeit: klarer, nachvollziehbarer und transparenter gesellschaftlicher Nutzen des Dienstes",
+        "count": 49,
+        "pct": 48.5
+      },
+      {
+        "id": "verguetung",
+        "label": "Angemessene Vergütung oder ein festes Gehalt während des Dienstes",
+        "count": 52,
+        "pct": 51.5
+      },
+      {
+        "id": "berufliche_vorteile",
+        "label": "Berufliche Vorteile: Anrechnung auf das Studium oder Vorteile beim späteren Berufseinstieg",
+        "count": 50,
+        "pct": 49.5
+      },
+      {
+        "id": "lastengerechtigkeit",
+        "label": "Lastengerechtigkeit: ausgewogene Verteilung gesellschaftlicher Pflichten über alle Altersgruppen hinweg bsp. gerechte Verteilung der Steuerlast",
+        "count": 39,
+        "pct": 38.6
+      },
+      {
+        "id": "aeussere_gefahr",
+        "label": "Eine unmittelbare und unumstrittene äußere Gefahr für das Land",
+        "count": 43,
+        "pct": 42.6
+      }
+    ]
+  },
+  "d": {
+    "total": 5,
+    "items": [
+      {
+        "id": "politische_repraesentation",
+        "label": "Politische Repräsentation: stärkere Berücksichtigung der Interessen junger Menschen in der Politik",
+        "count": 4,
+        "pct": 80
+      },
+      {
+        "id": "existenzsicherung",
+        "label": "Existenzsicherung: konkrete staatliche Garantien bei Grundbedürfnissen wie bezahlbarem Wohnraum",
+        "count": 4,
+        "pct": 80
+      },
+      {
+        "id": "zukunftsperspektiven",
+        "label": "Zukunftsperspektiven: langfristig verlässliche Systeme wie eine sichere Altersvorsorge",
+        "count": 4,
+        "pct": 80
+      },
+      {
+        "id": "sinnhaftigkeit",
+        "label": "Sinnhaftigkeit: klarer, nachvollziehbarer und transparenter gesellschaftlicher Nutzen des Dienstes",
+        "count": 4,
+        "pct": 80
+      },
+      {
+        "id": "verguetung",
+        "label": "Angemessene Vergütung oder ein festes Gehalt während des Dienstes",
+        "count": 3,
+        "pct": 60
+      },
+      {
+        "id": "berufliche_vorteile",
+        "label": "Berufliche Vorteile: Anrechnung auf das Studium oder Vorteile beim späteren Berufseinstieg",
+        "count": 4,
+        "pct": 80
+      },
+      {
+        "id": "lastengerechtigkeit",
+        "label": "Lastengerechtigkeit: ausgewogene Verteilung gesellschaftlicher Pflichten über alle Altersgruppen hinweg bsp. gerechte Verteilung der Steuerlast",
+        "count": 3,
+        "pct": 60
+      },
+      {
+        "id": "aeussere_gefahr",
+        "label": "Eine unmittelbare und unumstrittene äußere Gefahr für das Land",
+        "count": 2,
+        "pct": 40
+      }
+    ]
+  }
+}

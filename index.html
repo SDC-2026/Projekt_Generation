@@ -4,14 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Defense als Generationenfrage</title>
+
+  <meta
+    name="description"
+    content="Wie steht die Jugend zur Wehrpflicht? Eine Untersuchung über staatliche Fürsorge, Bürgerpflichten und den Gesellschaftsvertrag."
+  />
+
  <!-- Favicon einbinden -->
   <link rel="icon" type="image/svg+xml" href="src/assets/favicon.svg" />
   <!-- Optionaler Fallback, falls jemand ein sehr altes Gerät nutzt -->
   <link rel="alternate icon" type="image/png" href="src/assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="src/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="src/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="src/style.css" />
+  <link rel="stylesheet" href="src/charts/butterfly/butterfly.css" />
+  <link rel="stylesheet" href="src/charts/pictogram_chart/pictogram.css" />
+  <link rel="stylesheet" href="src/charts/grouped_bar_chart_1/grouped_bar_chart_1.css" />
+  <link rel="stylesheet" href="src/charts/grouped_bar_chart_2/grouped_bar_chart_2.css" />
 </head>
 <body>
 
@@ -28,7 +37,7 @@
         <button class="nav-dot" data-section="2" title="Kontext"></button>
         <button class="nav-dot" data-section="3" title="Gesellschaftsvertrag"></button>
         <button class="nav-dot" data-section="4" title="Methode"></button>
-        <button class="nav-dot" data-section="5" title="Generation Z"></button>
+        <button class="nav-dot" data-section="5" title="Zusammenhänge"></button>
         <button class="nav-dot" data-section="6" title="Daten"></button>
         <button class="nav-dot" data-section="7" title="Erkenntnisse"></button>
         <button class="nav-dot" data-section="8" title="Fazit"></button>
@@ -71,7 +80,7 @@
     </div>
   </section>
 
-    <!-- SECTION 2: These -->
+    <!-- SECTION 1: These -->
   <section class="section thesis-section" id="s1">
     <div class="section-inner">
       <div class="section-label reveal">01 — Die zentrale These</div>
@@ -81,49 +90,50 @@
       <div class="thesis-layout">
         <div class="thesis-hypothesis reveal">
           <div class="hypothesis-label">Hypothese</div>
-          <blockquote class="hypothesis-text conclusion-lead">
-            Je höher das wahrgenommene Vertrauen in staatliche Institutionen, die erlebte Fairness und die Absicherung der sozialen Sicherheit sind, desto höher ist die Bereitschaft der jungen Generation, eine staatliche Dienstpflicht zu übernehmen.
+          <blockquote
+              id="hypothesisText"
+              class="hypothesis-text conclusion-lead">
+
+              Je höher das wahrgenommene Vertrauen in staatliche Institutionen, die erlebte Fairness und die Absicherung der sozialen Sicherheit sind, desto höher ist die Bereitschaft der jungen Generation, eine staatliche Dienstpflicht zu übernehmen.
+
           </blockquote>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 1: Kontext -->
-  <section class="section context-section" id="s2">
+<!-- SECTION 2: Kontext (Karten fliegen nacheinander ein und aus) -->
+<section class="section context-section modern-stacking" id="s2">
+  <div class="sticky-motion-stage">
     <div class="section-inner">
       <div class="section-label reveal">02 — Kontext</div>
-      <h2 class="section-title reveal">Warum ist das<br>Thema relevant?</h2>
-
-      <div class="context-grid">
-        <div class="context-map-card">
-          <img src="src/assets/deutschland_karte.svg"
-              alt="Deutschlandkarte"
-              class="context-map">
-        </div>
+      <h2 class="section-title reveal">
+        Eine Frage<br>der <em>Perspektive</em>
+      </h2>
+      
+    <div class="cards-side-container">
+        <!-- Sand steht jetzt an erster Stelle im HTML -->
+        <article class="mini-card card-sand">
+          <h3>Der Gesellschaftsvertrag</h3>
+          <p>Demokratie basiert auf Gegenseitigkeit, einer fairen Balance zwischen staatlicher Unterstützung und bürgerlicher Pflicht. Im Kern geht es um eine messbare Frage:<br><br>Wie viel Vertrauen und Sicherheit braucht die Jugend, um bereitwillig Verantwortung zu übernehmen?</p>
+        </article>
         
-        <div class="context-text-card">
-          <p class="context-intro">
-            Aufbauend auf unserer zentralen These beleuchtet dieser Abschnitt die tiefere Relevanz und den politikwissenschaftlichen Kontext hinter unseren Daten.
-          </p>
+        <!-- Grau bleibt unverändert in der Mitte -->
+        <article class="mini-card card-grey">
+          <h3>Die Realität der Jugend</h3>
+          <p>Die junge Generation verweigert sich nicht aus Prinzip. Wenn das Fundament für die eigene Zukunft als unsicher wahrgenommen wird, verändert das den Blick auf das große Ganze. Erst wenn die eigene Basis stabil ist, entsteht der Freiraum, um über den persönlichen Beitrag für die Gemeinschaft nachzudenken.</p>
+        </article>
 
-          <p>
-            Deutschland steht vor einer sicherheitspolitischen Zeitenwende, die eine intensive Debatte über die Neuausrichtung oder Rückkehr der Wehr- und Dienstpflicht entfacht hat. In der öffentlichen Diskussion stehen sich dabei oft sicherheitspolitische Notwendigkeiten und die veränderten Lebensrealitäten der jungen Generation gegenüber. Letztere ist aktuell mit spezifischen sozioökonomischen Herausforderungen wie dem angespannten Wohnungsmarkt, der Inflationsentwicklung und veränderten Zukunftsperspektiven konfrontiert.
-          </p>
-
-          <p>
-            Genau an dieser Schnittstelle setzt unser Projekt an. Wir betrachten die Debatte über die Verteidigungsbereitschaft durch die Brille des <strong>Social Contract (Gesellschaftsvertrags)</strong>. In der Demokratietheorie basiert dieses Konzept fundamental auf dem Prinzip der <strong>Reziprozität</strong> – also auf einer ausgewogenen Balance zwischen staatlicher Fürsorge und bürgerlicher Pflicht.
-          </p>
-
-          <p>
-            Unsere empirischen Daten untersuchen dieses theoretische Spannungsfeld sachlich und messbar: Sie zeigen auf, in welchem Verhältnis die Erwartungen an die soziale Sicherheit, die politische Teilhabe und die tatsächliche Bereitschaft zur Übernahme staatlicher Pflichten zueinander stehen.
-          </p>
-        </div>
-
+        <!-- Grün steht jetzt an dritter Stelle im HTML -->
+        <article class="mini-card card-green">
+          <h3>Die Zeitenwende</h3>
+          <p>Europa steht vor einer sicherheitspolitischen Kehrtwende. Die Diskussion über eine Rückkehr der Wehr- und Dienstpflicht läuft auf Hochtouren. Doch in der öffentlichen Debatte werden die echten Lebensrealitäten der jungen Generation oft völlig übersehen.</p>
+        </article>
       </div>
-
+     </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
 <!-- SECTION 3: Gesellschaftsvertrag -->
@@ -448,190 +458,234 @@
 
 </section>
 
-  <!-- SECTION 6: Daten (bleibt) -->
-  <section class="section data-section" id="s6">
-    <div class="section-label-fixed">06 · Daten entdecken</div>
-
+  <!-- SECTION 5: Zusammenhänge (Streudiagramm) -->
+  <section class="section scatter-section" id="s5">
     <div class="section-inner">
-      <p class="section-label reveal">Umfrageergebnisse</p>
+      <div class="section-label reveal">05 — Zusammenhänge</div>
       <h2 class="section-title reveal">
-        Was die Antworten über <em>Gen Z</em> erzählen
+        Wehrdienst-Bereitschaft &amp; <em>Gesellschaftsvertrag</em>
       </h2>
 
+      <div class="scatter-layout">
+
+        <!-- LINKS: Text & Methodik in zwei Etappen (scrollt normal) -->
+        <div class="scatter-intro">
+
+          <div class="scatter-step reveal">
+            <p class="scatter-desc">
+              Die Bereitschaft dieser Generation, sich für das Land einzusetzen, ist kein Startkapital, das vorausgesetzt werden kann, sie ist das Resultat eines funktionierenden und verlässlichen Sozialstaates.
+            </p>
+
+            <p class="scatter-desc scatter-desc-methodik">
+              <strong>X-Achse:</strong> Bereitschaft, einen verpflichtenden Wehrdienst zu leisten.
+            </p>
+
+            <p class="scatter-desc scatter-desc-methodik">
+              <strong>Y-Achse — Gesellschaftsvertrags-Score:</strong> Ein Mittelwert aus mehreren Aussagen zur wahrgenommenen Erfüllung des Gesellschaftsvertrags durch den Staat.
+            </p>
+          </div>
+
+          <div class="scatter-step reveal">
+            <h3>Woraus setzt sich der Score zusammen?</h3>
+            <ul class="scatter-score-list">
+              <li>Die Anliegen der jüngeren Generation werden von Politik und Gesellschaft ausreichend wahrgenommen.</li>
+              <li>Die Interessen und Stimmen junger Menschen werden von politischen Entscheidungsträgern ausreichend berücksichtigt.</li>
+              <li>Politik in Deutschland ist an den tatsächlichen Lebensumständen der Menschen ausgerichtet.</li>
+              <li>Vertrauen, dass staatliche Institutionen im besten Interesse der gesamten Bevölkerung handeln.</li>
+              <li>Die Diskussion über eine neue Wehrpflicht berücksichtigt die Interessen der jungen Generation angemessen.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- RECHTS: Filter, Chart, Stats & Legende (sticky, bleibt beim Scrollen stehen) -->
+        <div class="scatter-graphic">
+          <div class="scatter-filters">
+            <button data-g="all" class="scatter-filter-btn active">Alle</button>
+            <button data-g="w" class="scatter-filter-btn">Frauen</button>
+            <button data-g="m" class="scatter-filter-btn">Männer</button>
+            <button data-g="d" class="scatter-filter-btn">Divers</button>
+            <button data-g="k" class="scatter-filter-btn">Keine Angabe</button>
+          </div>
+
+          <div class="scatter-chart-card reveal">
+            <div class="scatter-chart-wrap">
+              <canvas id="scatterCanvas"></canvas>
+            </div>
+          </div>
+
+          <div class="scatter-footer">
+            <div class="scatter-stats">
+              <div class="scatter-stat">
+                <span class="scatter-stat-value" id="scatterCorr">–</span>
+                <span class="scatter-stat-label">Korrelation (r)</span>
+              </div>
+              <div class="scatter-stat">
+                <span class="scatter-stat-value" id="scatterCount">–</span>
+                <span class="scatter-stat-label">Befragte</span>
+              </div>
+            </div>
+
+            <div class="scatter-legend" id="scatterLegend">
+              <span class="scatter-legend-item" data-g="w"><i></i>Frauen</span>
+              <span class="scatter-legend-item" data-g="m"><i></i>Männer</span>
+              <span class="scatter-legend-item" data-g="d"><i></i>Divers</span>
+              <span class="scatter-legend-item" data-g="k"><i></i>Keine Angabe</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Daten (bleibt) -->
+  <section class="section data-section" id="s6">
+    <div class="section-inner">
+      <div class="section-label reveal">06 — Daten entdecken</div>
+      <h2 class="section-title reveal">
+        Wie die <em>Generation Z</em> tatsächlich denkt
+      </h2>
+
+      <!-- NEUER TEXT-EINSTIEG (Direkt auf dem dunklen Hintergrund ohne Box) -->
+      <div class="reveal" style="max-width: 800px; margin: 40px 0 50px 0; text-align: left; background: transparent;">
+        
+        
+        <!-- Beschreibungstext in leicht abgetöntem Weiß für edlen Kontrast -->
+        <p style="font-size: 1rem; line-height: 1.65; color: #FFFFFF; font-weight: 400; margin: 0;">
+          Die Ergebnisse dieser Untersuchung zeichnen ein differenziertes Bild der studentischen Jugend, das über gängige Stereotypen hinausreicht. Die folgenden Grafiken visualisieren die Positionen der Befragten zu den Themenbereichen Zukunftsvorsorge, gesellschaftliche Pflichten und politisches Vertrauen. Die Daten veranschaulichen, unter welchen Voraussetzungen die nachfolgende Generation bereit ist, Verantwortung für das Gemeinwesen zu übernehmen.
+        </p>
+      </div>
+
+      <!-- Ab hier beginnen deine Visualisierungen -->
       <div class="charts-grid">
 
-        <!-- Butterfly Diagramm -->
+        <!-- Butterfly Diagramm (Frage 6 vs. Frage 9 — echte Daten) -->
         <article class="chart-card wide reveal">
-          <p class="chart-kicker">Verteidigungsbereitschaft</p>
-          <h3>Bereit, Deutschland zu verteidigen?</h3>
-          <div class="butterfly-chart">
-            <div class="butterfly-head">
-              <span>Männlich</span>
-              <span></span>
-              <span>Weiblich</span>
+          <p class="chart-kicker">Zukunft &amp; Wahrnehmung</p>
+          <h3>Wirtschaftliche Unsicherheit vs Politische Repräsentanz</h3>
+          <div id="butterfly-root" class="butterfly">
+
+            <div class="butterfly-header">
+
+                <div class="butterfly-kicker">
+                    Umfrageergebnisse
+                </div>
+
+                <h3 class="butterfly-title">
+                    Wirtschaftliche Unsicherheit vs.
+                    Politische Repräsentanz
+                </h3>
+
             </div>
-            <div class="butterfly-row">
-              <div class="left-bar" style="width:62%">62%</div>
-              <div class="answer-label">Ja</div>
-              <div class="right-bar" style="width:38%">38%</div>
+
+            <div class="butterfly-toolbar">
+
+                <button class="bf-filter active">
+                    Alle
+                </button>
+
+                <button class="bf-filter">
+                    Mann
+                </button>
+
+                <button class="bf-filter">
+                    Frau
+                </button>
+
+                <button class="bf-filter">
+                    Divers
+                </button>
+
             </div>
-            <div class="butterfly-row">
-              <div class="left-bar neutral" style="width:22%">22%</div>
-              <div class="answer-label">Teils</div>
-              <div class="right-bar neutral" style="width:35%">35%</div>
+
+            <div class="butterfly-question-row">
+
+              <div class="question-left">
+                <strong>Wirtschaftliche Zukunft</strong>
+                <p>Ich habe das Gefühl, dass meine Generation wirtschaftlich schlechtere Zukunftsperspektiven hat als frühere Generationen.</p>
+              </div>
+
+              <div class="question-right">
+                <strong>Politische Wahrnehmung</strong>
+                <p>Ich habe das Gefühl, dass die Anliegen der jüngeren Generation von Politik und Gesellschaft ausreichend wahrgenommen werden.</p>
+              </div>
+
             </div>
-            <div class="butterfly-row">
-              <div class="left-bar" style="width:16%; background:#b96a52">16%</div>
-              <div class="answer-label">Nein</div>
-              <div class="right-bar" style="width:27%; background:#b96a52">27%</div>
+
+            <div class="butterfly-chart">
+
+                <!-- Das komplette Diagramm mit JavaScript -->
+
             </div>
-          </div>
-          <p class="chart-note">Dummy-Werte. Später werden durch echte Lamapoll-Ergebnisse ersetzt.</p>
+
+        </div>
         </article>
 
-        <!-- Halbkreis -->
-        <article class="chart-card reveal" data-delay="100">
-          <p class="chart-kicker">Institutionsvertrauen</p>
-          <h3>Vertrauen in staatliche Institutionen</h3>
-          <div class="semi-chart">
-            <div class="semi-circle"></div>
-            <div class="semi-value">46 %</div>
-            <p class="chart-note" style="margin:0 auto; text-align:center">vertrauen staatl. Institutionen (eher) nicht</p>
-          </div>
+
+        <!-- Halbkreis Wehrdienst-Bereitschaft (Karussell: Grafik / Text) -->
+<article class="chart-card wide carousel-card reveal" data-delay="100">
+  <p class="chart-kicker" style="color: #81B69D;">Dienstbereitschaft</p>
+  <h3>Bereitschaft zum Wehrdienst</h3>
+
+  <div class="carousel" id="wehrdienstCarousel">
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <div class="semi-chart">
+          <div class="semi-circle" id="semiCircle" style="--pct: 52; background: conic-gradient(from 225deg, #B96A52 0deg calc(var(--pct) * 2.6deg), var(--border) calc(var(--pct) * 2.6deg) 360deg);"></div>
+          <div class="semi-value" id="semiValue" style="color: #B96A52; text-align: center;">52 %</div>
+
+          <p class="chart-note" style="margin: 0 auto; text-align: center; max-width: 100%;">
+            stufen ihre eigene Wehrbereitschaft als <span style="color: #B96A52; font-weight: 500; display: inline;">sehr gering</span> ein
+          </p>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <p class="carousel-text">
+          Mehr als die Hälfte aller Befragten stuft die eigene Bereitschaft für einen verpflichtenden Wehrdienst unter den aktuellen Bedingungen als extrem niedrig ein. Da ein weiteres Viertel deutliche Skepsis äußert, erteilt die absolute Mehrheit der studentischen Jugend dem Dienst eine klare Absage. Zusammen machen diese Gruppen weit mehr als zwei Drittel der Stimmen aus.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-arrow carousel-arrow-prev" aria-label="Vorherige Seite">‹</button>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" data-slide="0" aria-label="Grafik anzeigen"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Einordnung anzeigen"></button>
+      </div>
+      <button class="carousel-arrow carousel-arrow-next" aria-label="Nächste Seite">›</button>
+    </div>
+  </div>
+</article>
+
+        <!-- Likert-Chart -->
+<article class="chart-card wide reveal" data-delay="100">
+  <p class="chart-kicker">Gesellschaftsvertrag &amp; Pflichten</p>
+  <h3>Einstellung zu staatlichen Pflichten und Gegenleistungen</h3>
+  <div id="likert-pflichten-root"></div>
+</article>
+    
+
+        <!-- Bubble Chart: Frage 15 (Bedingungen für Pflichtdienst-Akzeptanz) -->
+        <article class="chart-card wide reveal" data-delay="200">
+          <p class="chart-kicker">Bedingungen</p>
+          <h3>Wann würde Gen Z einen Pflichtdienst eher akzeptieren?</h3>
+          <p class="chart-desc">
+            Mehrfachauswahl, jede Person konnte beliebig viele Bedingungen ankreuzen. Zusätzlich zu den unten dargestellten Bedingungen gaben 19,4 % an, eine Dienstpflicht kategorisch abzulehnen, 10,1 % wären ohnehin bereit, unabhängig von Bedingungen, und 9,3 % nannten sonstige Gründe.
+          </p>
+          <div id="bubble-root"></div>
         </article>
 
-        <!-- Bubble Chart -->
-        <article class="chart-card reveal" data-delay="200">
-          <p class="chart-kicker">Prioritäten</p>
-          <h3>Was ist Gen Z wichtiger als Verteidigung?</h3>
-          <div class="bubble-viz">
-            <div class="bubble big">Wohnen &amp;<br>Mieten</div>
-            <div class="bubble big warm">Klima &amp;<br>Umwelt</div>
-            <div class="bubble medium">Bildung</div>
-            <div class="bubble medium">Psychische<br>Gesundheit</div>
-            <div class="bubble small warm">Rente</div>
-            <div class="bubble tiny">Militär</div>
-          </div>
-          <p class="chart-note">Bubble-Größe = relative Priorität (Dummy-Werte)</p>
-        </article>
-
-        <!-- Likert Multiples -->
-        <article class="chart-card wide reveal" data-delay="100">
-          <p class="chart-kicker">Fairness-Wahrnehmung</p>
-          <h3>Wie fair erlebt Gen Z den Staat?</h3>
-          <div class="likert-small-multiples">
-            <div class="likert-row">
-              <span>Staat hält seine Versprechen</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:30%"></div>
-                <div class="c2" style="width:35%"></div>
-                <div class="c3" style="width:20%"></div>
-                <div class="c4" style="width:10%"></div>
-                <div class="c5" style="width:5%"></div>
-              </div>
-            </div>
-            <div class="likert-row">
-              <span>Lasten werden gerecht verteilt</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:15%"></div>
-                <div class="c2" style="width:40%"></div>
-                <div class="c3" style="width:20%"></div>
-                <div class="c4" style="width:15%"></div>
-                <div class="c5" style="width:10%"></div>
-              </div>
-            </div>
-            <div class="likert-row">
-              <span>Interessen der Jugend werden berücksichtigt</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:18%"></div>
-                <div class="c2" style="width:22%"></div>
-                <div class="c3" style="width:20%"></div>
-                <div class="c4" style="width:25%"></div>
-                <div class="c5" style="width:15%"></div>
-              </div>
-            </div>
-            <div class="likert-row">
-              <span>Politische Entscheidungen wirken realitätsfern</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:5%"></div>
-                <div class="c2" style="width:10%"></div>
-                <div class="c3" style="width:15%"></div>
-                <div class="c4" style="width:45%"></div>
-                <div class="c5" style="width:25%"></div>
-              </div>
-            </div>
-            <div class="likert-row">
-              <span>Soziale Sicherheit ist genauso wichtig wie militärische Sicherheit</span>
-              <div class="likert-bar">
-                <div class="c1" style="width:3%"></div>
-                <div class="c2" style="width:7%"></div>
-                <div class="c3" style="width:10%"></div>
-                <div class="c4" style="width:40%"></div>
-                <div class="c5" style="width:40%"></div>
-              </div>
-            </div>
-          </div>
-          <p class="chart-note">Dummy-Werte. Später werden diese Werte durch die echten Lamapoll-Ergebnisse ersetzt.</p>
-        </article>
+       
 
         <!-- Pictogram Chart -->
         <article class="chart-card wide reveal">
           <p class="chart-kicker">Dienstpflicht</p>
           <h3>Wo würde Gen Z einen Dienst am ehesten leisten?</h3>
-          <div class="service-pictogram-chart">
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>10%</strong>
-              <p>Bundeswehr</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled">●</span><span class="filled">●</span><span class="filled">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>30%</strong>
-              <p>Katastrophenschutz / THW</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled">●</span><span class="filled">●</span><span class="filled">●</span><span class="filled">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>40%</strong>
-              <p>Pflege / sozialer Dienst</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled">●</span><span class="filled">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>20%</strong>
-              <p>Klimaschutz / Umwelt</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled muted">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>10%</strong>
-              <p>Befreiung versuchen</p>
-            </div>
-            <div class="service-column">
-              <div class="service-icons">
-                <span class="filled reject">●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span>
-                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
-              </div>
-              <strong>10%</strong>
-              <p>Dienst verweigern</p>
-            </div>
-          </div>
-          <p class="chart-note">Dummy-Werte. Später werden die Punkte und Prozentwerte durch die echten Lamapoll-Ergebnisse ersetzt.</p>
+          <div id="pictogram-root"></div>
         </article>
 
       </div>
@@ -642,39 +696,330 @@
   <section class="section insights-section" id="s7">
     <div class="section-inner">
       <div class="section-label reveal">07 — Erkenntnisse</div>
-      <h2 class="section-title reveal">Was wir<br>gelernt haben</h2>
+      <h2 class="section-title reveal">
+        Die wichtigsten<br>Erkenntnisse
+      </h2>
       <div class="insights-grid">
         <div class="insight-card reveal" data-delay="0">
-          <div class="insight-quote">"</div>
-          <p>Partizipation und das Einhalten staatlicher Versprechen sind die Grundvoraussetzung für kollektives Engagement.</p>
-          <div class="insight-tag">Partizipation</div>
+        <div class="insight-card-inner">
+
+          <!-- Vorderseite -->
+          <div class="insight-face insight-front">
+            <div class="insight-tag">
+              Zukunftsperspektive &amp; wirtschaftlicher Druck
+            </div>
+
+            <p>
+              Eine deutliche Mehrheit von 80,4 % der befragten Studierenden blickt
+              pessimistisch nach vorne und erwartet schlechtere
+              Zukunftsperspektiven als frühere Generationen.
+            </p>
+
+            <div class="flip-hint">
+              Mehr erfahren ↻
+            </div>
+          </div>
+
+          <!-- Rückseite -->
+          <div class="insight-face insight-back">
+            <h3>1 – Die Hauptursachen</h3>
+
+            <p>
+              Als größte Belastungen im Alltag werden die allgemeine Inflation
+              (67,1 %), die ungesicherte langfristige Finanzierung des
+              Rentensystems (65,4 %) sowie geopolitische Spannungen (64,6 %)
+              identifiziert. Dies führt bei 60,4 % der Befragten zu einer
+              erschwerten langfristigen Lebens- und Karriereplanung.
+            </p>
+          </div>
+
         </div>
+      </div>
+
         <div class="insight-card reveal" data-delay="150">
-          <div class="insight-quote">"</div>
-          <p>Sicherheitspolitik darf nicht isoliert von Sozialpolitik gedacht werden — für Gen Z sind beide untrennbar verbunden.</p>
-          <div class="insight-tag">Sozialpolitik</div>
+          <div class="insight-card-inner">
+
+            <!-- Vorderseite -->
+            <div class="insight-face insight-front">
+              <div class="insight-tag">
+                Defizit in der politischen Repräsentation
+              </div>
+
+              <p>
+                Ganze 84,2 % der Teilnehmenden äußern das deutliche Gefühl, dass die
+                Interessen und Stimmen junger Menschen von der Politik unzureichend
+                berücksichtigt werden.
+              </p>
+
+              <div class="flip-hint">
+                Mehr erfahren ↻
+              </div>
+            </div>
+
+            <!-- Rückseite -->
+            <div class="insight-face insight-back">
+              <h3>2 – Die Konsequenz</h3>
+
+              <p>
+                Nahezu deckungsgleich kritisieren 79,6 % der studentischen Jugend,
+                dass aktuelle politische Entscheidungen an ihren tatsächlichen,
+                alltäglichen Lebensumständen vorbeigehen.
+              </p>
+            </div>
+
+          </div>
         </div>
+
         <div class="insight-card reveal" data-delay="300">
-          <div class="insight-quote">"</div>
-          <p>Vertrauen ist der Schlüssel. Ohne Vertrauen in Institutionen keine Bereitschaft zur Verteidigung.</p>
-          <div class="insight-tag">Vertrauen</div>
+          <div class="insight-card-inner">
+
+            <!-- Vorderseite -->
+            <div class="insight-face insight-front">
+              <div class="insight-tag">
+                Bereitschaft zum Wehrdienst &amp; Informationsdefizit
+              </div>
+
+              <p>
+                Unter den aktuellen gesellschaftlichen Bedingungen ist die Bereitschaft
+                zur Verteidigung niedrig: 70,0 % der Befragten stufen ihre eigene
+                Bereitschaft, einen verpflichtenden Wehrdienst zu leisten,
+                als gering oder sehr gering ein.
+              </p>
+
+              <div class="flip-hint">
+                Mehr erfahren ↻
+              </div>
+            </div>
+
+            <!-- Rückseite -->
+            <div class="insight-face insight-back">
+              <h3>3 – Das Informationsloch</h3>
+
+              <p>
+                Die Jugend fühlt sich in der aktuellen Debatte unzureichend aufgeklärt.
+                Nur 36,7 % empfinden ihren Informationsstand zu den aktuellen
+                Wehrpflichtplänen überhaupt als ausreichend.
+              </p>
+            </div>
+
+          </div>
         </div>
+
         <div class="insight-card reveal" data-delay="450">
-          <div class="insight-quote">"</div>
-          <p>Fairness entscheidet über Akzeptanz. Wer das System als fair empfindet, ist eher bereit, es zu verteidigen.</p>
-          <div class="insight-tag">Fairness</div>
+          <div class="insight-card-inner">
+
+            <!-- Vorderseite -->
+            <div class="insight-face insight-front">
+              <div class="insight-tag">
+                Das Prinzip der Gegenseitigkeit
+              </div>
+
+              <p>
+                Die Akzeptanz für gesellschaftliche Verpflichtungen ist kein
+                Automatismus. 67,1 % der Studierenden machen ihre
+                Dienstbereitschaft explizit davon abhängig, wie stark sie
+                vom Staat im Alltag unterstützt werden.
+              </p>
+
+              <div class="flip-hint">
+                Mehr erfahren ↻
+              </div>
+            </div>
+
+            <!-- Rückseite -->
+            <div class="insight-face insight-back">
+              <h3>4 – Die Bedingungen</h3>
+
+              <p>
+                Als wichtigste Voraussetzungen für einen Pflichtdienst gelten
+                eine sichere Altersvorsorge (54,6 %), Garantien für
+                bezahlbaren Wohnraum (53,3 %) sowie absolute Gleichbehandlung
+                aller Geschlechter und Altersgruppen (51,3 %).
+              </p>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- SECTION 8: Fazit -->
 <section class="section conclusion-section" id="s8">
-    <div class="section-inner">
-      <div class="section-label reveal">08 — Fazit & Ausblick</div>
+  <div class="section-inner">
+
+    <div class="section-label reveal">
+      08 — Fazit & Ausblick
     </div>
-  </section>
+
+    <h2 class="section-title reveal">
+      Perspektiven für den<br>gesellschaftlichen Zusammenhalt
+    </h2>
+
+    <div class="conclusion-content">
+
+      <article class="conclusion-card reveal">
+
+        <span class="conclusion-kicker">
+          An die junge Generation
+        </span>
+
+        <p>
+          Für die Studierenden der Generation Z zeigen die Daten, dass das selbstbewusste Einfordern eigener Interessen eng mit dem Wunsch nach verlässlichen gesellschaftlichen Rahmenbedingungen verknüpft ist.
+        </p>
+
+        <p>
+          Die Skepsis gegenüber verpflichtenden Diensten oder der aktuellen Verteidigungspolitik resultiert nicht aus Desinteresse am Gemeinwesen, sondern aus dem Bedürfnis nach wirtschaftlicher Sicherheit und echter demokratischer Teilhabe.
+        </p>
+
+        <p>
+          Das Engagement der jungen Generation ist an nachvollziehbare Erwartungen hinsichtlich sozialer Gerechtigkeit, bezahlbarem Wohnraum und einer sicheren Altersvorsorge gebunden.
+        </p>
+
+      </article>
+
+      <article class="conclusion-card reveal" data-delay="150">
+
+        <span class="conclusion-kicker">
+          An die politischen Entscheidungsträger
+        </span>
+
+        <p>
+          Für die Politik liefern die Ergebnisse ein eindeutiges Signal: Die Aktivierung gesellschaftlicher Mitwirkung oder Verteidigungsbereitschaft lässt sich nicht isoliert betrachten oder verordnen. Sie ist untrennbar mit der Leistungsfähigkeit des Sozialstaates verbunden.
+        </p>
+
+        <p>
+          Wenn über zwei Drittel der jungen Befragten ihre Mitwirkung von staatlicher Unterstützung im Alltag abhängig machen, müssen politische Maßnahmen primär an den Lebensrealitäten dieser Generation ansetzen.
+        </p>
+
+        <p>
+          Reale politische Berücksichtigung und die Lösung existenzieller Fragen – insbesondere in den Bereichen Wohnen und sozialer Absicherung – bilden das notwendige Fundament, um das Vertrauen in staatliche Institutionen nachhaltig zu stärken und gesellschaftliche Pflichten gemeinschaftlich tragbar zu gestalten.
+        </p>
+
+      </article>
+
+    </div>
+
+    <div class="conclusion-highlight reveal">
+
+      <div class="highlight-line"></div>
+
+      <h3>
+        Verantwortung entsteht dort,<br>
+        wo Vertrauen wächst.
+      </h3>
+
+      <p>
+        Die Bereitschaft zur Übernahme staatlicher Pflichten hängt
+        nicht allein von der Pflicht selbst ab, sondern vom Vertrauen
+        in einen funktionierenden Gesellschaftsvertrag.
+      </p>
+
+      <div class="highlight-line"></div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================================
+SECTION 09 — Quellen & Projektteam
+========================================================== -->
+
+<section class="footer-section">
+
+  <div class="footer-inner">
+
+    <div class="footer-line"></div>
+
+    <div class="footer-grid">
+
+      <!-- Quellen -->
+
+      <div class="footer-column">
+
+        <h3>Quellen</h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a href="https://esut.de/2025/02/fachbeitraege/56909/generation-zeitenwende-so-wehrbereit-sind-junge-menschen-in-deutschland/" target="_blank" rel="noopener noreferrer">
+              ESUT – Generation Zeitenwende: So wehrbereit sind junge Menschen in Deutschland
+            </a>
+          </li>
+
+          <li>
+            <a href="https://politik.watson.de/politik/deutschland/843869136-gen-z-expertin-ueber-wehrdienst-debatte-gleicher-fehler-wie-bei-corona" target="_blank" rel="noopener noreferrer">
+              Watson – Gen-Z-Expertin über die Wehrdienstdebatte
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.deutschlandfunkkultur.de/wehrdienst-bundeswehr-gen-z-kommentar-100.html" target="_blank" rel="noopener noreferrer">
+              Deutschlandfunk Kultur – Wehrdienst und Generation Z
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.soziopolis.de/pflicht-freiheit-und-gleichheit.html" target="_blank" rel="noopener noreferrer">
+              Soziopolis – Pflicht, Freiheit und Gleichheit
+            </a>
+          </li>
+
+          <li>
+            <a href="https://doi.org/10.1007/s11615-026-00660-y" target="_blank" rel="noopener noreferrer">
+              Zeitschriftenartikel (DOI: 10.1007/s11615-026-00660-y)
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- Projektteam -->
+
+      <div class="footer-column">
+
+        <h3>Projektteam</h3>
+
+        <ul class="footer-team">
+
+          <li>Arina Rukina</li>
+          <li>Leila Osman</li>
+          <li>Nadja Saleh</li>
+          <li>Renata Figueroa</li>
+
+        </ul>
+
+        <div class="footer-school">
+
+          Technische Hochschule Nürnberg Georg Simon Ohm<br>
+          Social Data & Communications<br>
+          Sommersemester 2026
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      © 2026 Projekt Generation · Alle Rechte vorbehalten.
+
+    </div>
+
+  </div>
+
+</section>
 
   <script type="module" src="src/main.js"></script>
+  <script type="module" src="src/charts/butterfly/butterfly.js"></script>
+  <script type="module" src="src/charts/bubblechart/bubblechart.js"></script>
+  <script type="module" src="src/charts/pictogram_chart/pictogram.js"></script>
+  <script type="module" src="src/charts/grouped_bar_chart_1/grouped_bar_chart_1.js"></script>
+  <script type="module" src="src/charts/grouped_bar_chart_2/grouped_bar_chart_2.js"></script>
+  
 </body>
-</html>
+  </html>

@@ -1,0 +1,155 @@
+/* ==========================================================
+   BUBBLE CHART — Frage 15 (Bedingungen für Pflichtdienst-Akzeptanz)
+   Nutzt CSS-Variablen aus der globalen style.css.
+   ========================================================== */
+
+.bubblechart-filters{
+    display:flex;
+    gap:.5rem;
+    flex-wrap:wrap;
+    justify-content:flex-start; /* [!code ++] */
+    margin-bottom:1.5rem;
+}
+
+.bubblechart-filter-btn{
+    font-family:var(--font-body);
+    font-size:.8rem;
+    padding:.5rem 1rem;
+    border-radius:20px;
+    border:1.5px solid var(--border);
+    background:#ffffff;
+    color:var(--text);
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.bubblechart-filter-btn.active{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#ffffff;
+}
+
+.bubblechart-filter-btn:hover{
+    border-color:var(--accent);
+}
+
+.bubblechart-wrap{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    width:100%;
+    overflow:visible;
+}
+
+.bubblechart-canvas{
+    position:relative;
+    max-width:100%;
+}
+
+.bubblechart-bubble{
+    position:absolute;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#ffffff;
+    line-height:1.2;
+    padding:.4rem;
+    cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+
+
+.bubblechart-bubble-pct{
+    font-weight:700;
+    font-size:1.15em;
+    line-height:1;
+}
+
+.bubblechart-bubble-label{
+    font-size:.78em;
+    font-weight:500;
+    margin-top:.2em;
+    padding:0 .3rem;
+}
+
+.bubblechart-tooltip{
+    position:absolute;
+    z-index:10;
+    background:#1A1A1A;
+    color:#ffffff;
+    font-size:.78rem;
+    line-height:1.5;
+    padding:.6rem .9rem;
+    border-radius:8px;
+    max-width:280px;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .15s ease;
+}
+
+.bubblechart-tooltip.visible{
+    opacity:1;
+}
+
+/* ==========================================================
+   MOBILE — Tablet ≤ 768px
+   ========================================================== */
+
+@media (max-width:768px){
+
+    .bubblechart-filters{
+        gap:.6rem;
+    }
+
+    .bubblechart-filter-btn{
+        min-height:44px;
+        padding:.6rem 1rem;
+        font-size:.76rem;
+    }
+
+    .bubblechart-bubble-pct{
+        font-size:1em;
+    }
+
+    .bubblechart-bubble-label{
+        font-size:.7em;
+    }
+
+    .bubblechart-tooltip{
+        max-width:220px;
+        font-size:.72rem;
+        padding:.5rem .75rem;
+    }
+
+}
+
+/* ==========================================================
+   MOBILE — Smartphone ≤ 480px
+   ========================================================== */
+
+@media (max-width:480px){
+
+    .bubblechart-filter-btn{
+        padding:.5rem .85rem;
+        font-size:.72rem;
+    }
+
+    .bubblechart-bubble-pct{
+        font-size:.9em;
+    }
+
+    .bubblechart-bubble-label{
+        font-size:.64em;
+        padding:0 .15rem;
+    }
+
+    .bubblechart-tooltip{
+        max-width:180px;
+        font-size:.68rem;
+    }
+
+}

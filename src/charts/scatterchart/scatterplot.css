@@ -1,0 +1,213 @@
+/* ==========================================================
+   SCATTERPLOT-SECTION: Wehrdienst-Bereitschaft & Gesellschaftsvertrag
+   Abschnitt 05 — Zusammenhänge
+
+   Nutzt CSS-Variablen (--text-secondary, --border, --accent,
+   --font-display, --font-body) aus der globalen style.css.
+   Diese Datei muss zusätzlich zu style.css geladen werden
+   (z. B. per Import in main.js).
+   ========================================================== */
+
+.scatter-section{
+    background:var(--bg);
+    border-top:1px solid var(--border);
+}
+
+.scatter-layout{
+    display:grid;
+    grid-template-columns:1fr 720px;
+    gap:2.5rem;
+    align-items:start;
+    margin-top:2.5rem;
+}
+
+/* ---------- Linke Seite: Text & Methodik (scrollt normal) ---------- */
+
+.scatter-intro{
+    max-width:460px;
+    display:flex;
+    flex-direction:column;
+    gap:4rem;
+}
+
+.scatter-step h3{
+    font-family:"Source Serif 4", serif;
+    font-size:1.5rem;
+    font-weight:400;
+    line-height:1.25;
+    color:var(--text);
+    margin-bottom:1.25rem;
+}
+
+.scatter-desc{
+    font-size:.95rem;
+    line-height:1.75;
+    color:var(--text-secondary);
+    margin:0 0 1.25rem;
+}
+
+.scatter-desc-methodik{
+    font-size:.95rem;
+    line-height:1.75;
+    margin-bottom:1.25rem;
+}
+
+.scatter-desc-methodik strong{
+    color:var(--text);
+}
+
+.scatter-score-list{
+    display:flex;
+    flex-direction:column;
+    gap:.85rem;
+    margin-top:1.25rem;
+}
+
+.scatter-score-list li{
+    font-size:.9rem;
+    line-height:1.6;
+    color:var(--text-secondary);
+    padding:.85rem 1.1rem;
+    background:#ffffff;
+    border:1px solid var(--border);
+    border-radius:16px;
+}
+
+/* ---------- Rechte Seite: Filter, Chart, Stats & Legende (sticky) ---------- */
+
+.scatter-graphic{
+    position:sticky;
+    top:120px;
+
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+}
+
+.scatter-filters{
+    display:flex;
+    gap:.5rem;
+    flex-wrap:wrap;
+}
+
+.scatter-filter-btn{
+    font-family:var(--font-body);
+    font-size:.8rem;
+    padding:.5rem 1rem;
+    border-radius:20px;
+    border:1.5px solid var(--border);
+    background:#ffffff;
+    color:var(--text);
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.scatter-filter-btn.active{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#ffffff;
+}
+
+.scatter-filter-btn:hover{
+    border-color:var(--accent);
+}
+
+/* ---------- Fußzeile: Stats & Legende kompakt nebeneinander ---------- */
+
+.scatter-footer{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:2rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--border);
+}
+
+.scatter-stats{
+    display:flex;
+    gap:2.5rem;
+}
+
+.scatter-stat-value{
+    display:block;
+    font-family:var(--font-display);
+    font-size:2.2rem;
+    font-weight:400;
+    color:var(--text);
+    line-height:1;
+    margin-bottom:.35rem;
+}
+
+.scatter-stat-label{
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--text-secondary);
+}
+
+.scatter-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem 1.25rem;
+}
+
+.scatter-legend-item{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    font-size:.82rem;
+    color:var(--text-secondary);
+    transition:opacity .2s ease;
+}
+
+.scatter-legend-item i{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+    flex-shrink:0;
+}
+
+.scatter-legend-item[data-g="w"] i{ background:#7CBA97; }
+.scatter-legend-item[data-g="m"] i{ background:#E0954B; }
+.scatter-legend-item[data-g="d"] i{ background:#8C7AE6; }
+.scatter-legend-item[data-g="k"] i{ background:#B3AFA8; }
+
+.scatter-legend-item.dimmed{
+    opacity:.35;
+}
+
+/* ---------- Diagramm ---------- */
+
+.scatter-chart-card{
+    background:#ffffff;
+    border:1.5px solid var(--border);
+    padding:2rem 2rem 1.5rem;
+}
+
+.scatter-chart-wrap{
+    position:relative;
+    height:540px;
+}
+
+@media (max-width:1000px){
+    .scatter-layout{
+        grid-template-columns:1fr;
+        gap:4rem;
+    }
+    .scatter-intro{
+        max-width:none;
+    }
+    .scatter-graphic{
+        position:relative;
+        top:0;
+    }
+    .scatter-footer{
+        flex-direction:column;
+        gap:1.25rem;
+    }
+    .scatter-chart-wrap{
+        height:340px;
+    }
+}

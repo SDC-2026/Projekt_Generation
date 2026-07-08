@@ -1,4 +1,66 @@
 /* ==========================================================
+   00 FONTS (selbst gehostet)
+   Dateien liegen unter: src/fonts/
+   Download: https://gwfh.mranftl.com/fonts
+   ========================================================== */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/source-serif-4-v9-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/source-serif-4-v9-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/source-serif-4-v9-latin-300italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/source-serif-4-v9-latin-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/dm-sans-v15-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/dm-sans-v15-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/dm-sans-v15-latin-500.woff2') format('woff2');
+}
+
+/* ==========================================================
    01 VARIABLES
    ========================================================== */
 
@@ -623,37 +685,210 @@ a:hover{
 }
 
 /* ==========================================================
-   06 CONTEXT
+   HORIZONTAL FLYING CARDS – LARGE & REVERSED
    ========================================================== */
 
-
-/* ---------- Context Section ---------- */
-
-.context-section {
-  background: var(--text);
+/* Zwingt den Titel in Sektion 2 auf reines Weiß */
+#s2 .section-title,
+.modern-stacking .section-title,
+.context-layout-wrapper .section-title {
+  color: #FFFFFF !important;
 }
 
-.context-section {
-  background: var(--text);
+#s2 .section-title em,
+.modern-stacking .section-title em,
+.context-layout-wrapper .section-title em {
+  color: #FFFFFF !important;
+  font-style: italic;
 }
 
-.context-section .section-label {
-  color: var(--accent);
+.context-section.modern-stacking {
+  background: #1A1A1A !important;
+  height: 150vh; 
+  position: relative;
+  overflow: visible !important;
 }
 
-.context-section .section-title {
-  color: #ffffff;
+.sticky-motion-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center; 
+  overflow: hidden;
 }
 
-.context-section .section-title em {
-  color: rgba(255,255,255,0.7);
+.section-inner-stacking {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+/* Container dreht die logische Reihenfolge um */
+.cards-side-container {
+  display: flex;
+  flex-direction: row-reverse; /* Grün landet ganz rechts, Sand ganz links */
+  justify-content: center;
+  align-items: center;
+  gap: 3rem; /* Etwas mehr Platz für die größeren Karten */
+  width: 100%;
+  max-width: 1300px;
+  position: relative;
+}
+
+/* ==========================================================
+   MINI-CARD TEXT FLOW FIX 
+   ========================================================== */
+
+.mini-card {
+  width: 380px !important;  
+  height: 380px !important; 
+  padding: 2.5rem !important;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5) !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+  
+  /* Wechsel zu Block-Layout zwingt alles strikt untereinander */
+  display: block !important; 
+  text-align: left !important;
+  overflow: hidden !important; /* Verhindert, dass Text unten rausguckt */
+  
+  /* Animations-Basiswerte für JS */
+  opacity: 0;
+  transform: translateX(-150vw);
+  transition: transform 0.05s linear, opacity 0.05s linear;
+}
+
+/* Überschrift ganz normal oben platzieren */
+.mini-card h3 {
+  display: block !important;
+  width: 100% !important;
+  font-family: var(--font-display), serif !important;
+  font-size: 1.35rem !important; /* Von 1.6rem auf 1.35rem verkleinert */
+  font-weight: 600 !important;
+  margin: 0 0 1rem 0 !important; 
+  padding: 0 !important;
+  color: #1A1A1A !important;
+  white-space: nowrap !important; /* Verhindert eisern, dass ein langes Wort umbricht */
+}
+
+/* Text fließt ganz normal unter der Überschrift weiter */
+.mini-card p {
+  display: block !important;
+  width: 100% !important;
+  font-size: 1rem !important; /* Leicht kompakter, damit es perfekt in 380px passt */
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #1A1A1A !important;
+}
+
+.mini-card {
+  opacity: 1 !important;
+}
+
+.cards-side-container {
+  display: flex !important;
+  flex-direction: row-reverse !important; /* Erlaubt der grünen Karte, den vollen Weg nach links zu fliegen */
+  justify-content: center !important; /* Von flex-end auf center geändert für perfekte Symmetrie */
+  align-items: center !important;
+  gap: 3rem !important;
+  width: 100% !important;
+}
+
+/* FARBEN */
+.card-green { background: #81B69D !important; color: #1A1A1A !important; }
+.card-grey  { background: #D7D3CC !important; color: #1A1A1A !important; }
+.card-sand  { background: #D8B69C !important; color: #1A1A1A !important; }
+
+/* ----------------------------------------------------------
+   SCROLL-DRIVEN ANIMATION (CSS-ONLY MOTION)
+   Funktioniert nativ über das Mausrad des Nutzers
+   ---------------------------------------------------------- */
+
+@supports (animation-timeline: view()) {
+  
+  /* Karte 1 fliegt nach oben weg und fadet aus */
+  .stack-card-1 {
+    animation: bleedOut1 linear both;
+    animation-timeline: view(vertical);
+    animation-range: exit 0% exit 100%;
+  }
+
+  /* Karte 2 liegt darunter, wartet und weicht dann für Karte 3 */
+  .stack-card-2 {
+    animation: bleedOut2 linear both;
+    animation-timeline: view(vertical);
+    animation-range: exit -50% exit 100%;
+  }
+}
+
+@keyframes bleedOut1 {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-80px) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-150px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes bleedOut2 {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-60px) scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Mobil-Optimierung: Verhindert zu große Boxen auf kleinen Displays */
+@media (max-width: 768px) {
+  .cards-stack-container {
+    height: 440px;
+  }
+  .motion-card {
+    padding: 2rem;
+  }
+  .motion-card h3 {
+    font-size: 1.6rem;
+  }
+  .motion-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Scatterplot-Section-Styles (05 — Zusammenhänge) sind ausgelagert nach
+   src/charts/scatterchart/scatterplot.css und werden dort per Import geladen. */
+
 
 /* ---------- Context Layout ---------- */
 
 .context-grid{
     display:grid;
-    grid-template-columns:0.9fr 1.4fr;
+    grid-template-columns:1fr;
     gap:2rem;
     align-items:stretch;
 }
@@ -888,6 +1123,30 @@ a:hover{
   font-style: normal;
 }
 
+.hypothesis-text span{
+    color: var(--text);
+    opacity: .12;
+
+    filter: blur(2px);
+
+    transition:
+        opacity .6s ease,
+        color .6s ease,
+        filter .6s ease,
+        transform .6s ease;
+
+    transform: scale(.98);
+}
+
+.hypothesis-text span.active{
+    opacity: 1;
+
+    color: var(--text);
+
+    filter: blur(0);
+
+    transform: scale(1.02);
+}
 
 /* ---------- Variables ---------- */
 
@@ -1258,8 +1517,8 @@ top:0;
 
 .method-layout{
     display:grid;
-    grid-template-columns:1fr 420px;
-    gap:6rem;
+    grid-template-columns:1fr minmax(0, 420px);
+    gap:clamp(2rem, 5vw, 6rem);
 
     align-items:center;
 
@@ -1280,7 +1539,7 @@ top:0;
 
     min-width:0;
 
-    padding-right: 8rem;
+    padding-right: clamp(0rem, 4vw, 8rem);
 
 }
 
@@ -1294,14 +1553,14 @@ top:0;
     justify-content:flex-start;
     height:100%;
     padding-top:clamp(.5rem, 2vh, 2rem);
-    padding-left:8rem;
+    padding-left:clamp(0rem, 4vw, 8rem);
 }
 
 /* ---------- Prozess ---------- */
 
 .method-process{
     display:grid;
-    grid-template-columns:1fr 120px 1fr 120px 1fr;
+    grid-template-columns:1fr clamp(40px, 8vw, 120px) 1fr clamp(40px, 8vw, 120px) 1fr;
     align-items:start;
     width:100%;
     margin-top:clamp(.5rem, 2vh, 2rem);
@@ -1597,13 +1856,26 @@ top:0;
   padding-bottom: 4rem;
 }
 
+.data-section .section-label {
+  color: var(--accent);
+}
+
+.data-section .section-title {
+  color: #ffffff;
+}
+
+.data-section .section-title em {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
 
 /* ---------- Charts Grid ---------- */
 
 .charts-grid {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 2rem 6rem;
+  padding: 0 2rem 6rem 0;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1656,6 +1928,16 @@ top:0;
   font-size: 1.35rem;
   font-weight: 300;
   line-height: 1.25;
+}
+
+.chart-desc {
+  margin-top: -.75rem;
+  margin-bottom: 1.75rem;
+  max-width: 640px;
+
+  font-size: .88rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
 }
 
 .chart-note {
@@ -1773,62 +2055,8 @@ top:0;
 
 
 /* ==========================================================
-   BUBBLE CHART
+   BUBBLE CHART (Dummy-Version, ersetzt durch src/charts/bubblechart/bubblechart.css)
    ========================================================== */
-
-.bubble-viz {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-  gap: 1.2rem;
-
-  min-height: 260px;
-}
-
-.bubble {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  border-radius: 50%;
-
-  background: var(--accent);
-  color: white;
-
-  line-height: 1.2;
-  font-size: .8rem;
-
-  padding: 1rem;
-}
-
-.bubble.big {
-  width: 140px;
-  height: 140px;
-}
-
-.bubble.medium {
-  width: 100px;
-  height: 100px;
-}
-
-.bubble.small {
-  width: 80px;
-  height: 80px;
-}
-
-.bubble.tiny {
-  width: 60px;
-  height: 60px;
-}
-
-.bubble.warm {
-  background: var(--accent-warm);
-  color: var(--text);
-}
 
 
 /* ==========================================================
@@ -1880,6 +2108,124 @@ top:0;
   font-size: 2.7rem;
 
   color: var(--accent);
+}
+
+
+/* ==========================================================
+   CAROUSEL (Dienstbereitschaft-Karte: Grafik / Text)
+   ========================================================== */
+
+.carousel-card {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  flex: 1;
+  will-change: transform;
+  transition: transform .45s cubic-bezier(.65, 0, .35, 1);
+}
+
+.carousel-slide {
+  flex: 1 0 100%;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 .1rem;
+}
+
+.carousel-text {
+  font-size: .92rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.carousel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.carousel-list li {
+  font-size: .92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.carousel-list strong {
+  color: var(--text);
+}
+
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.carousel-arrow:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.carousel-dot:hover {
+  background: var(--accent-warm, var(--accent));
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+  transform: scale(1.35);
 }
 
 
@@ -2009,7 +2355,7 @@ top:0;
 }
 
 .insights-section .section-title {
-  color: white;
+  color: var(--text);
 }
 
 .insights-section .section-title em {
@@ -2033,20 +2379,74 @@ top:0;
 
 .insight-card {
   position: relative;
+  height: 420px;
+  perspective: 1200px;
+  cursor: pointer;
+  overflow: visible;
+}
 
-  padding: 2.5rem;
+.insight-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 
+  transition: transform .7s cubic-bezier(.22,1,.36,1);
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.insight-card.flipped .insight-card-inner {
+  transform: rotateY(180deg);
+}
+
+.insight-face{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+
+  padding:2.5rem;
+
+  background:#222;
+
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+
+  overflow:hidden;
+
+  transition:background var(--transition-fast);
+}
+
+.insight-card:hover .insight-card-inner{
+    transform: translateY(-3px);
+}
+
+.insight-card.flipped:hover .insight-card-inner{
+    transform: rotateY(180deg) translateY(-3px);
+}
+
+.insight-back {
+  transform: rotateY(180deg);
+  justify-content: center;
   background: #222;
-
-  transition:
-    background var(--transition-fast),
-    transform var(--transition-fast);
 }
 
-.insight-card:hover {
-  background: #2a2a2a;
-  transform: translateY(-2px);
+.insight-back h3 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
 }
+
+.insight-back p {
+  margin: 0;
+  color: #ccc;
+  line-height: 1.8;
+}
+
 
 
 /* ---------- Quote ---------- */
@@ -2066,33 +2466,69 @@ top:0;
 
 /* ---------- Insight Text ---------- */
 
-.insight-card p {
-  margin-bottom: 1.5rem;
+.insight-front{
+    display:flex;
+    flex-direction:column;
 
-  font-size: .95rem;
-  line-height: 1.7;
-
-  color: #ccc;
+    padding-top:7rem;      /* <- hiermit wandert alles nach unten */
 }
 
+.insight-front p{
+    margin-bottom:1.5rem;
+
+    font-size:1.2rem;
+    line-height:1.8;
+
+    color:#ccc;
+
+    font-weight:400;
+}
 
 /* ---------- Tag ---------- */
 
-.insight-tag {
-  display: inline-block;
+.insight-tag{
+    display:inline-block;
 
-  padding: .25rem .75rem;
+    margin-top:0;
+    margin-bottom:1.5rem;
 
-  border: 1px solid rgba(124,186,151,.3);
+    align-self:flex-start;
 
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+    padding:.25rem .75rem;
 
-  color: var(--accent);
+    border:1px solid rgba(124,186,151,.3);
+
+    font-size:.9rem;
+    font-weight:600;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+
+    color:var(--accent);
 }
 
+.flip-hint{
+  margin-top:1rem;
+
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+
+  align-self:flex-end;
+
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  color:var(--accent);
+
+  opacity:.55;
+
+  transition:opacity .25s ease;
+}
+
+.insight-front:hover .flip-hint{
+  opacity:1;
+}
 
 /* ---------- Responsive ---------- */
 
@@ -2102,7 +2538,7 @@ top:0;
     grid-template-columns:1fr;
   }
 
-  .insight-card{
+  .insight-face{
     padding:2rem;
   }
 
@@ -2116,125 +2552,115 @@ top:0;
    13 CONCLUSION
    ========================================================== */
 
-
-/* ---------- Conclusion Section ---------- */
-
-.conclusion-section {
-  background: var(--bg);
+.conclusion-section{
+    background:var(--bg);
 }
 
+/* ---------- Layout ---------- */
 
-/* ---------- Conclusion Layout ---------- */
-
-.conclusion-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+.conclusion-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2rem;
+    margin-bottom:4rem;
 }
 
+/* ---------- Cards ---------- */
 
-/* ---------- Conclusion Text ---------- */
-
-.conclusion-text {
-  max-width: 620px;
+.conclusion-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:2.5rem;
+    box-shadow:var(--shadow-sm);
+    transition:transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.conclusion-text h3 {
-  margin-bottom: 1.5rem;
-
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.25;
-
-  color: var(--text);
+.conclusion-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-md);
 }
 
-.conclusion-text p {
-  margin-bottom: 1.5rem;
-
-  font-size: 1rem;
-  line-height: 1.75;
-
-  color: var(--text-secondary);
+.conclusion-kicker{
+    display:inline-block;
+    margin-bottom:1.25rem;
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
 }
 
-.conclusion-text strong {
-  color: var(--text);
-  font-weight: 500;
+.conclusion-card p{
+    margin-bottom:1.25rem;
+    line-height:1.85;
+    color:var(--text-secondary);
 }
 
-
-/* ---------- Conclusion Highlight ---------- */
-
-.conclusion-highlight {
-  display: inline-block;
-
-  margin-top: 1rem;
-  padding: .8rem 1.2rem;
-
-  border-left: 3px solid var(--accent);
-
-  background: var(--surface);
-
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-style: italic;
-  font-weight: 300;
-
-  color: var(--text);
+.conclusion-card p:last-child{
+    margin-bottom:0;
 }
 
+/* ---------- Schlussstatement ---------- */
 
-/* ---------- Conclusion Placeholder ---------- */
-
-.conclusion-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.conclusion-highlight{
+    margin-top:4rem;
+    padding:5rem 3rem;
+    background:#222;
+    text-align:center;
 }
 
-
-/* ---------- Placeholder Box ---------- */
-
-.placeholder-box {
-  width: 100%;
-  min-height: 420px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1.5px solid var(--border);
-
-  background: var(--surface);
+.highlight-line{
+    width:120px;
+    height:1px;
+    margin:0 auto 2rem;
+    background:rgba(255,255,255,.18);
 }
 
-
-/* ---------- Placeholder Content ---------- */
-
-.placeholder-content {
-  text-align: center;
+.highlight-line:last-child{
+    margin:2.5rem auto 0;
 }
 
-.placeholder-content h4 {
-  margin-bottom: .75rem;
+.conclusion-highlight h3{
+    margin-bottom:2rem;
+    font-family:var(--font-display);
+    font-size:clamp(2rem,4vw,3rem);
+    font-weight:300;
+    line-height:1.25;
 
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 300;
-
-  color: var(--text);
+    color:var(--accent);
 }
 
-.placeholder-content p {
-  font-size: .9rem;
-  line-height: 1.6;
-
-  color: var(--text-secondary);
+.conclusion-highlight p{
+    max-width:760px;
+    margin:0 auto;
+    font-size:1.08rem;
+    line-height:1.9;
+    color:#d8d8d8;
 }
 
+/* ---------- Responsive ---------- */
+
+@media (max-width:768px){
+
+    .conclusion-content{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .conclusion-highlight{
+
+        padding:2rem;
+
+    }
+
+    .conclusion-highlight p:first-child{
+
+        font-size:1.6rem;
+
+    }
+
+}
 
 /* ---------- Conclusion Quote ---------- */
 
@@ -2254,35 +2680,7 @@ top:0;
 }
 
 /* Reduces the height of the left white box and stretches the black box to the top */
-@media (min-width: 769px) {
-  .method-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    background: transparent;
-    border: none;
-  }
-
-  .method-main {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    border: none;
-  }
-
-  .method-items {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    border: none;
-  }
-
-  .method-focus {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    display: flex;
-    flex-direction: column;
-    padding: 2.5rem 2rem;
-  }
-}
+/* method-layout grid is defined in the base styles above */
 
 /* Responsive adjustment for mobile devices to stack items vertically */
 @media (max-width: 560px) {
@@ -2346,6 +2744,280 @@ top:0;
     font-size:1.5rem;
   }
 }
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer-section{
+
+    background:var(--bg);
+    padding:8rem 2rem 3rem;
+
+}
+
+.footer-inner{
+
+    max-width:1300px;
+    margin:auto;
+
+}
+
+.footer-line{
+
+    width:100%;
+    height:1px;
+    background:var(--border);
+    margin-bottom:4rem;
+
+}
+
+.footer-grid{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8rem;
+
+}
+
+.footer-column h3{
+
+    font-family:var(--font-display);
+    font-size:2rem;
+    font-weight:300;
+
+    margin-bottom:2rem;
+
+    color:var(--text);
+
+}
+
+.footer-links,
+.footer-team{
+
+    list-style:none;
+    padding:0;
+
+}
+
+.footer-links li,
+.footer-team li{
+
+    margin-bottom:1rem;
+
+    font-size:1rem;
+    line-height:1.8;
+
+    color:var(--text-secondary);
+
+}
+
+.footer-links a{
+
+    color:var(--text-secondary);
+
+    text-decoration:underline;
+    text-decoration-color:transparent;
+
+    transition:all .25s ease;
+
+}
+
+.footer-links a:hover{
+
+    color:var(--accent);
+
+    text-decoration-color:var(--accent);
+
+}
+
+.footer-school{
+
+    margin-top:3rem;
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+}
+
+.footer-bottom{
+
+    margin-top:5rem;
+    padding-top:2rem;
+
+    border-top:1px solid var(--border);
+
+    font-size:.9rem;
+
+    color:var(--text-secondary);
+
+}
+
+@media(max-width:900px){
+
+.footer-grid{
+
+grid-template-columns:1fr;
+gap:4rem;
+
+}
+
+}
+
+/* ==========================================================
+   SEKTION: WIRTSCHAFTLICHE ZUKUNFTSPERSPEKTIVE
+   ========================================================== */
+
+.wirtschafts-story-container {
+  --wirtschafts-gap: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wirtschafts-gap); 
+}
+
+/* 1. DIE OBERE BANNER-KARTE */
+.wirtschafts-top-card {
+  border-radius: 0px !important; 
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background-color: #F9F8F6;
+  margin: 0 !important; 
+}
+
+.wirtschafts-badge {
+  font-family: 'Source Serif 4', Georgia, serif !important; /* Gleicher Serif-Font wie bei den Überschriften */
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #2E6F40;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.wirtschafts-text-container {
+  flex: 1;
+}
+
+.wirtschafts-lead-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #444444; /* Sanftes Dunkelgrau */
+}
+
+/* 2. GRID FÜR INTERAKTIVE FLIP-KARTEN */
+.wirtschafts-cards-grid {
+  display: flex;
+  gap: var(--wirtschafts-gap); 
+  width: 100%;
+}
+
+.wirtschafts-flip-card {
+  background-color: transparent;
+  width: calc(50% - (var(--wirtschafts-gap) / 2)); 
+  aspect-ratio: 1 / 1; 
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* HOVER-EFFEKT: Aktiviert das geschmeidige Anheben beim Laden der Seite */
+.wirtschafts-top-card,
+.wirtschafts-flip-card {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease !important;
+}
+
+.wirtschafts-top-card:hover,
+.wirtschafts-flip-card:hover {
+  transform: translateY(-5px) !important;
+}
+
+.wirtschafts-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.wirtschafts-flip-card.flipped .wirtschafts-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.wirtschafts-flip-card-front, 
+.wirtschafts-flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden !important; 
+  backface-visibility: hidden !important;
+  border-radius: 0px !important; 
+  box-sizing: border-box;
+}
+
+.wirtschafts-flip-card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  position: relative;
+  background-color: #F9F8F6;
+  padding: 20px;
+}
+
+/* KARTENTITEL: Schriftart- und Farbanpassung mit hoher Priorität */
+.wirtschafts-story-container .wirtschafts-flip-card-front h2,
+.wirtschafts-story-container .wirtschafts-flip-card-front h3 {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  color: #6B6B68 !important;
+  font-weight: 500 !important;
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+/* Interaktions-Hinweis unten rechts */
+.wirtschafts-action-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8A8A8A;
+}
+
+.wirtschafts-flip-card-back {
+  transform: rotateY(180deg);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F9F8F6;
+}
+
+.wirtschafts-back-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #555555;
+  text-align: left;
+}
+
+/* BRAND-FARBEN FÜR TEXT-HIGHLIGHTS */
+.text-highlight-cause {
+  color: #8C7AE6; 
+  font-weight: 600;
+}
+
+.text-highlight-effect {
+  color: #B96A52; 
+  font-weight: 600;
+}
+
 
 
 /* ==========================================================
@@ -2524,7 +3196,7 @@ top:0;
     grid-template-columns:1fr;
   }
 
-  .insight-card{
+  .insight-face{
     padding:2rem;
   }
 
@@ -2589,3 +3261,874 @@ top:0;
     grid-template-columns:repeat(2,1fr);
   }
   }
+
+/* ==========================================================
+   15 MOBILE-OPTIMIERUNG (gebündelte Ergänzung)
+   Diese Sektion steht bewusst am Ende der Datei, damit sie in
+   der Kaskade Vorrang vor den älteren, verstreuten Media-Queries
+   hat. Sie ist nach der Checkliste "Mobile optimieren" gegliedert.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   15.01 — Allgemeines Layout
+   ---------------------------------------------------------- */
+
+@media (max-width:1024px){
+
+  .section-inner{
+    padding:6rem 1.75rem 4rem;
+  }
+
+  .contract-layout{
+    gap:3rem;
+  }
+
+}
+
+@media (max-width:768px){
+
+  html, body{
+    overflow-x:hidden;
+  }
+
+  .section-inner{
+    padding:5.5rem 1.15rem 3.5rem;
+  }
+
+  .nav-inner{
+    padding:0 1.15rem;
+  }
+
+  .footer-section{
+    padding:5rem 1.15rem 2.5rem;
+  }
+
+  /* Keine festen Breiten mehr auf Mobile */
+  .method-card,
+  .balance-card,
+  .contract-step,
+  .contract-highlight,
+  .thesis-hypothesis{
+    max-width:100%;
+  }
+
+  .mini-card{
+    width:100% !important;
+    max-width:440px;
+  }
+
+  img, svg, canvas{
+    max-width:100%;
+    height:auto;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .section-inner{
+    padding:4.75rem 1rem 3rem;
+  }
+
+  .nav-inner{
+    padding:0 1rem;
+  }
+
+  .footer-section{
+    padding:4rem 1rem 2.5rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.02 — Typografie
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .section-title{
+    font-size:clamp(1.9rem, 7vw, 2.6rem);
+    line-height:1.2;
+    margin-bottom:2.25rem;
+    overflow-wrap:break-word;
+    hyphens:auto;
+  }
+
+  body{
+    font-size:1rem;
+    line-height:1.7;
+  }
+
+  .contract-step p,
+  .context-col p,
+  .conclusion-card p,
+  .insight-back p,
+  .insight-front p,
+  .genz-years p,
+  .method-card p,
+  .scatter-desc{
+    font-size:1rem;
+    line-height:1.75;
+  }
+
+  .section-label,
+  .section-label-fixed{
+    font-size:.7rem;
+    letter-spacing:.1em;
+  }
+
+  .chart-kicker,
+  .insight-tag{
+    font-size:.7rem;
+  }
+
+  .mini-card h3{
+    white-space:normal !important;
+    font-size:1.2rem !important;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .section-title{
+    font-size:clamp(1.65rem, 8vw, 2.1rem);
+  }
+
+  .hypothesis-text{
+    font-size:1.15rem;
+    line-height:1.55;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.03 — Navigation
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .nav-label{
+    display:none;
+  }
+
+  .nav-dots{
+    gap:14px;
+  }
+
+  /* Größere, gut treffbare Touch-Fläche ohne den optischen
+     Punkt zu vergrößern: unsichtbare 44×44px Hit-Area */
+  .nav-dot{
+    position:relative;
+    width:9px;
+    height:9px;
+  }
+
+  .nav-dot::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:44px;
+    height:44px;
+    transform:translate(-50%, -50%);
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.04 — Hero
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .hero-section{
+    min-height:92vh;
+  }
+
+  .hero-content{
+    padding:calc(var(--nav-h) + 1.5rem) 1.15rem 3rem;
+  }
+
+  .hero-overline{
+    margin-bottom:1.25rem;
+    font-size:.72rem;
+  }
+
+  .hero-title{
+    font-size:2.6rem;
+    margin-bottom:1.25rem;
+  }
+
+  .hero-sub{
+    max-width:100%;
+    margin-bottom:3rem;
+    font-size:1.05rem;
+  }
+
+  .hero-background-svg{
+    width:420px;
+    right:-30%;
+    top:55%;
+    opacity:.06;
+  }
+
+  .scroll-hint{
+    gap:1rem;
+  }
+
+  .generation-tags{
+    right:1.15rem;
+    bottom:1.5rem;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .hero-title{
+    font-size:2.15rem;
+  }
+
+  .hero-background-svg{
+    width:300px;
+    right:-40%;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.05 — These
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .thesis-layout{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .thesis-hypothesis{
+    max-width:100%;
+  }
+
+  .thesis-variables{
+    padding:1.5rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.06 — Kontext
+   ---------------------------------------------------------- */
+
+@media (max-width:900px){
+
+  .context-section.modern-stacking{
+    height:auto;
+    padding:5.5rem 0 4rem;
+  }
+
+  .sticky-motion-stage{
+    position:relative;
+    top:auto;
+    height:auto;
+    padding:0;
+  }
+
+  .cards-side-container{
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+    gap:1.5rem !important;
+  }
+
+  .mini-card{
+    height:auto !important;
+    min-height:220px;
+    transform:none !important;
+    opacity:1 !important;
+    transition:none !important;
+  }
+
+  .context-three-col{
+    grid-template-columns:1fr;
+  }
+
+  .context-map{
+    max-width:320px;
+    margin-left:0;
+  }
+
+  .stack-card-1,
+  .stack-card-2,
+  .stack-card-3,
+  .mini-card{
+      transform:none !important;
+      opacity:1 !important;
+      animation:none !important;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   15.07 — Gesellschaftsvertrag
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .contract-layout{
+    grid-template-columns:1fr;
+    gap:3rem;
+    margin-top:3rem;
+  }
+
+  .contract-graphic{
+    position:relative;
+    top:0;
+  }
+
+  .contract-text{
+    gap:3rem;
+  }
+
+  .contract-step h3{
+    font-size:1.5rem;
+  }
+
+  .balance-card{
+    padding:1.75rem;
+  }
+
+  .balance-icon,
+  .balance-icon img{
+    width:56px;
+    height:56px;
+  }
+
+  .balance-side h4{
+    font-size:1.15rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.08 — Methode
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .method-section{
+    height:auto;
+    min-height:auto;
+  }
+
+  .method-section .section-inner{
+    height:auto;
+  }
+
+  .method-layout{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .method-main{
+    width:100%;
+    padding-right:0;
+  }
+
+  .method-side{
+    display:none;
+  }
+
+  .method-process{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+  }
+
+  .process-line{
+    display:none;
+  }
+
+  .process-step{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+
+    gap:1rem;
+
+    padding:2rem 1.5rem;
+
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    opacity:1;
+    transform:none;
+  }
+
+  .process-icon{
+    width:72px;
+    height:72px;
+    margin:0;
+  }
+
+  .process-step h3{
+    margin:0;
+    font-size:1.7rem;
+  }
+
+  .process-step p{
+    max-width:100%;
+    margin:0;
+    font-size:1rem;
+    line-height:1.7;
+    color:var(--text-secondary);
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.09 — Generation Z
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .genz-content{
+    grid-template-columns:1fr;
+    gap:2.5rem;
+  }
+
+  .generations-timeline{
+    gap:1.5rem;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .timeline-item{
+    grid-template-columns:1fr;
+    gap:.4rem;
+  }
+
+  .timeline-item small{
+    grid-column:1;
+  }
+
+  .year-range{
+    font-size:1.6rem;
+    margin-bottom:.4rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.10 — Diagramme
+   ---------------------------------------------------------- */
+
+/* Allgemein: volle Breite, Legenden vereinfacht */
+
+@media (max-width:768px){
+
+  .charts-grid{
+    grid-template-columns:1fr;
+    gap:1.25rem;
+    padding:0 1.15rem 4rem;
+  }
+
+  .chart-card{
+    padding:1.5rem;
+    min-height:auto;
+  }
+
+  .chart-card.wide{
+    grid-column:auto;
+  }
+
+  /* ---- Mobile-Reihenfolge der Diagramme ----
+     Entspricht bewusst der Desktop-Reihenfolge im HTML. */
+
+  .charts-grid{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .chart-card:has(#butterfly-root){
+    order:1;
+  }
+
+  .chart-card:has(#wehrdienstCarousel){
+    order:2;
+  }
+
+  .chart-card:has(#likert-pflichten-root){
+    order:3;
+  }
+
+  .chart-card:has(#bubble-root){
+    order:4;
+  }
+
+  .chart-card:has(#pictogram-root){
+    order:5;
+  }
+
+  /* ---- Scatterplot ---- */
+
+  .scatter-layout{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .scatter-filters{
+    flex-wrap:wrap;
+    gap:.5rem;
+  }
+
+  .scatter-filter-btn{
+    padding:.6rem 1rem;
+    min-height:44px;
+  }
+
+  .scatter-chart-wrap{
+    min-height:320px;
+  }
+
+  .scatter-chart-wrap canvas{
+    width:100% !important;
+    height:auto !important;
+  }
+
+  .scatter-legend{
+    flex-wrap:wrap;
+    gap:.75rem;
+  }
+
+  /* ---- Butterfly Chart ---- */
+
+  .butterfly-head,
+  .butterfly-row{
+    grid-template-columns:1fr 70px 1fr;
+    gap:.5rem;
+  }
+
+  .answer-label{
+    font-size:.62rem;
+    white-space:normal;
+  }
+
+  .left-bar,
+  .right-bar{
+    height:24px;
+    font-size:.62rem;
+    white-space:normal;
+  }
+
+  .butterfly-question-row{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+
+  /* ---- Piktogramm ---- */
+
+  .service-pictogram-chart{
+    grid-template-columns:repeat(2,1fr);
+    gap:1.5rem 1rem;
+  }
+
+  .service-icons span{
+    font-size:1.6rem;
+  }
+
+  .service-column strong{
+    font-size:2rem;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .service-pictogram-chart{
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem .75rem;
+  }
+
+  .butterfly-head,
+  .butterfly-row{
+    grid-template-columns:1fr 56px 1fr;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.11 — Erkenntnisse (Flip Cards)
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .insights-grid{
+    grid-template-columns:1fr;
+    gap:1rem;
+    background:transparent;
+  }
+
+  .insight-card{
+    height:auto;
+    min-height:430px;
+  }
+
+  .insight-face{
+    justify-content:space-between;
+  }
+
+  .insight-front{
+    padding-top:4.5rem;
+  }
+
+  .insight-front p{
+    font-size:1.05rem;
+  }
+
+  .insight-quote{
+    font-size:2.6rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.12 — Fazit
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .conclusion-content{
+    grid-template-columns:1fr;
+    gap:1.5rem;
+  }
+
+  .conclusion-card{
+    padding:1.75rem;
+  }
+
+  .conclusion-card p{
+    font-size:1.02rem;
+  }
+
+  .conclusion-highlight{
+    padding:3rem 1.5rem;
+    margin-top:2.5rem;
+  }
+
+  .conclusion-highlight h3{
+    font-size:1.6rem;
+  }
+
+  .conclusion-quote p{
+    font-size:1.3rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.13 — Footer
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:3rem;
+  }
+
+  .footer-links li,
+  .footer-team li{
+    font-size:1.05rem;
+    line-height:2;
+  }
+
+  .footer-links a{
+    display:inline-block;
+    padding:.25rem 0;
+  }
+
+  .footer-bottom{
+    margin-top:3rem;
+    padding-top:1.5rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.14 — Bilder & Illustrationen
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  .hero-background-svg,
+  .context-map{
+    max-width:100%;
+  }
+
+  .balance-icon img,
+  .process-icon img{
+    object-fit:contain;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.15 — Animationen (Touch-Optimierung & Performance)
+   ---------------------------------------------------------- */
+
+/* Hover-Effekte nur für Geräte mit echtem Hover ausführen,
+   damit sie auf Touch-Geräten nicht "hängen bleiben" */
+
+@media (hover:none) and (pointer:coarse){
+
+  .contract-item:hover{
+    transform:none;
+    border-color:#ececec;
+  }
+
+  .conclusion-card:hover{
+    transform:none;
+    box-shadow:var(--shadow-sm);
+  }
+
+  .chart-card:hover{
+    transform:none;
+    box-shadow:none;
+  }
+
+  .insight-card:hover .insight-card-inner{
+    transform:none;
+  }
+
+  .insight-card.flipped:hover .insight-card-inner{
+    transform:rotateY(180deg);
+  }
+
+  .nav-dot:hover{
+    transform:none;
+    border-color:var(--text-secondary);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.16 — Mobile-spezifische Bedienung
+   ---------------------------------------------------------- */
+
+@media (max-width:768px){
+
+  /* Mindestgröße 44×44px für alle klickbaren Buttons */
+  /* ---------- Navigation ---------- */
+
+.nav-dot{
+    width:10px;
+    height:10px;
+    min-width:10px;
+    min-height:10px;
+    border-radius:50%;
+    display:block;
+    position:relative;
+}
+
+.nav-dot::before{
+    content:"";
+    position:absolute;
+    inset:-17px;
+}
+
+/* ---------- Scatter-Buttons ---------- */
+
+.scatter-filter-btn{
+    min-height:44px;
+    padding:.6rem 1rem;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* ---------- Butterfly-Buttons ---------- */
+
+.bf-filter{
+    min-height:44px;
+    padding:.6rem 1.1rem;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.butterfly-toolbar{
+    flex-wrap:wrap;
+    gap:.6rem;
+}
+
+.scatter-filters{
+    gap:.6rem;
+}
+
+.nav-dot::before{
+    content:"";
+    position:absolute;
+    inset:-17px;
+}
+
+  .butterfly-toolbar{
+    flex-wrap:wrap;
+    gap:.6rem;
+  }
+
+  .bf-filter{
+    padding:.6rem 1.1rem;
+  }
+
+  /* Ausreichend Abstand zwischen Buttons */
+  .scatter-filters,
+  .butterfly-toolbar{
+    gap:.6rem;
+  }
+
+}
+
+
+/* ----------------------------------------------------------
+   15.17 — Responsive Breakpoints (Referenz)
+   Desktop:            > 1200px  (Basisstyles)
+   Laptop:      1024px – 1200px  (siehe 14.01 / 15.01)
+   Tablet:       768px – 1024px  (siehe 14.02 / 15.xx)
+   Smartphone:   ≤ 768px         (siehe 14.03 / 15.xx)
+   Kleine Phones ≤ 480–560px     (siehe 14.04 / 15.xx)
+   ---------------------------------------------------------- */
