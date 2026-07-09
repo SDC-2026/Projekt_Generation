@@ -1,6 +1,6 @@
 # Defense als Generationenfrage
 
-Eine interaktive Storytelling-Website über die Einstellung der Generation Z zur Landesverteidigung, Wehrpflicht und zum Gesellschaftsvertrag.
+Eine interaktive Storytelling-Website über die Einstellung der Generation Z zur Wehrpflicht und zum Gesellschaftsvertrag.
 
 > Wie steht die Jugend zur Wehrpflicht? Eine Untersuchung über staatliche Fürsorge, Bürgerpflichten und den Gesellschaftsvertrag.
 
