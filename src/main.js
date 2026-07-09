@@ -209,7 +209,7 @@ const methodContent = [
       "Befragt wurden Studierende der Generation Z der Technischen Hochschule Nürnberg.",
     list: [
       "Generation Z",
-      "Studierende",
+      "Studierende: 228",
       "Technische Hochschule Nürnberg",
       "Quantitative Auswertung"
     ]
