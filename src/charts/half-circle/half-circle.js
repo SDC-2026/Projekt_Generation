@@ -6,6 +6,40 @@ const TARGET_PCT = 52.0;
 const ANIM_DURATION = 800; // ms
 const EASE = t => 1 - Math.pow(1 - t, 3); // easeOutCubic
 
+// Funktion zum Laden und Parsen der CSV-Datei
+async function loadTargetFromCSV() {
+  try {
+    // Relativer Pfad zur CSV-Datei überprüfen
+    const response = await fetch('./Umfrage_GenerationsfragDefense.csv');
+    if (!response.ok) throw new Error('CSV-Datei konnte nicht geladen werden');
+    
+    const text = await response.text();
+    const lines = text.split('\n');
+    
+    // Nach der genauen Frage aus der Tabelle suchen
+    const targetLine = lines.find(line => line.includes('Frage 10: 5. Meine grundsätzliche Bereitschaft'));
+    
+    if (targetLine) {
+      // Kommas durch Punkte ersetzen, falls deutsches Zahlenformat vorliegt
+      const cleanLine = targetLine.replace(',', '.');
+      const matches = cleanLine.match(/\d+(\.\d+)?/);
+      
+      if (matches) {
+        const parsedValue = parseFloat(matches[0]);
+        
+        // Mathematische Rundung auf die nächste ganze Zahl
+        TARGET_PCT = Math.round(parsedValue); 
+        
+        console.log(`Daten erfolgreich geladen: Originalwert ${parsedValue}%, gerundet auf: ${TARGET_PCT}%`);
+      }
+    } else {
+      console.warn('Zeile mit "Frage 10" nicht in der CSV gefunden. Bitte Text überprüfen.');
+    }
+  } catch (error) {
+    console.warn('Fehler beim Lesen der CSV, nutze Standardwert:', error);
+  }
+}
+
 function initSemiCircleAnimation() {
   const circle = document.getElementById('semiCircle');
   const valueDisplay = document.getElementById('semiValue');
