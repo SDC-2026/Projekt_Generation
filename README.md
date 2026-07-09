@@ -2,30 +2,38 @@
 
 Eine interaktive Storytelling-Website über die Einstellung der Generation Z zur Landesverteidigung, Wehrpflicht und zum Gesellschaftsvertrag.
 
-Die Website verbindet wissenschaftliche Inhalte mit modernen Webtechnologien und datenjournalistischen Visualisierungen. Ziel ist es, Ergebnisse einer Befragung verständlich, interaktiv und visuell ansprechend aufzubereiten.
+> Wie steht die Jugend zur Wehrpflicht? Eine Untersuchung über staatliche Fürsorge, Bürgerpflichten und den Gesellschaftsvertrag.
+
+Die Website verbindet die Ergebnisse einer eigenen Online-Befragung mit interaktiven Visualisierungen und macht sie so verständlich, interaktiv und visuell ansprechend zugänglich.
 
 ---
 
-## Projekt
+## Die Umfrage
 
-Das Projekt untersucht die Frage:
+Grundlage der Website ist eine standardisierte Online-Befragung unter Studierenden, durchgeführt über Lamapoll am 10.06.2026.
 
-> Wie bewertet die Generation Z den Zusammenhang zwischen persönlicher Freiheit, gesellschaftlicher Verantwortung und Landesverteidigung?
+- **228 Teilnehmende** insgesamt
+- **Geschlecht:** 121 Männer, 90 Frauen, 11 Divers, 6 ohne Angabe
+- **Altersgruppen:** 98× 18–21 Jahre, 95× 22–25 Jahre, 34× 26–29 Jahre, 1× unter 18 Jahre
+- **218 von 228** Befragten sind aktuell als Student:in eingeschrieben
+- Größte vertretene Studienrichtungen: Informatik & IT-Sicherheit (47), Ingenieurwesen & Technik (40), Architektur & Bauwesen (30), Sozial- & Verhaltenswissenschaften (29), Wirtschaftswissenschaften (28)
 
-Dafür werden theoretische Grundlagen, Ergebnisse einer Online-Umfrage sowie verschiedene Datenvisualisierungen miteinander kombiniert.
+Erfasst wurden u. a. Einstellungen zu wirtschaftlichen Zukunftsperspektiven, Vertrauen in staatliche Institutionen, die grundsätzliche Bereitschaft zu einem verpflichtenden Wehrdienst, die Bedeutung sozialer vs. militärischer Sicherheit sowie Bedingungen, unter denen ein verpflichtender Gesellschaftsdienst eher akzeptiert würde.
+
+Ein zentrales Ergebnis: Auf die Frage nach der grundsätzlichen Bereitschaft, einen verpflichtenden Wehrdienst zu leisten, antworteten 118 der 228 Befragten mit „sehr gering“, 42 mit „eher gering“, 31 neutral/unentschieden, 20 mit „eher hoch“ und 17 mit „sehr hoch“ — die Ablehnung überwiegt also deutlich.
+
+Die Rohdaten liegen als CSV vor (`Umfrage_GenerationsfragDefense.csv` bzw. die vollständige Fassung `Umfrage_GenerationsfrageDefense_komplett.csv`) und bilden die Datenbasis für alle Charts der Website.
 
 ---
 
-## Inhalte
-
-Die Website besteht aus folgenden Abschnitten:
+## Inhalte der Website
 
 - Hero
 - Kontext
-- Forschungsfrage
+- Forschungsfrage / These
 - Gesellschaftsvertrag
 - Methode
-- Generation Z
+- Zusammenhänge (Scatterplot: Wehrdienst-Bereitschaft & Gesellschaftsvertrags-Score)
 - Datenvisualisierung
 - Erkenntnisse
 - Fazit
@@ -34,84 +42,29 @@ Die Website besteht aus folgenden Abschnitten:
 
 ## Technologien
 
-Das Projekt wurde entwickelt mit:
-
 - HTML5
 - CSS3
 - JavaScript (ES6)
 - Vite
-- GSAP
-- ScrollTrigger
+- GSAP + ScrollTrigger
+- Chart.js
 
 ---
 
 ## Features
 
-- modernes Editorial-Layout
-- Scrollytelling
 - Scroll-Pinning der Methoden-Sektion
-- animierte Übergänge
+- animierte Übergänge und Reveal-Animationen
+- interaktive Navigation mit aktiven Nav-Dots
+- datenbasierte, interaktive Visualisierungen: Scatterplot, Bubble-Chart, Butterfly-Chart, gruppiertes Balkendiagramm, Piktogramm-Chart, Halbkreis-Chart
+- filterbare Charts (z. B. Geschlechterfilter im Scatterplot)
 - responsive Gestaltung
-- interaktive Navigation
-- SVG-Illustrationen
-- datenbasierte Visualisierungen
-
----
-
-## Projektstruktur
-
-```
-.
-├── src/
-│   ├── assets/
-│   ├── main.js
-│   └── style.css
-├── index.html
-├── package.json
-└── README.md
-```
-
----
-
-## Installation
-
-Repository klonen
-
-```bash
-git clone https://github.com/SDC-GenderData/Projekt_Generation.git
-```
-
-Projekt öffnen
-
-```bash
-cd 04_defense_generationen
-```
-
-Abhängigkeiten installieren
-
-```bash
-npm install
-```
-
-Entwicklungsserver starten
-
-```bash
-npm run dev
-```
-
-Danach ist die Website unter
-
-```
-http://localhost:5173
-```
-
-erreichbar.
 
 ---
 
 ## Design
 
-Das Design orientiert sich an modernen datenjournalistischen Websites mit Fokus auf:
+Das Design orientiert sich an minimalistischen Websites mit Fokus auf:
 
 - Klarheit
 - Weißraum
@@ -122,24 +75,40 @@ Das Design orientiert sich an modernen datenjournalistischen Websites mit Fokus 
 
 ---
 
-## Daten
+## Projektstruktur
 
-Die Website verwendet Ergebnisse einer Online-Befragung zum Thema
-
-- Gesellschaftsvertrag
-- Wehrpflicht
-- Landesverteidigung
-- Generation Z
-
-sowie verschiedene Visualisierungskonzepte zur verständlichen Darstellung der Ergebnisse.
+```
+.
+├── src/
+│   ├── assets/
+│   ├── charts/
+│   │   ├── bubblechart/
+│   │   ├── butterfly/
+│   │   ├── grouped_bar_chart_2/
+│   │   ├── half-circle/
+│   │   ├── pictogram_chart/
+│   │   └── scatterchart/
+│   ├── data/
+│   ├── fonts/
+│   ├── main.js
+│   └── style.css
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+```
 
 ---
 
 ## Autorinnen
 
-Projekt im Rahmen des Studiengangs Data Science und Visualisierung.
+- Arina Rukina
+- Leila Osman
+- Nadja Saleh
+- Renata Figueroa
 
-Entwickelt im Rahmen des Gruppenprojekts **Projekt_Generation**.
+Projekt im Rahmen des Studiengangs Data Science und Visualisierung, entwickelt im Rahmen des Gruppenprojekts **Projekt_Generation**.
 
 ---
 
