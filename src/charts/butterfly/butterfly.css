@@ -318,16 +318,15 @@
 
 }
 
-.bf-value{
-
-    width:46px;
-
-    font-size:.85rem;
-
-    font-weight:600;
-
-    color:var(--text);
-
+.bf-value {
+    width: 55px; /* Etwas erhöht, damit genug Platz für "100.0 %" ohne Umbruch ist */
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text);
+    
+    /* DIE RETTUNG: Zwingt den Browser, für jede Zahl exakt dieselbe Breite zu nutzen */
+    font-variant-numeric: tabular-nums; 
+    white-space: nowrap; /* Verhindert, dass das %-Zeichen in eine neue Zeile springt */
 }
 
 .bf-value.left{
